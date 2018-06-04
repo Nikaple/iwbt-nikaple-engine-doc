@@ -41,7 +41,7 @@ key = 1
 setScale(1, 6)
 ```
 
-## playerKiller 均可被触发
+## playerKiller 均可被触发？
 
 这也是 `果引擎 2.0` 中触发系统最明显的变化。
 
@@ -72,9 +72,9 @@ spd = 5
 
 ## 时序触发器
 
-该 `object` 可以在 `Objects -> triggers -> objSequenceTrigger` 找到。用于触发一些按特定顺序出现的坑。
+该 `trigger` 可以在 `Objects -> triggers -> objSequenceTrigger` 找到。用于触发一些按特定顺序出现的坑。
 
-`player` 碰到时直接触发 `trg = 1` 的`触发事件`，1 秒之后触发 `trg = 2`的`触发事件`
+例如，在 `player` 碰到时直接触发 `trg = 1` 的`触发事件`，1 秒之后触发 `trg = 2`的`触发事件`：
 
 ```gml
 trg[1] = 1
@@ -82,7 +82,7 @@ time[1] = 50
 trg[2] = 2
 ```
 
-`player` 碰到时不触发任何事件，1 秒之后触发 `trg = 1` 的触发事件，3 秒之后触发 `trg = 2` 的触发事件：
+或者，在 `player` 碰到时不触发任何事件，1 秒之后触发 `trg = 1` 的触发事件，3 秒之后触发 `trg = 2` 的触发事件：
 
 ```gml
 trg[1] = 9999

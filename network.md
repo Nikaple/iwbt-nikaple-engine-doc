@@ -238,7 +238,7 @@ if (isFinished) {
 // 判断是否需要同步位置信息
 shouldSyncPosition = ...
 if (shouldSyncPosition) {
-    // 开始进行 UDP 同步，该函数会返回一段缓冲区供你写入
+    // 开始进行 UDP 同步，该脚本会返回一段缓冲区供你写入
     buffer = ns_sync_begin()
     // 写入当前 x 坐标，类型为 int16（也就是 short, 范围：-32768~32767 的整数）
     buffer_write_int16(buffer, x)

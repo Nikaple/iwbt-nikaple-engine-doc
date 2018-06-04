@@ -21,6 +21,8 @@ if (debug_mode) {
 * 可以使用 `鼠标左键` 传送到房间任意地点
 * 可以使用 `G 键` 开关无敌模式
 * 可以使用 `S 键` 随时存档
+* 可以使用 `A 键` 向左移动 1 像素
+* 可以使用 `D 键` 向右移动 1 像素
 
 ## 快速登录
 
@@ -33,7 +35,7 @@ global.debug_guest_name = 'test'
 global.debug_guest_pass = 'test'
 ```
 
-你可以注册两组在`调试模式`中，有着以下功能：
+将上面的账号密码改为自己注册的账号密码之后，即可开启快速登录功能：
 
 * 按下 `Shift` 可以使用 `global.debug_host_name` 登录，使用 1 号存档
 * 按下 `Ctrl` 可以使用 `global.debug_guest_name` 登录，使用 2 号存档
@@ -41,14 +43,18 @@ global.debug_guest_pass = 'test'
 
 ## objDebug
 
-`objDebug` 是果引擎自带的控制台，它只在调试模式下生效。它用于在屏幕上直接输出一切非 0、'0'的变量值。启动方法：
+`objDebug` 是 `果引擎` 自带的简易控制台，只在调试模式下生效。它用于在屏幕上直接输出一切 `非 0`、`非 '0'` 的变量值。
 
-* 在 F6 进入游戏后，按下 `End` 键。
-* 按下 `Delete` 键可以切换到详细模式，在该模式下 `objDebug` 会列出它发出或收到的所有网络请求。
+使用方法：
 
 ```gml
-// debug 函数会自动在参数间添加空格
+// debug 脚本会自动在参数间添加空格
 debug('I', 'Wanna', 'be', 'the', 'Guy!') // I Wanna be the Guy!
 // 可能为零的参数只能通过字符串拼接来显示
 debug('This is a zero: ' + string(0)) // This is a zero: 0
 ```
+
+控制台启动方法：
+
+* 在 F6 进入游戏后，按下 `End` 键。
+* 按下 `Delete` 键可以切换到详细模式，在该模式下 `objDebug` 会列出它发出或收到的所有网络请求。

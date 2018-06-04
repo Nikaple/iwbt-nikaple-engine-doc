@@ -219,6 +219,9 @@ alarm[0] = 2;
 ### i18n/draw
 
 * i18n_draw_auto_encoding
+
+  该脚本在 `effect_parent` 中调用，用于设置各种语言的编码
+
 * i18n_draw_set_alpha
 * i18n_draw_set_color
 * i18n_draw_set_font
@@ -298,27 +301,27 @@ alarm[0] = 2;
 
 * SS_PlaySound(id)
 
-  播放音乐。id 来自 SS_LoadSound
+  播放音乐。`id` 来自 `SS_LoadSound`
 
 * SS_LoopSound(id)
 
-  循环播放音乐。id 来自 SS_LoadSound
+  循环播放音乐。`id` 来自 `SS_LoadSound`
 
 * SS_StopSound(id)
 
-  停止播放音乐。id 来自 SS_LoadSound
+  停止播放音乐。`id` 来自 `SS_LoadSound`
 
 * SS_FreeSound(id)
 
-  释放音乐所占的内存空间。id 来自 SS_LoadSound
+  释放音乐所占的内存空间。`id` 来自 `SS_LoadSound`
 
 * SS_PauseSound(id)
 
-  暂停播放音乐。id 来自 SS_LoadSound
+  暂停播放音乐。`id` 来自 `SS_LoadSound`
 
 * SS_ResumeSound(id)
 
-  继续播放音乐。如果该音乐被暂停，则会继续播放；否则重头开始播放。如果成功则返回 1，否则返回 0。id 来自 SS_LoadSound
+  继续播放音乐。如果该音乐被暂停，则会继续播放；否则重头开始播放。如果成功则返回 1，否则返回 0。`id` 来自 `SS_LoadSound`
 
 * SS_Unload(id)
 
@@ -330,19 +333,19 @@ SS_Set 系列函数可以让你设定声音的参数
 
 * SS_SetSoundVol(id,vol)
 
-  设置音乐音量。id 来自 SS_LoadSound。最小为 0，最大为 10000.
+  设置音乐音量。`id` 来自 `SS_LoadSound`。最小为 0，最大为 10000.
 
 * SS_SetSoundPan(id,pan)
 
-  设置音乐声道位置。id 来自 SS_LoadSound。-10000 为完全左，0 为中间，10000 为完全右。
+  设置音乐声道位置。`id` 来自 `SS_LoadSound`。-10000 为完全左，0 为中间，10000 为完全右。
 
 * SS_SetSoundFreq(id,freq)
 
-  设置音乐频率。id 来自 SS_LoadSound。freq 范围为 10000 - 100000.
+  设置音乐频率。`id` 来自 `SS_LoadSound`。freq 范围为 10000 - 100000.
 
 * SS_SetSoundPosition(id,pos)
 
-  设置音乐的播放位置。id 来自 SS_LoadSound。pos 是音乐的位置（字节），real 类型。
+  设置音乐的播放位置。`id` 来自 `SS_LoadSound`。pos 是音乐的位置（字节），real 类型。
 
 #### SS_Get 系列函数
 
@@ -350,27 +353,27 @@ SS_Get 系列函数可以让你获取声音的参数
 
 * SS_GetSoundVol(id)
 
-  获取音乐的音量设定。id 来自 SS_LoadSound。
+  获取音乐的音量设定。`id` 来自 `SS_LoadSound`。
 
 * SS_GetSoundPan(id)
 
-  获取音乐的声道位置。id 来自 SS_LoadSound。
+  获取音乐的声道位置。`id` 来自 `SS_LoadSound`。
 
 * SS_GetSoundfreq(id)
 
-  获取音乐的频率。id 来自 SS_LoadSound。
+  获取音乐的频率。`id` 来自 `SS_LoadSound`。
 
 * SS_GetSoundPosition(id)
 
-  获取音乐的播放位置。id 来自 SS_LoadSound。
+  获取音乐的播放位置。`id` 来自 `SS_LoadSound`。
 
 * SS_GetSoundLength(id)
 
-  获取音乐的总长度（字节）。id 来自 SS_LoadSound。
+  获取音乐的总长度（字节）。`id` 来自 `SS_LoadSound`。
 
 * SS_GetSoundBytesPerSecond(id)
 
-  获取音乐每秒钟的字节数。id 来自 SS_LoadSound。
+  获取音乐每秒钟的字节数。`id` 来自 `SS_LoadSound`。
 
 #### SS_IsSound 系列函数
 

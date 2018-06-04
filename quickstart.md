@@ -9,57 +9,33 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
 
 安装好 GM，并使用 GM 打开压缩包中提供的 `I wanna be the Engine Nikaple Edition v2.0.0.gmk` 即可开始 I wanna 游戏的创作！
 
-## 全局配置
+## 新特性
 
-在`果引擎`中，主要的游戏相关的全局可配置项均放置在 `Scripts -> functions -> setGlobals` 中。
+* [联机功能](network.md)
 
-### global.game_title
+加入了完整的联机功能，支持注册、登录、创建/加入/离开房间等操作，最高支持 8 人同时游戏。
 
-游戏标题，显示在游戏窗口标题栏。
+* [多语言支持](i18n.md)
 
-### global.first_stage
+加入了一个轻量的多语言系统，这使得你的游戏可以更快速地与国际接轨。
 
-进入正式游戏的第一个房间（不包括标题、选关等房间）。
+## 更新（老用户必看！）
 
-### global.enable_production_mode
+* [Creation Code 简介](cc.md)
 
-是否开启生产模式。在生产模式中，不会触发引擎中自定义的错误信息（GM 报错没办法）。
+  在老版本中，不同 `object` 的 `Creation Code` 相差甚远，在使用上造成了相当大的不便。因此，新版中重新设计了一套 `Creation Code` 规范，使得开发者可以不用看文档也知道要写什么参数。
 
-### global.enable_internationalization
+- [新音乐系统](music.md)
 
-是否开启[多语言支持](i18n.md)。
+  解决了脚本名称过长的问题，并且能够使用统一的脚本播放音乐与音效。
 
-### global.language
+- [新触发系统](trigger.md)
 
-默认语言，可选项为 `LANG_CN`, `LANG_EN`, `LANG_JP`。
+  提高了 `trg` 系统的效率，普通的坑再也不同蛋疼的写 `sprite_index = xxx` 了
 
-### global.enable_builtin_drawing
+- [调试功能](debug.md)
 
-是否使用内置绘图函数。如果关闭，则会统一使用 `FoxWriting` 进行绘制。
-
-### global.enable_lite_mode
-
-轻量化模式（测试专用），当游戏处于开发过程中时，将它设置为 `true` 则会在运行游戏之后直接读取一号存档，直接跳过标题、菜单等界面。
-
-### global.enable_stream_music
-
-是否开启流式播放。开启之后音乐将被一小段一小段地加载至内存中，极大提升运行效率，但缺陷是不能暂停。因此，在玩家死亡或游戏暂停时，背景音乐将不会暂停播放，而仅仅减少音量。
-
-### global.enable_auto_spike_sprite
-
-是否[自动更换刺的精灵](autosprite.md)
-
-### global.enable_jump_cancel
-
-是否允许`JC`。
-
-### global.enable_fullscreen
-
-是否允许按 F4 全屏。
-
-### global.enable_keypad
-
-是否允许小键盘
+  随着联机系统的更新，调试功能也有进一步的升级。
 
 # 兼容性
 
