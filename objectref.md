@@ -1,11 +1,5 @@
 # Object 文档
 
-关于 GameMaker 基本操作，可以参考[新手教程](http://tieba.baidu.com/p/2885308275)。
-
-## Object 详情
-
-1.
-
 ### Blocks 砖块
 
 #### objBlock 普通砖

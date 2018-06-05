@@ -1,13 +1,13 @@
 # 快速起步
 
-I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩的 2D 平台跳跃动作游戏。其中，大部分的 I wanna 衍生游戏制作工具均为 GameMaker（以下简称 GM ）。
+I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩的 2D 平台跳跃动作游戏。其中，大部分的 I wanna 衍生游戏制作工具均为 `GameMaker`（以下简称 `GM` ）。
 
 使用 I wanna be the Engine Nikaple Edition （以下简称`果引擎`）创作你自己的 I Wanna 游戏之前，你首先需要下载：
 
 * **GameMaker 8.0 或 8.1**（推荐使用 [GameMaker 8.0 超强中文破解版](http://p57vqeilv.bkt.clouddn.com/Super_Gamemaker8_1.4.2_Install.exe?attname=&e=1527862290&token=FZGZGDr0sWKjK7wJ1v0WnkOOgqYfwshN9tFWlp26:leSWs4WGikF9Ev-nLV1oMGim5LE)）
 * **引擎本体**（[下载地址](http://www.baidu.com)）
 
-安装好 GM，并使用 GM 打开压缩包中提供的 `I wanna be the Engine Nikaple Edition v2.0.0.gmk` 即可开始 I wanna 游戏的创作！
+安装好 `GM`，并使用 `GM` 打开压缩包中提供的 **I wanna be the Engine Nikaple Edition v2.0.0.gmk** 即可开始 I wanna 游戏的创作！
 
 ## 开始前的准备
 
@@ -46,12 +46,14 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
 
 加入了一个轻量的多语言系统，这使得你的游戏可以更快速地与国际接轨。
 
-# 联系作者
+# 联系作者 & BUG 反馈
 
 加入 Q 群即可，验证信息：I Wanna
 
 ![QR Code](_images/group.png)
 
+也可通过 [Github Issues](https://github.com/nikaple/iwbt-nikaple-engine-doc/issues) 或[电子邮件](mailto:nikaple@nikaple.com)向我反馈。
+
 # 兼容性
 
-果引擎目前仅支持 GM 8.0 以及 GM 8.1。
+`果引擎` 目前仅支持 GM 8.0 以及 GM 8.1。
