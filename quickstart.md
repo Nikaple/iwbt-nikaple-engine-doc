@@ -9,6 +9,15 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
 
 安装好 GM，并使用 GM 打开压缩包中提供的 `I wanna be the Engine Nikaple Edition v2.0.0.gmk` 即可开始 I wanna 游戏的创作！
 
+## 开始前的准备
+
+新版 `果引擎` 中加入了联机系统，而调试联机功能则至少需要运行两个客户端程序。为此，我们需要进行如下设置：
+
+* 打开 `GM 8.x`，**取消勾选** `文件 -> 偏好设置 -> 一般 -> 在游戏运行的时候隐藏编译器并且进入等待模式` （英文版：`File -> Preference -> General -> Hide the designer and wait while the game is running`）；
+* 按工具栏上的红色小三角（以调试模式编译游戏）两次，编译两份游戏并以调试模式启动（记为 `P1`、`P2` ）；
+* 在 `P1` 按两下 `Shift`，`P2` 按两下 `Ctrl`，再回到 `P1` 按一次 `Shift`，即可开始测试；
+* 为了避免被其他玩家登录相同账号挤下线，可以注册两个账号，并参考[调试功能](/debug?id=快速登录)设置你自己的快速登录方式。
+
 ## 新特性
 
 * [联机功能](network.md)
