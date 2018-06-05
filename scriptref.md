@@ -4,7 +4,30 @@
 
 #### setGlobals()
 
-游戏的初期设定
+游戏的初期设定，详见[全局设定](global.md)
+
+| 配置名                             | 用途                                              | 默认值                                |
+| ---------------------------------- | ------------------------------------------------- | ------------------------------------- |
+| global.game_title                  | 设置游戏标题                                      | I wanna be the Engine Nikaple Edition |
+| global.first_stage                 | 设置游戏正式开始时的初始房间                      | rHub                                  |
+| global.enable_production_mode      | 是否开启生产模式                                  | false                                 |
+| global.enable_internationalization | 是否启用多语言                                    | true                                  |
+| global.language                    | 语言设定，可选值有`LANG_CN`，`LANG_EN`，`LANG_JP` | LANG_CN                               |
+| global.enable_builtin_drawing      | 是否使用内置绘图函数                              | false                                 |
+| global.enable_stream_music         | 是否使用流式播放音乐                              | true                                  |
+| global.enable_focus                | 是否加入聚焦支持                                  | true                                  |
+| global.enable_encryption           | 存档文件是否加密                                  | true                                  |
+| global.key                         | 存档文件加密密钥（至少 64 位）                    | huY...BTS                             |
+| global.ip_address                  | 服务器 IP 地址                                    | 139.199.18.59                         |
+| global.tcp_port                    | 服务器 TCP 端口                                   | 3738                                  |
+| global.udp_port                    | 服务器 UDP 端口                                   | 3738                                  |
+| global.online_mode                 | 是否为联机模式                                    | true                                  |
+| global.max_sync_cycle              | 同步周期                                          | 3                                     |
+| global.enable_lite_mode            | 是否开启轻量化模式                                | false                                 |
+| global.debug_host_name             | 调试主机用户名                                    | username                              |
+| global.debug_host_pass             | 调试主机密码                                      | password                              |
+| global.debug_guest_name            | 调试非主机用户名                                  | test                                  |
+| global.debug_guest_pass            | 调试非主机密码                                    | test                                  |
 
 #### scrSealRoom(noTop, noLeft, noBottom, noRight)
 
@@ -14,14 +37,6 @@
 * noLeft：是否不封左侧
 * noBottom：是否不封底
 * noRight：是否不封右侧
-
-#### saveGame()
-
-保存游戏。详见 [新存档系统](save.md)
-
-#### loadGame()
-
-读取游戏。详见 [新存档系统](save.md)
 
 #### fadeIn(time)
 
@@ -630,7 +645,87 @@ drawLife(
 
 ### World
 
+| 脚本名称                 | 用途                         |
+| ------------------------ | ---------------------------- |
+| scrWorldInit             | 初始化                       |
+| scrWorldInitPlugins      | 初始化插件                   |
+| scrWorldInitMessageBox   | 初始化弹窗样式               |
+| scrWorldInitRunCheck     | 运行前检查                   |
+| scrWorldInitBlocks       | 初始化红蓝砖                 |
+| scrWorldInitViews        | 初始化 View                  |
+| scrWorldAppendDifficulty | 游戏标题中显示难度           |
+| scrWorldUpdateCaption    | 更新游戏标题                 |
+| scrWorldUpdateTime       | 更新游戏时间                 |
+| scrWorldCleanmem         | 清理内存空间                 |
+| scrWorldCenterMessage    | 消息窗口居中                 |
+| scrWorldReset            | 重置游戏                     |
+| scrWorldStopDeathSound   | 停止死亡音效                 |
+| scrWorldPause            | 暂停游戏                     |
+| scrWorldFixBug           | 解决按 R 时会微移 1 帧的 bug |
+| scrWorldLoadGlobalSave   | 用于联机模式的同步存档       |
 
+### Controls
+
+### Save
+
+#### saveGame()
+
+保存游戏。详见 [新存档系统](save.md)
+
+#### loadGame()
+
+读取游戏。详见 [新存档系统](save.md)
+
+#### saveDeathTime()
+
+#### loadIcons()
+
+### 杂项
+
+#### setGlobalsMinor()
+
+一些修改可能性较低的配置项。
+
+| 配置名                           | 用途                    | 默认值      |
+| -------------------------------- | ----------------------- | ----------- |
+| global.enable_pause_in_boss_room | BOSS 房间内是否允许暂停 | false       |
+| global.enable_jump_cancel        | 是否允许跳跃取消（JC）  | false       |
+| global.enable_fullscreen         | 是否允许按 F4 全屏      | true        |
+| global.enable_keypad             | 是否允许使用小键盘      | true        |
+| global.enable_auto_spike_sprite  | 是否自动更换刺的精灵    | true        |
+| global.boss_number               | BOSS 数量上限           | 64          |
+| global.item_number               | 道具数量上限            | 64          |
+| global.data_number               | 自定义数据数量上限      | 64          |
+| global.saving_directory          | 存档保存路径            | Data/Save   |
+| global.music_directory           | 音乐读取路径            | Data/Music  |
+| global.plugin_directory          | 插件读取路径            | Data/Plugin |
+| global.option_file_name          | 配置文件名              | options.ini |
+
+#### spikeSprite(spr, miniSpr, image_speed)
+
+用于[自动更换刺的精灵](autosprite.md)
+
+#### getSaveFile(num)
+
+获取编号为 `num` 的 save 文件名
+
+#### gamePause()
+
+暂停游戏
+
+#### gameResume()
+
+继续游戏
+
+#### gameReset()
+
+按 `F2` 的时候调用
+
+#### isInGameRoom()
+
+判断是否为游戏内房间（非标题、大厅、选择关卡等房间）
+
+#### scrWarpRoom(roomTo, warpX, warpY, clearSpeed, screens, kind)
 
 ## Lib
 

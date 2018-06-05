@@ -4,6 +4,7 @@
 
 * 引擎特性
 
+  * [全局设定](global.md)
   * [联机简介](network.md)
   * [多语言支持](i18n.md)
   * [音乐播放](music.md)
