@@ -49,10 +49,16 @@ music_resume(BGM_1)
 
   注意后面的 `break` 不可省略！
 
-另外，在 boss 房间中，在进入房间的同时可能不需要播放音乐。为了达到这个效果，请先到 `Scripts -> system` 中的脚本 `isBossRoom` 中设定该房间为 boss 房（参照脚本即可） 。
+## BOSS 房间的 BGM 处理
 
-设置成功之后，在 boss 房中系统默认不会播放音乐，并且当玩家暂停游戏时，音乐会同时暂停而不是仅仅减小音量。在某个时间点，如果需要播放 boss 战音乐，可使用：
+在 BOSS 房间中，你可能想要自己控制 BGM 播放的时机。可以按照下面的方法设置：
+
+1.  先找到脚本 `isBossRoom` ，并设定相关房间为 BOSS 房（参照脚本即可）。
+
+2.  在你需要播放 BOSS 战音乐时，调用：
 
 ```gml
 music_play(myMusic);
 ```
+
+?> 在默认设置下，BOSS 房间中不可暂停。如果需要允许暂停，可以到 `setGlobalsMinor` 脚本中修改 `global.enable_pause_in_boss_room = true`

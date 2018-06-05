@@ -41,6 +41,25 @@
 
   ?> 注意，由于引擎的限制，同步脚本 `ns_send_*` 只能写在 **除 Create, Begin Step, End Step, Draw 以外** 其他的事件中。如果实在需要在这些事件中调用同步脚本，请在需要同步的地方设定 alarm[i] = 1，并在 Alarm i （i = 0 ~11）事件中发送同步请求。
 
+在这三种模式中，均可通过在同步信息（键值对）中指定 `scope` 参数来控制消息接收者的范围。
+
+`scope` 的值可以是：
+
+* `SCOPE_DEFAULT` 默认范围，发送给同房间的其他玩家（不填就是它）
+* `SCOPE_OTHERS` 发送给其他玩家（无论在不在同一房间）
+* `SCOPE_ALL` 发送给所有人（包括你自己）
+
+例如：
+
+```gml
+// 向所有其他玩家均发送一个 `hello` 事件，包含一个熟悉的名字
+ns_send_event(
+    'hello', 1,
+    'name', 'crazy_tiger',
+    'scope', SCOPE_OTHERS
+)
+```
+
 ## Instance 实例模式
 
 该模式使用脚本 `ns_send_instance` 声明，用于同步具有相同 `id` 的 `object` 。

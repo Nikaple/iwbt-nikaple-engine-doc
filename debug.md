@@ -40,6 +40,8 @@ global.debug_guest_pass = 'test'
 * 按下 `Shift` 可以使用 `global.debug_host_name` 登录，使用 1 号存档
 * 按下 `Ctrl` 可以使用 `global.debug_guest_name` 登录，使用 2 号存档
 * 按下 `空格` 可以直接跳过登录，开始游戏
+* 在大厅中使用 `Shift` 创建房间，`Ctrl` 加入房间列表的第一个房间
+* 在房间中使用 `Shift` 开始游戏
 
 ## objDebug
 

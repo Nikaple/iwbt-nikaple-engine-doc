@@ -1,6 +1,10 @@
 # 自动更换刺的精灵
 
-当初期设定中开启了“一键换装”功能， 也就是 `global.auto_spike_sprite = true` 时， 便可以到 `Scripts -> functions -> autoSpikeSprite` 中为各个房间中的刺设置精灵。
+在游戏中，我们往往需要许多不同精灵的刺，这项工作往往十分繁琐。当要在房间中使用时，需要在不同的文件夹中去寻找不同精灵的刺，这更降低了我们的效率。
+
+在 `果引擎` 中，你可以分别定义在各个房间中刺的样式，定义成功之后引擎则会自动替你将 `spikeUp、spikeDown、spikeLeft、spikeRight、minispikeUp、minispikeDown、minispikeLeft、minispikeRight` 这八种普通刺的精灵替换为你所定义的那样。
+
+该功能可以到脚本 `Scripts -> functions -> autoSpikeSprite` 中设置。
 
 在 `autoSpikeSprite` 脚本的第 8 行，仿造示例添加脚本：
 
