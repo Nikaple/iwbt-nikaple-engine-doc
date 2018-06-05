@@ -11,10 +11,10 @@
 * 更友好的错误信息
 * ......
 
-# 资源
+# 下载
 
 1.  GameMaker 8 [超强中文破解版](http://p57vqeilv.bkt.clouddn.com/Super_Gamemaker8_1.4.2_Install.exe?attname=&e=1527862290&token=FZGZGDr0sWKjK7wJ1v0WnkOOgqYfwshN9tFWlp26:leSWs4WGikF9Ev-nLV1oMGim5LE)。
-2.  引擎[本体](www.baidu.com)
+2.  [I Wanna be the Engine Nikaple Edition](www.baidu.com)
 
 # 如何使用
 

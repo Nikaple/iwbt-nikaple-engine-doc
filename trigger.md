@@ -70,6 +70,8 @@ pth = pD1
 spd = 5
 ```
 
+?> 当 playerKiller 被摆放在房间外时，引擎会自动设置 `noDes = true`，不需要手动设置。
+
 ## 时序触发器
 
 该 `trigger` 可以在 `Objects -> triggers -> objSequenceTrigger` 找到。用于触发一些按特定顺序出现的坑。
