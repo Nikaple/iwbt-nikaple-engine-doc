@@ -21,14 +21,6 @@ global.enable_production_mode = true
 
 设置好生产模式之后，在工具栏中将 `gmk` 工程文件编译为游戏，随后将 `exe` 文件与 `Data` 文件夹一起打包发布即可。（别忘了找几个测试员帮你测试游戏哦）
 
-## Anti Decompiler
-
-在如今人手一份 **Decompiler.exe** 的情况下，采用适当的措施，例如 **Anti Decompiler**，来防止反编译是十分必要的。
-
-Anti Decompiler 下载地址：[Anti Decompiler](http://p9wc9w6dq.bkt.clouddn.com/anti-decompiler.zip)
-
-!> 在使用 `Anti Decompiler` 保护你游戏的时候，请将 `Compress Runner` 选项取消勾选，否则会出现载入 dll 异常。
-
 ## 代码混淆
 
 虽然使用了 `variable_get_local` 等代码混淆软件不支持的函数，果引擎仍然代码混淆。
@@ -87,3 +79,11 @@ handler_wait_warp
 将上述列表复制到一个文本文件中，使用 `Load List` 载入即可。
 
 !> 利用该混淆器得到的代码有可能会编译失败，多试几次即可。一般来说，只要编译通过，游戏内容不会被改变。
+
+## Anti Decompiler
+
+在如今人手一份 **Decompiler.exe** 的情况下，采用适当的措施，例如 **Anti Decompiler**，来防止反编译是十分必要的。
+
+Anti Decompiler 下载地址：[Anti Decompiler](http://p9wc9w6dq.bkt.clouddn.com/anti-decompiler.zip)
+
+!> 在使用 `Anti Decompiler` 保护你游戏的时候，请将 `Compress Runner` 选项取消勾选，否则会出现载入 dll 异常。
