@@ -46,14 +46,6 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
 
 加入了一个轻量的多语言系统，这使得你的游戏可以更快速地与国际接轨。
 
-# 联系作者 & BUG 反馈
-
-加入 Q 群即可，验证信息：I Wanna
-
-![QR Code](_images/group.png)
-
-也可通过 [Github Issues](https://github.com/nikaple/iwbt-nikaple-engine-doc/issues) 向我反馈。
-
 # 手感
 
 与大部分引擎**“基本”**相同。
@@ -71,3 +63,11 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
 # 已知的 BUG
 
 * `blockPush` 在传送带上被玩家推动时会卡住
+
+# 联系作者 & BUG 反馈
+
+加入 Q 群即可，验证信息：I Wanna
+
+![QR Code](_images/group.png)
+
+也可通过 [Github Issues](https://github.com/nikaple/iwbt-nikaple-engine-doc/issues) 向我反馈。
