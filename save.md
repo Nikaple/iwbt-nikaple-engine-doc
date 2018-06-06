@@ -13,7 +13,7 @@
 
 在新版引擎中，支持 64 个自定义变量的储存，它们被定义为 `global.data[1] - global.data[64]`。你可以利用它们来保存游戏中的全局状态。
 
-我们可以灵活利用 `GM` 的 `Resources -> Define Constants...` 功能来定义常量，以达到更好的代码可读性。假设我们的游戏中有许多钻石，而我们需要保存玩家当前拥有的钻石数量：
+你可以灵活利用 `GM` 的 `Resources -> Define Constants...` 功能来定义常量，以达到更好的代码可读性。假设你的游戏中有许多钻石，而你需要保存玩家当前拥有的钻石数量：
 
 1.  定义常量 `SAVE_DIAMOND_AMOUNT` 为 1；
 2.  每次玩家获得钻石时，执行 `global.data[SAVE_DIAMOND_AMOUNT] += 1`；

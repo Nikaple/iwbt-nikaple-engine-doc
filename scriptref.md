@@ -242,7 +242,7 @@ alarm[0] = 2;
 
 此时 `ns_send_*_direct` 系列函数则恰好派上用场。它们均接收一个 `ds_map`，代表需要同步的属性。
 
-例如，在 `player` 的 `alarm[11]` 中，我们需要同步当前房间：
+例如，在 `player` 的 `alarm[11]` 中，同步当前房间：
 
 ```gml
 // 创建一个含有 5 个元素的 ds_map
@@ -490,7 +490,7 @@ sprite_index = set_default(spr, sprite_index)
 
 在 draw 事件中使用，用于绘制 obj 自身。 **当一个 obj 拥有 draw 事件时，它的精灵则不会自动绘制在屏幕上，这时就需要使用 drawSelf 函数来绘制该 obj 的原始精灵**。
 
-例如在 `warp` (`roomChanger`) 中，需要同时绘制 `warp` 的精灵与 `warp` 上方的文字，所以 `draw_text` 绘制文字的同时我们还需要调用 `drawSelf` 来绘制 `warp` 的精灵。
+例如在 `warp` (`roomChanger`) 中，需要同时绘制 `warp` 的精灵与 `warp` 上方的文字，所以 `draw_text` 绘制文字的同时你还需要调用 `drawSelf` 来绘制 `warp` 的精灵。
 
 ```gml
 //draw the original sprite

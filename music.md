@@ -1,6 +1,6 @@
 # 音乐播放
 
-`果引擎` 使用了 [Super Sound](http://gmc.yoyogames.com/index.php?showtopic=120034) 音乐系统，在它的支持下，我们可以从外部读取声音文件，并且可以暂停与继续播放音乐（这是 GM 自带函数所做不到的）。
+`果引擎` 使用了 [Super Sound](http://gmc.yoyogames.com/index.php?showtopic=120034) 音乐系统，在它的支持下，你可以从外部读取声音文件，并且可以暂停与继续播放音乐（这是 GM 自带函数所做不到的）。
 
 ?> Super Sound 支持的音乐格式仅限 ogg 与 wav，推荐使用 ogg 格式（ wav 格式的音乐占用空间太大）。因此，在使用音乐前需要将其转换为 ogg 格式，这可以借助 [狸窝全能视频转换器](http://www.leawo.cn) 或 [在线转码网站](https://convertio.co/zh/) 来完成。
 

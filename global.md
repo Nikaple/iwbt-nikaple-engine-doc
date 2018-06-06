@@ -106,7 +106,7 @@
 
 ## 次要全局设定
 
-一些你基本不会改的配置项，位于 `system -> setGlobalsMinor` 中。
+一些基本不会改的配置项，位于 `system -> setGlobalsMinor` 中。
 
 #### global.enable_pause_in_boss_room
 
