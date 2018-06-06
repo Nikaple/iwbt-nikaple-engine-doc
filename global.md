@@ -2,7 +2,7 @@
 
 ## 常用全局设定
 
-在`果引擎`中，主要的游戏相关的全局可配置项均放置在 `Scripts -> functions -> setGlobals` 中。
+在 `果引擎` 中，主要的游戏相关的全局可配置项均放置在 `Scripts -> functions -> setGlobals` 中。
 
 ### 游戏相关设定
 
