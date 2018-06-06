@@ -883,7 +883,7 @@ cmd_log(cmd)
 
 以阅读友好的方式输出一个 `cmd`。
 
-#### cmd_add
+#### cmd_add(cmd, kvCount, key1, value1, ..., keyn, valuen)
 
 向 `cmd` 中加入新的键值对。例如：
 
@@ -904,7 +904,7 @@ cmd_log(cmd)
 */
 ```
 
-#### cmd_add_list
+#### cmd_add_list(cmd, key, itemCount, item1, item2, ..., itemn)
 
 向 `cmd` 中加入一个 `list`。例如：
 
@@ -924,7 +924,7 @@ cmd_log(cmd)
 */
 ```
 
-#### cmd_add_map
+#### cmd_add_map(cmd, key, kvCount, key1, value1, ..., keyn, valuen)
 
 向 `cmd` 中加入一个 `ds_map`。例如：
 
@@ -947,7 +947,7 @@ cmd_log(cmd)
 */
 ```
 
-#### cmd_list_add
+#### cmd_list_add(list, itemCount, item1, item2, ..., itemn)
 
 向 `cmd` 的一个 `list` 中添加新的元素。例如：
 
@@ -968,7 +968,7 @@ cmd_log(cmd)
 */
 ```
 
-#### cmd_list_add_list
+#### cmd_list_add_list(list, itemCount, item1, item2, ..., itemn)
 
 向 `cmd` 中的一个 `list` 添加一个 `list`。例如：
 
@@ -989,7 +989,7 @@ cmd_log(cmd)
 */
 ```
 
-#### cmd_list_add_map
+#### cmd_list_add_map(cmd, kvCount, key1, value1, ..., keyn, valuen)
 
 向 `cmd` 中的一个 `list` 添加一个 `map`。
 
