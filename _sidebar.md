@@ -15,5 +15,6 @@
   * [调试功能](debug.md)
 
 * 详细信息
+  * [房间过渡效果](transition.md)
   * [Script 文档](scriptref.md)
   * [Object 文档](objectref.md)

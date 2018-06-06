@@ -30,7 +30,7 @@
 
 ```gml
 trg = 1
-setScale(1, 6)
+ys = 6
 ```
 
 当作 keyTrigger 使用：
@@ -38,7 +38,7 @@ setScale(1, 6)
 ```gml
 trg = 2
 key = 1
-setScale(1, 6)
+ys = 6
 ```
 
 ## playerKiller 均可被触发？
@@ -62,37 +62,17 @@ spd = 6
 dir = 45
 ```
 
-当然，`path` 模式也支持：
+当然，`path` 模式也支持。如果在 `Creation Code` 中将 `move` 设置为 `true`，在 `player` 死亡时触发刺会脱离原来的 path 而改为直线运动，防止对玩家的剧透：
 
 ```gml
 trg = 1
-pth = pD1
+pth = pCircle
 spd = 5
+// 猜猜我要去哪？
+move = true
 ```
 
-?> 当 playerKiller 被摆放在房间外时，引擎会自动设置 `noDes = true`，不需要手动设置。
-
-## 时序触发器
-
-该 `trigger` 可以在 `Objects -> triggers -> objSequenceTrigger` 找到。用于触发一些按特定顺序出现的坑。
-
-例如，在 `player` 碰到时直接触发 `trg = 1` 的`触发事件`，1 秒之后触发 `trg = 2`的`触发事件`：
-
-```gml
-trg[1] = 1
-time[1] = 50
-trg[2] = 2
-```
-
-或者，在 `player` 碰到时不触发任何事件，1 秒之后触发 `trg = 1` 的触发事件，3 秒之后触发 `trg = 2` 的触发事件：
-
-```gml
-trg[1] = 9999
-time[1] = 50
-trg[2] = 1
-time[2] = 100
-trg[3] = 2
-```
+?> 当 playerKiller 被直接摆放在房间外时，引擎会自动设置 `noDes = true`，确保它能被正确地创建。
 
 ## 调试模式以及报错
 

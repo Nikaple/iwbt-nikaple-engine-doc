@@ -111,7 +111,7 @@ alarm[0] = 2;
 
 #### setScale(xscale,yscale)
 
-设置 obj 在 x、y 方向上的拉伸量。在设置触发砖（trigger）区域的时候会经常用到。
+设置 obj 在 x、y 方向上的拉伸量。在设置触发区域（trigger）时会经常用到。
 
 * xscale：x 方向拉伸量
 * yscale: y 方向拉伸量
@@ -168,97 +168,40 @@ alarm[0] = 2;
 
 #### ns_get
 
-##### ns_get_player_name()
-
-获取当前玩家的名称（用户名）。
-
-##### ns_get_player_index()
-
-获取当前玩家在游戏内的编号（1 为房主，大于 1 均为非房主）。
-
-##### ns_get_other_player_name(index)
-
-根据其他玩家的编号获取他的名称。
-
-##### ns_get_other_player_index(name)
-
-根据其他玩家的名称获取他的编号。
-
-##### ns_get_lobby_id()
-
-获取当前房间 ID ，如果不存在则返回 0。
-
-##### ns_get_lobby_name()
-
-获取当前房间名，如果不存在则返回空字符串。
-
-##### ns_get_game_id()
-
-获取当前游戏在服务器端的编号。
+| 脚本名                          | 用途                                                      |
+| ------------------------------- | --------------------------------------------------------- |
+| ns_get_player_name()            | 获取当前玩家的名称（用户名）                              |
+| ns_get_player_index()           | 获取当前玩家在游戏内的编号（1 为房主，大于 1 均为非房主） |
+| ns_get_other_player_name(index) | 根据其他玩家的编号获取名称                                |
+| ns_get_other_player_index(name) | 根据其他玩家的名称获取编号                                |
+| ns_get_lobby_id()               | 获取当前房间 ID ，如果不存在则返回 0。                    |
+| ns_get_lobby_name()             | 获取当前房间名，如果不存在则返回空字符串。                |
+| ns_get_game_id()                | 获取当前游戏在服务器端的编号。                            |
 
 #### ns_is
 
-##### ns_is_online_mode()
-
-是否为联机模式？
-
-##### ns_is_connected()
-
-服务器是否已连接？
-
-##### ns_is_logged_in()
-
-是否已登录？
-
-##### ns_is_in_lobby()
-
-是否在房间中？
-
-##### ns_is_host()
-
-是否是房主？
-
-##### ns_is_guest()
-
-是否为非房主？
-
-##### ns_is_in_game()
-
-是否在游戏中？
+| 脚本名              | 用途                 |
+| ------------------- | -------------------- |
+| ns_is_online_mode() | 是否为联机模式？     |
+| ns_is_connected()   | 是否已连接到服务器？ |
+| ns_is_logged_in()   | 是否已登录？         |
+| ns_is_in_lobby()    | 是否在房间中？       |
+| ns_is_host()        | 是否是房主？         |
+| ns_is_guest()       | 是否为非房主？       |
+| ns_is_in_game()     | 是否在游戏中？       |
 
 #### ns_actions
 
-##### ns_register()
-
-注册
-
-##### ns_login()
-
-登录
-
-##### ns_logout()
-
-登出
-
-##### ns_fetch_lobby()
-
-查询房间列表
-
-##### ns_create_lobby()
-
-创建房间
-
-##### ns_join_lobby()
-
-加入房间
-
-##### ns_leave_lobby()
-
-离开房间
-
-##### ns_start_game()
-
-开始游戏
+| 脚本名            | 用途         |
+| ----------------- | ------------ |
+| ns_register()     | 注册         |
+| ns_login()        | 登录         |
+| ns_logout()       | 登出         |
+| ns_fetch_lobby()  | 查询房间列表 |
+| ns_create_lobby() | 创建房间     |
+| ns_join_lobby()   | 加入房间     |
+| ns_leave_lobby()  | 离开房间     |
+| ns_start_game()   | 开始游戏     |
 
 #### ns_send
 
@@ -279,6 +222,10 @@ alarm[0] = 2;
 ![ns_send_event](_images/ns_send_event.png)
 
 ##### ns_send_wait
+
+该函数的运行机制如下图所示：
+
+![ns_send_wait](_images/ns_send_wait.png)
 
 关于这三个脚本的详细使用方法，参见 [联机简介](network.md)
 

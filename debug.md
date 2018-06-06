@@ -60,3 +60,4 @@ debug('This is a zero: ' + string(0)) // This is a zero: 0
 
 * 在 F6 进入游戏后，按下 `End` 键。
 * 按下 `Delete` 键可以切换到详细模式，在该模式下 `objDebug` 会列出它发出或收到的所有网络请求。
+* 按下 `Home` 键清除控制台

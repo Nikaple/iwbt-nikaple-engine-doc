@@ -720,7 +720,8 @@ body {
   color: var(--theme-color, #42b983);
 }
 .token.selector,
-.token.function {
+.token.function,
+.token.global {
   color: #4761d8;
 }
 .token.attr-name {

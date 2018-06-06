@@ -1,5 +1,7 @@
 # Object 文档
 
+!> 该板块仍然处于:chicken::chicken::chicken:状态，有一些说明可能有误。
+
 ### Blocks 砖块
 
 #### objBlock 普通砖
@@ -102,8 +104,6 @@ h = 2 // 可选，传送带速度，默认为 2
 ### Triggers 触发器
 
 #### objTrigger
-
-#### objSequenceTrigger
 
 请参考 [新触发系统](trigger.md)
 
