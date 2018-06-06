@@ -4,7 +4,7 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
 
 使用 I wanna be the Engine Nikaple Edition （以下简称`果引擎`）创作你自己的 I Wanna 游戏之前，你首先需要下载：
 
-* **GameMaker 8.0 或 8.1**（推荐使用 [GameMaker 8.0 超强中文破解版](http://p57vqeilv.bkt.clouddn.com/Super_Gamemaker8_1.4.2_Install.exe?attname=&e=1527862290&token=FZGZGDr0sWKjK7wJ1v0WnkOOgqYfwshN9tFWlp26:leSWs4WGikF9Ev-nLV1oMGim5LE)）
+* **GameMaker 8.0 或 8.1**（推荐使用 [GameMaker 8.0 超强中文破解版](http://p9wc9w6dq.bkt.clouddn.com/Super_Gamemaker8_1.4.2_Install.exe)）
 * **引擎本体**（[下载地址](http://p9wc9w6dq.bkt.clouddn.com/iwbte-nikaple-edition-1.8.0.zip)）
 
 安装好 `GM`，并使用 `GM` 打开压缩包中提供的 `.gmk` 文件即可开始 I wanna 游戏的创作！
