@@ -48,9 +48,7 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
 
 # 手感
 
-与大部分引擎**“基本”**相同。
-
-![physics](_images/physics.gif)
+与大部分引擎基本相同。
 
 # 兼容性
 

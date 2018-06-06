@@ -15,7 +15,9 @@
 | global.language                    | 语言设定，可选值有`LANG_CN`，`LANG_EN`，`LANG_JP` | LANG_CN                               |
 | global.enable_builtin_drawing      | 是否使用内置绘图函数                              | false                                 |
 | global.enable_stream_music         | 是否使用流式播放音乐                              | true                                  |
-| global.enable_focus                | 是否加入聚焦支持                                  | true                                  |
+| global.enable_dll_focus            | 是否加入聚焦支持                                  | true                                  |
+| global.enable_simulate_focus       | 是否使用键盘模拟聚焦模式                          | false                                 |
+| global.focus_key_code              | 使用键盘模拟聚焦的键码                            | 1                                     |
 | global.enable_encryption           | 存档文件是否加密                                  | true                                  |
 | global.key                         | 存档文件加密密钥（至少 64 位）                    | huY...BTS                             |
 | global.ip_address                  | 服务器 IP 地址                                    | 139.199.18.59                         |

@@ -50,7 +50,7 @@
 
 #### global.focus_key_code
 
-使用键盘模拟聚焦的键位。默认为 `1`，即 ``。
+使用键盘模拟聚焦的键码。默认为 `1`，即 ``。
 
 #### global.enable_encryption
 
