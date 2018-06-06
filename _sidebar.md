@@ -12,6 +12,7 @@
   * [自动更换刺的精灵](autosprite.md)
   * [新触发系统](trigger.md)
   * [新存档系统](save.md)
+  * [游戏发布](release.md)
   * [调试功能](debug.md)
 
 * 详细信息

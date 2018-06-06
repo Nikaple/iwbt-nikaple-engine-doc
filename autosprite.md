@@ -2,7 +2,7 @@
 
 在游戏中，你往往需要许多不同精灵的刺，而这是一项十分繁琐的工作。当要在房间中使用时，需要在不同的文件夹中去寻找不同精灵的刺，这更降低了创作的效率。
 
-在 `果引擎` 中，你可以分别定义在各个房间中刺的样式，定义成功之后引擎则会自动替换 `spikeUp、spikeDown、spikeLeft、spikeRight、minispikeUp、minispikeDown、minispikeLeft、minispikeRight` 这八种普通刺的精灵。
+在果引擎中，你可以分别定义在各个房间中刺的样式，定义成功之后引擎则会自动替换 `spikeUp、spikeDown、spikeLeft、spikeRight、minispikeUp、minispikeDown、minispikeLeft、minispikeRight` 这八种普通刺的精灵。
 
 该功能可以到脚本 `Scripts -> functions -> autoSpikeSprite` 中设置。
 

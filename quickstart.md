@@ -2,7 +2,7 @@
 
 I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩的 2D 平台跳跃动作游戏。其中，大部分的 I wanna 衍生游戏制作工具均为 `GameMaker`（以下简称 `GM` ）。
 
-使用 I wanna be the Engine Nikaple Edition （以下简称`果引擎`）创作你自己的 I Wanna 游戏之前，你首先需要下载：
+使用 I wanna be the Engine Nikaple Edition （以下简称果引擎）创作你自己的 I Wanna 游戏之前，你首先需要下载：
 
 * **GameMaker 8.0 或 8.1**（推荐使用 [GameMaker 8.0 超强中文破解版](http://p9wc9w6dq.bkt.clouddn.com/Super_Gamemaker8_1.4.2_Install.exe)）
 * **引擎本体**（[下载地址](http://p9wc9w6dq.bkt.clouddn.com/iwbte-nikaple-edition-1.8.0.zip)）
@@ -11,7 +11,7 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
 
 ## 开始前的准备
 
-新版 `果引擎` 中加入了联机系统，而调试联机功能则至少需要运行两个客户端程序。为此，你需要进行如下设置：
+新版果引擎中加入了联机系统，而调试联机功能则至少需要运行两个客户端程序。为此，你需要进行如下设置：
 
 * 打开 `GM 8.x`，**取消勾选** `文件 -> 偏好设置 -> 一般 -> 在游戏运行的时候隐藏编译器并且进入等待模式` （英文版：`File -> Preference -> General -> Hide the designer and wait while the game is running`）；
 * 按工具栏上的红色小三角（以调试模式编译游戏）两次，编译两份游戏并以调试模式启动（记为 `P1`、`P2` ）；
@@ -52,7 +52,7 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
 
 # 兼容性
 
-`果引擎` 目前仅支持 GM 8.0 以及 GM 8.1。
+果引擎 目前仅支持 GM 8.0 以及 GM 8.1。
 
 # 致谢
 

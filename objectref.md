@@ -18,11 +18,13 @@
 
 可以推动的砖，能够随着传送带和木板移动。
 
+!> 1.8 版本中仍然有 bug
+
 Creation Code 参数：
 
 ```gml
 frc = 1 // 可选，摩擦力，默认为 1
-wrap = true // 可选，如果设置为 true，纵向掉出房间后会从另一端出现，默认为 false
+wrap = false // 可选，如果设置为 true，纵向掉出房间后会从另一端出现，默认为 false
 grav = 0.4 // 可选，重力，默认为 0.4
 maxVspeed = 10 // 可选，最大下落速度，默认为 10
 ```
@@ -49,6 +51,7 @@ Creation Code 参数：
 
 ```gml
 spr = sprBlock // 可选，精灵
+snd = sndBlockChange // 可选，音效
 ```
 
 #### blockFake 假砖
@@ -59,6 +62,7 @@ Creation Code 参数：
 
 ```gml
 spr = sprBlock // 可选，精灵
+snd = sndBlockChange // 可选，音效
 ```
 
 #### BlockConveyorL 左向传送带
@@ -66,6 +70,7 @@ spr = sprBlock // 可选，精灵
 Creation Code 参数：
 
 ```gml
+spr = sprBlock // 可选，精灵
 h = -2 // 可选，传送带速度，默认为 -2
 ```
 
@@ -74,6 +79,7 @@ h = -2 // 可选，传送带速度，默认为 -2
 Creation Code 参数：
 
 ```gml
+spr = sprBlock // 可选，精灵
 h = 2 // 可选，传送带速度，默认为 2
 ```
 
@@ -83,23 +89,21 @@ h = 2 // 可选，传送带速度，默认为 2
 
 ### Killers 障碍物
 
+#### deliciousFruit
+
 #### spikeDown, spikeLeft, spikeUp, spikeRight
 
-普通的障碍物。其中，四方向尖刺的精灵可以在脚本`autoSpikeSprite`中根据房间来自动更换。
+#### miniSpikeDown, miniSpikeLeft, miniSpikeUp, miniSpikeRight
+
+普通的障碍物。其中，八种四方向尖刺的精灵可以在脚本`autoSpikeSprite`中根据房间来自动更换。
 
 ?> 现在可以直接改变这些刺的精灵而不会失效了。当然，强烈建议你使用`autoSpikeSprite`脚本进行自动配置。
 
 ?> 引擎中任意刺都可以当作触发刺使用啦！详情请见 [新触发系统](trigger.md)
 
-#### deliciousFruit
-
-#### miniSpike
-
-这个文件夹中包含了 4 种小刺。
-
 #### borderKiller
 
-用于 player 掉到屏幕外时杀死 player。在普通的 800*608 房间中，player 并不是一碰到屏幕边缘就死，而是会再往外移动一小段距离。而当房间大小较大，例如 800*1216 时，普通的杀死玩家的方法是在屏幕外放上 spikeDown / playerKiller / damageBlock 之类的 obj：（在 player 碰到刺的同时死亡）这样则会在 player 碰到屏幕边缘的同时就判定 player 死亡，这与普通掉出房间的判定不同。这时你需要利用 borderKiller，使 player 在掉出屏幕之后再判定死亡：（在 player 掉出屏幕之后才死亡）
+用于 player 掉到屏幕外时杀死 `player`。在普通的 `800*608` 房间中，`player` 并不是一碰到屏幕边缘就死，而是会再往外移动一小段距离。而当房间大小较大，例如 800\*1216 时，普通的杀死玩家的方法是在屏幕外放上 spikeDown / playerKiller / damageBlock 之类的 obj：（在 player 碰到刺的同时死亡）这样则会在 player 碰到屏幕边缘的同时就判定 player 死亡，这与普通掉出房间的判定不同。这时你需要利用 borderKiller，使 player 在掉出屏幕之后再判定死亡：（在 player 掉出屏幕之后才死亡）
 
 ### Triggers 触发器
 
