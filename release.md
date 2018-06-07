@@ -23,7 +23,7 @@ global.enable_production_mode = true
 
 ## 代码混淆
 
-虽然使用了 `variable_get_local` 等代码混淆软件不支持的函数，果引擎仍然代码混淆。
+虽然使用了 `variable_get_local` 等代码混淆软件不支持的函数，果引擎仍然支持代码混淆。
 
 GM Obfuscator 下载地址：[GM Obfuscator](http://p9wc9w6dq.bkt.clouddn.com/GM%20Obfuscator%20030.jar)
 
