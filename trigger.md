@@ -76,6 +76,30 @@ move = true
 
 ?> 当 playerKiller 被直接摆放在房间外时，引擎会自动设置 `noDes = true`，确保它能被正确地创建。
 
+## 时序触发器
+
+该 `object` 可以在 `Objects -> triggers -> objSequenceTrigger` 找到。用于触发一些按特定顺序出现的坑。
+
+应用场景举例：
+
+`player` 碰到时直接触发 `trg = 1` 的`触发事件`，1 秒之后触发 `trg = 2`的`触发事件`
+
+```gml
+trg[1] = 1
+time[1] = 50
+trg[2] = 2
+```
+
+`player` 碰到时不触发任何事件，1 秒之后触发 `trg = 1` 的触发事件，3 秒之后触发 `trg = 2` 的触发事件：
+
+```gml
+trg[1] = 9999
+time[1] = 50
+trg[2] = 1
+time[2] = 100
+trg[3] = 2
+```
+
 ## 调试模式以及报错
 
 当游戏以调试模式运行时，`objTrigger` 会显示当前的 `trg` 以及 `key` 以便观察：
