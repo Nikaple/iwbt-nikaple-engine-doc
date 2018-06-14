@@ -56,6 +56,12 @@ case rOnlineBossSample:
 
 ?> 在房间顶部的贴图会以底部贴图显示。
 
+调用方法：
+
+```gml
+autotile(2, bg)
+```
+
 ## 四向贴图
 
 效果图：
@@ -77,6 +83,12 @@ case rOnlineBossSample:
 - 大小为 48 \* 48 像素；
 - 周围 8 块为边界贴图，中间为内部贴图。
 
+调用方法：
+
+```gml
+autotile(4, bg)
+```
+
 ### 使用 32 \* 32 素材
 
 使用 32 \* 32 素材意味着你对每块贴图能有更细粒度的控制，使游戏看起来更加丰富，你需要准备如下贴图一张：
@@ -88,6 +100,12 @@ case rOnlineBossSample:
 ![dir4_explanation](_images/autotile/explanation4_32.png)
 
 这样你可以对不同位置的贴图进行一些随机的装饰，使地图看起来更加自然。
+
+调用方法：
+
+```gml
+autotile(4, bg, 32)
+```
 
 ## 八向贴图
 
@@ -106,7 +124,13 @@ case rOnlineBossSample:
 ![dir4_16](_images/autotile/tile8_16.png)
 
 - 大小为 48 \* 80 像素；
-- 上面 48 \* 48 部分与。
+- 上面 48 \* 48 部分与四向贴图的一致（周围 8 块为边界贴图，中间为内部贴图。），下面的 32 \* 32 部分为四个内角贴图。
+
+调用方法：
+
+```gml
+autotile(8, bg)
+```
 
 ### 使用 32 \* 32 素材
 
@@ -121,3 +145,9 @@ case rOnlineBossSample:
 ![dir8_explanation](_images/autotile/explanation8_32.png)
 
 这样你可以对不同位置的贴图进行一些随机的装饰，使地图看起来更加自然。
+
+调用方法：
+
+```gml
+autotile(8, bg, 32)
+```
