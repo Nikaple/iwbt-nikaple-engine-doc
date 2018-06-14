@@ -27,15 +27,16 @@
 
 在新版引擎中，`player` 的 `maxJumps`、`maxSpeed`、`grav` 均会被自动写入到存档，控制 `player` 的物理状态更方便了。
 
-| 变量值           | 状态       |
-| ---------------- | ---------- |
-| maxJumps = 0     | 无法跳跃   |
-| maxJumps = 1     | 只有一段跳 |
-| maxJumps = 3     | 三段跳     |
-| maxSpeed > 3     | 高速       |
-| 0 < maxSpeed < 3 | 低速       |
-| grav > 0.4       | 超重       |
-| 0 < grav < 0.4   | 失重       |
+| 变量值                 | 状态       |
+| ---------------------- | ---------- |
+| 0 < shootInterval < 10 | 开启连射   |
+| maxJumps = 0           | 无法跳跃   |
+| maxJumps = 1           | 只有一段跳 |
+| maxJumps = 3           | 三段跳     |
+| maxSpeed > 3           | 高速       |
+| 0 < maxSpeed < 3       | 低速       |
+| grav > 0.4             | 超重       |
+| 0 < grav < 0.4         | 失重       |
 
 ## 安全性
 

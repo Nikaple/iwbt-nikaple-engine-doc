@@ -15,7 +15,7 @@
 global.enable_production_mode = true
 ```
 
-同时，生产模式中也会对使用的加密密钥进行基础检查，请保证密钥长度不小于 40 个字符。
+同时，生产模式中也会对使用的加密密钥 `global.key` 进行基础检查，请保证密钥长度不小于 40 个字符。
 
 ## 正式发布
 
@@ -25,9 +25,9 @@ global.enable_production_mode = true
 
 虽然使用了 `variable_get_local` 等代码混淆软件不支持的函数，果引擎仍然支持代码混淆。
 
-GM Obfuscator 下载地址：[GM Obfuscator](http://p9wc9w6dq.bkt.clouddn.com/GM%20Obfuscator%20030.jar)
+GM 代码混淆器下载地址：[GM Obfuscator](http://p9wc9w6dq.bkt.clouddn.com/GM%20Obfuscator%20030.jar)
 
-单击 `Select File`，并如图设置混淆器：
+单击 `Select File`，选择你的 `gmk` 工程文件，并如图设置混淆器：
 
 ![Obfuscator settings](_images/obfuscator.jpg)
 
@@ -70,13 +70,14 @@ handler_event_player_death
 handler_event_warp
 handler_event_reset_sync
 handler_event_save_sync
-handler_event_boss_hit
 handler_wait_reset
 handler_wait_save
 handler_wait_warp
 ```
 
 将上述列表复制到一个文本文件中，使用 `Load List` 载入即可。在混淆过程中混淆器会报错，属正常现象。
+
+?> 如果你添加了新的 `handler`，也需要一并写入该文件中。
 
 混淆效果：
 

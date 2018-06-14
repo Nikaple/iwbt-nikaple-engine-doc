@@ -95,21 +95,51 @@ h = 2 // 可选，传送带速度，默认为 2
 
 #### miniSpikeDown, miniSpikeLeft, miniSpikeUp, miniSpikeRight
 
-普通的障碍物。其中，八种四方向尖刺的精灵可以在脚本`autoSpikeSprite`中根据房间来自动更换。
+普通的障碍物。其中，八种四方向尖刺的精灵可以参考[自动更换刺的精灵](autosprite.md)在脚本 `autoSpikeSprite` 中根据房间来自动更换。
 
-?> 现在可以直接改变这些刺的精灵而不会失效了。当然，强烈建议你使用`autoSpikeSprite`脚本进行自动配置。
+?> 现在可以直接改变这些刺的精灵而不会失效了。当然，强烈建议你使用 `autoSpikeSprite` 脚本进行自动配置。
 
 ?> 引擎中任意刺都可以当作触发刺使用啦！详情请见 [新触发系统](trigger.md)
 
 #### borderKiller
 
-用于 player 掉到屏幕外时杀死 `player`。在普通的 `800*608` 房间中，`player` 并不是一碰到屏幕边缘就死，而是会再往外移动一小段距离。而当房间大小较大，例如 800\*1216 时，普通的杀死玩家的方法是在屏幕外放上 spikeDown / playerKiller / damageBlock 之类的 obj：（在 player 碰到刺的同时死亡）这样则会在 player 碰到屏幕边缘的同时就判定 player 死亡，这与普通掉出房间的判定不同。这时你需要利用 borderKiller，使 player 在掉出屏幕之后再判定死亡：（在 player 掉出屏幕之后才死亡）
+用于 player 掉到屏幕外时杀死 `player`。用于在大房间中模拟普通的出房间死亡事件。
+
+1.  使用普通的刺，当玩家碰刺时即死。
+
+    ![normal spike](_images/border1.png)
+
+2.  使用 `borderKiller`，当玩家在视野之外才死。
+
+    ![outside view](_images/border2.png)
 
 ### Triggers 触发器
 
 #### objTrigger
 
-请参考 [新触发系统](trigger.md)
+触发器。请参考 [新触发系统](trigger.md)
+
+`Creation Code` 参数：
+
+```gml
+trg = 1 // 必填，触发器编号
+snd = sndCherry // 可选，触发时音效
+xs = 2 // 可选，水平缩放
+ys = 2 // 可选，垂直缩放
+```
+
+#### objSequenceTrigger
+
+时序触发器。默认可触发 20 次。请参考 [新触发系统](trigger.md)
+
+```gml
+// 以下代码中 i >= 1
+trg[i] = 1 // 必填，第 i 个触发器编号
+time[i] = 50 // 必填，从编号 i 触发到编号 i + 1 触发所用的时间
+snd[i] = 6 // 可选，第 i 个触发器的触发音效
+xs = 2 // 可选，水平缩放
+ys = 2 // 可选，垂直缩放
+```
 
 #### objButton
 
@@ -117,69 +147,57 @@ h = 2 // 可选，传送带速度，默认为 2
 `Creation Code` 参数：
 
 ```gml
-spr = sprGreenButtonLeft
-trg = 1
+trg = 1 // 必填，触发器编号
+spr = sprGreenButtonLeft // 可选，精灵
 ```
 
 #### trgMultiplePath
 
-多重路径刺。可以按顺序被多个触发器所触发，最大触发次数由 create 中的 maxTraps 变量决定。
+多重路径刺。可以按顺序被多个触发器所触发。
 
 `Creation Code` 参数：
 
 ```gml
-// 使用的精灵
-spr = sprSpikeUp
-// 第 i 个触发器编号 （从 i=1 开始，按顺序触发 i=2，i=3，…的 trg）
-trg[i] = 1
-// 第 i 个路径的名称
-pth[i] = pU1
-// 第 i 个路径中的运动速度
-spd[i] = 6
-// 第 i 个路径的路径结束事件（0：停止运动；1：从头开始；2：从当前位置继续运动；3：反转路径）
-enda[i] = 0
-// 第 i 个路径的路径缩放倍数（默认为 1，例如将 pU1 放大两倍则为向上移动两格）
-scl[i] = 2
+// 以下代码中 i >= 1
+spr = sprSpikeUp // 必填，使用的精灵
+trg[i] = 1 // 必填，第 i 个触发器编号
+pth[i] = pU1 // 必填，第 i 个路径的名称
+spd[i] = 6 // 必填，第 i 个路径中的运动速度
+enda[i] = PATH_ACTION_END // 可选，第 i 个路径的路径结束事件
+scl[i] = 2 // 可选，第 i 个路径的路径缩放倍数
 ```
+
+在常量表中可找到[路径结束事件](constant?id=路径结束动作)的可能值
 
 #### trgScale
 
-缩放刺。当触发之后会放大/缩小。两种触发方式：缩放时间 / x, y 缩放分速度。
+缩放刺。当触发之后会放大/缩小。共有两种触发方式：
 
-缩放时间触发，Creation Code 参数：
+- 缩放时间
+- x, y 缩放分速度。
+
+缩放时间触发，`Creation Code` 参数：
 
 ```gml
-// 使用的精灵
-spr = sprSpikeUp
-// 触发器编号
-trg = 1
-// 触发之后 x 方向的目标缩放量
-tarx = 2
-// 触发之后 y 方向的目标缩放量
-tary = 2
-// 缩放到目标缩放量所需要的时间（帧）
-time = 50
-// 缩放中心位置
-origin = 5
+spr = sprSpikeUp // 必填，使用的精灵
+trg = 1 // 必填，触发器编号
+tarx = 2 // 可选，触发之后 x 方向的目标缩放量
+tary = 2 // 可选，触发之后 y 方向的目标缩放量
+time = 50 // 必填，缩放到目标缩放量所需要的时间（帧）
+origin = 5 // 可选，缩放中心位置
 ```
 
 x, y 缩放速度触发。Creation Code 参数：
 
 ```gml
-// 使用的精灵
-sprite_index = sprSpikeUp
-// 触发器编号
-trg = 1
-// 触发之后 x 方向的目标缩放量
-tarx = 2
-// 触发之后 x 方向的缩放速度
-xsp = 0.04
-// 触发之后 y 方向的目标缩放量
-tary = 2
-// 触发之后 y 方向的缩放速度
-ysp = 0.04
-// 缩放中心位置
-origin = 5
+spr = sprSpikeUp // 必填，使用的精灵
+trg = 1 // 必填，触发器编号
+// (tarx, xsp) 与 (tary, ysp) 至少有一组必填
+tarx = 2 // 可选，触发之后 x 方向的目标缩放量
+xsp = 0.04 // 可选，触发之后 x 方向的缩放速度
+tary = 2 // 可选，触发之后 y 方向的目标缩放量
+ysp = 0.04 // 可选，触发之后 y 方向的缩放速度
+origin = 5 // 可选，缩放中心位置
 ```
 
 其中，origin 的值为 1 - 9，分别对应精灵的左上角，中上，右上角......见下：
@@ -194,51 +212,41 @@ origin = 5
 
 假设你需要将某刺在 1 秒内缩放到原来的 3 倍大小，那么 tarx，tary 的值就为 3；
 
-* 对于缩放时间方式，time = 50；
+- 对于缩放时间方式，time = 50；
 
-* 对于缩放速度方式，xsp 与 ysp 的值均为：(3 – 1) / 50 = 0.04。
+- 对于缩放速度方式，xsp 与 ysp 的值均为：(3 – 1) / 50 = 0.04。
 
 #### trgRotate
 
-旋转刺。在触发之后会相对于某一点旋转一定的读数。
+旋转刺。在触发之后会相对于某一点旋转一定的度数。
 
 Creation Code 参数：
 
 ```gml
-// 使用的精灵
-spr = sprSpikeUp
-// 触发器编号
-trg = 1
-// 旋转中心离 spr 原点的横向距离
-cx = 16
-// 旋转中心离 spr 原点的纵向距离
-cy = 16
-// 旋转总度数// 旋转到目标度数所需要的时间（帧）
-angle = 90
-
-time = 50
+spr = sprSpikeUp // 必填，使用的精灵
+trg = 1 // 触发器编号
+cx = 16 // 旋转中心离 spr 原点的横向距离
+cy = 16 // 旋转中心离 spr 原点的纵向距离
+angle = 90 // 旋转总度数
+time = 50 // 旋转到目标度数所需要的时间（帧）
 ```
 
 #### trgPathBlock
 
-路径砖。触发后会按照指定路径移动，如果 player 触碰到在移动中的 pathFreeBlock 则会判断死亡。
+路径砖。触发后会按照指定路径移动。
+
+?> 如果 player 触碰到在移动中的 pathFreeBlock 则会判断为死亡。
 
 Creation Code 参数：
 
 ```gml
-// 使用的精灵
-spr = sprBlock
-// 触发器编号
-trg = 1
-// 路径名称
-pth = pD1
-// 运动速度
-spd = 7
-// 路径结束事件（0：停止运动；1：从头开始；2：从当前位置继续运动；3：反转路径）
-enda = 0
-// 路径缩放倍数（默认为 1，例如将 pU1 放大两倍则为向上移动两格）
-scl = 1
-move = true // 是否防止剧透（如果为 true，当玩家死亡之后砖会沿着当前方向移动，不会停止/转弯）
+spr = sprBlock // 必填，使用的精灵
+trg = 1 // 必填，触发器编号
+pth = pD1 // 必填，路径名称
+spd = 7 // 必填，运动速度
+enda = PATH_ACTION_STOP // 可选，路径结束事件
+scl = 1 // 可选，路径缩放倍数
+move = true // 可选，是否防止剧透（玩家死亡之后会沿着当前方向移动，不会停止/转弯）
 ```
 
 #### trgBlockFake
@@ -248,8 +256,8 @@ move = true // 是否防止剧透（如果为 true，当玩家死亡之后砖会
 Creation Code 参数：
 
 ```gml
-sprite_index = sprBlock // 使用的精灵
-trg = 1 // 触发器编号
+trg = 1 // 必填，触发器编号
+spr = sprBlock // 可选，使用的精灵
 ```
 
 #### trgBlockInvisible
@@ -259,8 +267,8 @@ trg = 1 // 触发器编号
 Creation Code 参数：
 
 ```gml
-sprite_index = sprBlock // 使用的精灵
-trg = 1 // 触发器编号
+trg = 1 // 必填，触发器编号
+sprite_index = sprBlock // 可选，使用的精灵
 ```
 
 ### Gimmicks 功能
@@ -277,27 +285,35 @@ trg = 1 // 触发器编号
 
 #### objWater
 
-普通水。跳跃高度为二段跳高度，出水无二段。
+普通水。跳跃高度为二段跳高度，出水有二段。
 
-#### objWater2
+#### objWaterNo2ndJump
 
-二段水。跳跃高度为二段跳高度，出水有二段。
+二段水。跳跃高度为二段跳高度，出水无二段。
+
+#### objWaterNoJump
+
+无跳水。只会降低移动速度，而不恢复跳跃次数。
+
+#### objInfiniteJump
+
+碰到玩家之后使之能够无限跳。
+
+#### objInfiniteJumpDisable
+
+碰到玩家之后使之不能无限跳。
 
 #### movingPlatform
 
-普通木板。两种使用方式：直接运动与触碰运动（player 碰到板子的时候才会动）。
+普通木板。
 
-普通模式，Creation Code 参数：
+`Creation Code` 参数：
 
 ```gml
+// 直接赋值，则会直接运动
 hspeed = 3 // 横向速度
 vspeed = 3 // 纵向速度
-```
-
-触碰模式，Creation Code 参数：
-
-```gml
-touch = true;
+// 使用 h、v，则会等玩家站上再运动
 h = 3 // 触碰后的横向速度
 v = 3 // 触碰后的纵向速度
 ```
@@ -306,32 +322,26 @@ v = 3 // 触碰后的纵向速度
 
 沿路径运动的木板。
 
-两种使用方式：直接运动与触碰运动（player 碰到板子的时候才会动）。
-
-如果需要使用防剧透功能，Creation Code 中补充：move = true;
-
-普通模式，Creation Code 中直接添加代码：
+`Creation Code` 参数：
 
 ```gml
+// 直接以 spd 速度沿 pth 运动。
 path_start(pth, spd, enda, 0);
+// 当玩家站上板之后，再开始运动
+pth = pD1 // 必填，路径名称
+spd = 7 // 必填，运动速度
 ```
 
-其中：
-
-* pth 为路径名称
-* spd 为运动速度
-* enda 为路径结束事件（0：停止运动；1：从头开始；2：从当前位置继续运动；3：反转路径）
-
-触碰模式，Creation Code 参数：
+其他可选参数：
 
 ```gml
-touch = true;
-pth = pU1 // 路径名称
-spd = 2.0001 // 运动速度
-enda = 0 // 路径结束事件（0：停止运动；1：从头开始；2：从当前位置继续运动；3：反转路径）。
+enda = PATH_ACTION_STOP // 可选，路径结束事件
+scl = 1 // 路径缩放倍数
+move = false // 是否防止剧透（玩家死亡之后会沿着当前方向移动，不会停止/转弯）
+draw = false // 是否绘制路径
+color = c_black // 绘制路径的颜色
+width = 1 // 绘制路径的宽度
 ```
-
-!> 注意，当 spd 取值为 2 并且沿竖直方向运动时，会有奇怪的 bug。将速度设为 2.0001 即可解决。
 
 #### roundingCherry
 
@@ -340,16 +350,19 @@ enda = 0 // 路径结束事件（0：停止运动；1：从头开始；2：从�
 Creation Code 参数：
 
 ```gml
-num = 15 // 苹果总数
-rad = 100 // 苹果圈半径
-ang = 0 // 初始角度（改变这个值可以改变各个苹果在圆上的刷新位置，0~360）
-spd = 0.72 // 绕圈速度（度/步，如果需要在 10 秒内转一周，那么 spd = 360/(10*50) = 0.72）
-spr = sprCherry // 苹果的精灵（可选，默认情况下为普通红色苹果）
+num = 15 // 必填，苹果总数
+rad = 100 // 必填，苹果圈半径
+spd = 0.72 // 必填，绕圈速度
+ang = 0 // 可选，初始角度（0~360）
+spr = sprCherry // 可选，苹果的精灵（默认为普通红色苹果）
 ```
+
+- 改变 `ang` 可以改变各个苹果在苹果圈上的刷新位置
+- `spd` 的单位为 度/帧，如果需要在 10 秒内转 360 度，则 spd = 360/(10\*50) = 0.72
 
 #### pathSpike
 
-生成一系列均匀分布的按照某个 path 运动刺。path **必须封闭**，该 obj 需放在 path 的起始点。
+生成一系列均匀分布的按照某个 path 运动刺。该 obj 需放在 path 的起始点。
 
 Creation Code 参数：
 
@@ -363,22 +376,52 @@ spr = sprSpikeUp // 刺的精灵（可选，默认情况下为朝上的普通刺
 
 ### Host
 
-该文件夹中的 `object` 仅对房主生效
+该文件夹中的 `object` 仅对房主生效。
+
+| object 名称     | 用途   |
+| --------------- | ------ |
+| blockHost       | 砖     |
+| spikeDownHost   | 刺     |
+| spikeLeftHost   | 刺     |
+| spikeUpHost     | 刺     |
+| spikeRightHost  | 刺     |
+| warpHost        | 传送点 |
+| playerStartHost | 出生点 |
+| freeButtonHost  | 按钮   |
 
 ### Guest
 
 该文件夹中的 `object` 仅对非房主生效
 
+| object 名称      | 用途   |
+| ---------------- | ------ |
+| blockGuest       | 砖     |
+| spikeDownGuest   | 刺     |
+| spikeLeftGuest   | 刺     |
+| spikeUpGuest     | 刺     |
+| spikeRightGuest  | 刺     |
+| warpGuest        | 传送点 |
+| playerStartGuest | 出生点 |
+| freeButtonGuest  | 按钮   |
+
 ### Saves 存档点
 
 #### savePoint
 
-存档点。一共有四种状态：
+普通单人存档点。一共有四种状态：
 
 1.  红色：默认
 2.  黄色：说明该存档点需要所有玩家共同射击才能生效。
 3.  蓝色：说明其他玩家已存档（但是与你无关）
 4.  绿色：存档成功
+
+#### savePointWait
+
+等待存档。所有人射击才能存档成功。存档位置以最后一个人的位置为准。
+
+#### savePointSync
+
+同步存档。当一个人存档之后，其他所有人均可以通过重置游戏传送到该存档。
 
 ### Warps 传送点
 
@@ -388,58 +431,64 @@ spr = sprSpikeUp // 刺的精灵（可选，默认情况下为朝上的普通刺
 
 普通 warp。
 
-如果不需移动到某房间的指定位置而只是初始位置（playerStart） Creation Code 参数：
+传送到 `playerStart` 的位置时，`Creation Code` 参数：
 
 ```gml
 roomTo = rTraps // 传送到的房间名称
 kind = 0 // 使用的房间转场效果
+text = "text" // 绘制文字
+color = c_red // 文字颜色
 ```
 
-如果需要移动到指定房间的指定位置，Creation Code 中使用：
-
-```gml
-roomTo = rTraps // 传送到的房间名称
-kind = 0 // 使用的房间转场效果
-warpX = 400 // 指定传送的 x 坐标
-warpY = 304 // 指定传送的 y 坐标
-```
-
-> 关于房间转场效果，可以参考[转场效果](transition.md)
-
-#### invisibleWarp
-
-隐形 warp。在房间边缘需要传送到另一个房间时，请使用这个`obj`。
-
-如果不需移动到某房间的指定位置而只是初始位置（`playerStart`所在坐标），Creation Code 参数：
-
-```gml
-roomTo = rTraps // 传送到的房间名称
-kind = 0 // 使用的房间转场效果
-```
-
-需要移动到指定房间的指定位置，Creation Code 中使用：
+传送到指定位置时，`Creation Code` 参数：
 
 ```gml
 roomTo = rTraps // 传送到的房间名称
 kind = 0 // 使用的房间转场效果
 warpX = 400 // 指定传送的 x 坐标
 warpY = 304 // 指定传送的 y 坐标
-screens = x/y 方向坐标偏移程度
+clearSpeed = false // 是否清除玩家速度
+screens = 1 // 移动房间的个数
 ```
 
-> 关于房间转场效果，可以参考[转场效果](transition.md)
+关于 `warpX` / `warpY` 的说明：
 
-关于 screens 参数的说明：
+`warpX` 与 `warpY` 的设置位置与 playerStart 类似，其值应为 `32 * 32` 网格的左上角坐标。
 
-假设你的 `player` 处于 800\*1216 一个大房间 room1 中，并且处于房间右下角( 784, 1168 )的位置，在 `player` 的右边有一个 warp，它会将 `player` 传送到另一个 800\*608 房间 room2 的左下角 （16, 560） 。为了使 player 在房间之间传送得更自然， `player` 的纵坐标在传送前后应该不发生变化。这时候，你需要将 player 的纵坐标向上平移 1 个屏幕的距离（也就是 608），也就是这里的 screens = -1。经过反复测试，warp 的距离以距离房间边缘 12 像素最佳，例如在以上情况下，便可以在 warp 的 Creation Code 中写入：
+例如，想将 `player` 传送到屏幕正中间时，`warpX` 为 384， `warpY` 为 288。
+
+关于 `screens` 参数的说明：
+
+![warp](_images/warp.png)
+
+如图所示，假设你想从 room1 中的 (800, 912) 处传送到 room2 中的 (0, 304) 处，不仅得将 x 坐标设为 0，还需要将 y 坐标向上平移一个屏幕的距离（608 像素）。这样可以使 `player` 的纵坐标在屏幕上看起来没有变化，增强游戏的连续性。
+
+在这种情况下，将 `warpX` 设置为目标点的 x 坐标，再将 `screens` 设置为 -1 即可。
+
+- 目标点在屏幕左侧时，`warpX = -12`；
+- 目标点在屏幕右侧时，`warpX = room_width - 24`；
+- 目标点在屏幕上方时，`warpY = -5`；
+- 目标点在屏幕下方时，`warpY = room_height - 32`。
+
+上面例子的 `Creation Code` 中参数：
 
 ```
 roomTo = room2;
-warpX = 12;
+warpX = -12;
 screens = -1;
 ```
 
-当省略 `warpX`/`warpY` 中的某一个值时，表示所省略值代表的坐标不会直接改变，而是移动 screens 个屏幕的距离。
+?> 将 roomTo 设置为 -1，可以在同房间内传送
+
+?> 关于房间转场效果，可以参考[转场效果](transition.md)
+
+#### invisibleWarp
+
+#### invisibleWarpSync
+
+#### invisibleWarpWait
+
+隐形 warp。如果将 `warp` 放在房间外，我们往往需要对其进行拉伸。而由于 `warp` 的形状不规则，拉伸之后会导致在某些角度下传送失败。因此，在房间边缘需要传送到另一个房间时，请使用 `invisibleWarp*`。
 
 #### warpStart
 
@@ -447,29 +496,24 @@ screens = -1;
 
 Creation Code 中：
 
-* dif 表示游戏难度（0 – Medium，1 – Hard , 2 – Very Hard , 3 - Impossible）
-* difName 表示在 warp 上方需要绘制的文字。
+- dif 表示游戏难度（-1 – Load，0 – Medium，1 – Hard，2 – Very Hard，3 - Impossible）
+- text 表示在 warp 上方需要绘制的文字。
 
 #### bossWarp
 
-拿到特定的 bossItem 才会出现的 warp，一般会在 boss 的摧毁事件中创建。例如，在 myBoss 的摧毁事件中：
+拿到特定的 `bossItem` 才会出现的 `warp`，`Creation Code` 参考普通的 `warp` 即可，该 `object` 默认不可见。因此，我们需要在同房间 boss 的 destroy 事件中写入：
 
 ```gml
-a = instance_create(400, 416, bossWarp);
-a.roomTo = room2;
+bossWarp.visible = true
 ```
 
-#### warpText
+#### bossWarpSync
 
-能够绘制文字的普通 warp。
-
-在普通 warp 的 Creation Code 的基础上，增加一行：
+拿到特定的 `bossItem` 才会出现的 `warpSync`，`Creation Code` 参考普通的 `warpSync` 即可，该 `object` 默认不可见。因此，我们需要在同房间 boss 的 destroy 事件中写入：
 
 ```gml
-text = "文字";
+bossWarpSync.visible = true
 ```
-
-这里的文字只能是英文或者数字，并不支持中文绘制。简单的中文绘制用图片/背景表示即可，如确实有绘制中文的需求，可以使用 [FoxWriting](https://www.noisyfox.io/fox-writing-gamemaker.html) 扩展。
 
 #### warpCount
 
@@ -478,14 +522,10 @@ text = "文字";
 在普通 warp 的 Creation Code 的基础上，还需增加：
 
 ```gml
-countBoss = true // 是否统计 bossItem 数量（true 表示统计 bossItem 数量）
-countItem = false // 是否统计 secretItem 数量（true 表示统计 secretItem 数量）
+countBoss = true // 是否统计 bossItem 数量
+countItem = false // 是否统计 secretItem 数量
 total = 8 // 指定数量
 ```
-
-### Slopes 斜坡
-
-!> 这个文件夹中的 object 暂时处于报废状态
 
 ### Items 道具
 
@@ -495,55 +535,100 @@ total = 8 // 指定数量
 
 boss 被击败时所创建的 item，player 拿到之后则会记录指定编号的 boss 已被击败。
 
-这个 obj 经常用于 boss 的摧毁事件中。在创建的同时需指定精灵与 boss 编号。例如，在 myBoss 的 destroy 事件中写入：
+`Creation Code` 参数：
 
 ```gml
-a = instance_create(688,544,bossItem);
-a.num = 1;
-a.sprite_index = bossicon1;
+num = 1 // 必填，道具编号
+spr = sprBossIcon1 // 可选，精灵
 ```
 
-这段代码在 myBoss 被摧毁之时，在 (688, 544) 创建一个精灵为 `bossicon1` 的 `bossItem`，当 `player` 拿到这个 `bossItem` 时，系统会记录编号为 `num` 的 boss 已被击败，也就是 `global.boss[1]=1`。
+该 obj 默认不可见。因此，我们需要在同房间 boss 的 destroy 事件中写入：
+
+```gml
+bossItem.visible = true
+```
 
 #### bossItemViewer
 
-用于在房间中显示某 boss 是否被击败。Creation Code 参数：
+用于在房间中显示某 boss 是否被击败。
+
+`Creation Code` 参数：
 
 ```gml
-sprite_index = 使用精灵
-num = boss编号
+num = 1 // 必填，boss编号
+spr = sprBossIcon1 // 可选，使用精灵
 ```
 
 #### bossBlock
 
-当拿到对应 boss 的 item 的时候，会自动摧毁的 block Creation Code 参数：
+当拿到对应 boss 的 item 的时候，会自动摧毁的 block。
+
+`Creation Code` 参数：
 
 ```gml
-sprite_index = 使用精灵
-num = boss编号
+num = 1 // 必填，boss编号
+spr = sprBlock // 可选，使用精灵
 ```
 
 #### secretItem
 
 隐藏道具。
 
-Creation Code 参数：
+`Creation Code` 参数：
 
 ```gml
-sprite_index = itemicon1 // 使用精灵
-num = 1 // 隐藏道具编号
+num = 1 // 必填，隐藏道具编号
+spr = sprItemIcon1 // 可选，使用精灵
 ```
 
 #### secretItemViewer
 
-用于在房间中显示某隐藏道具是否已获取。Creation Code 参数：
+用于在房间中显示某隐藏道具是否已获取。
+
+`Creation Code` 参数：
 
 ```gml
-sprite_index = itemicon1 // 使用精灵
-num = 1 // 隐藏道具编号
+num = 1 // 必填，隐藏道具编号
+spr = sprItemIcon1 // 可选，使用精灵
 ```
 
 ### Room 房间杂物
+
+#### playerStart
+
+默认出生点。
+
+`Creation Code` 参数：
+
+```gml
+autoSave = false // 是否自动存档
+wrap = false // 设置为 true 时，出房间后会从另一端出现而不是死亡
+infJump = false // 是否开启无限跳
+```
+
+#### camera
+
+在大房间中使用，使得游戏的视角能根据玩家切换房间而移动。
+
+#### objSmoothView
+
+平滑视角，通常放在大房间中使用。
+
+!> 该 `object` 会覆盖 `camera` 的效果。
+
+#### objResetSync
+
+联机模式下，某一玩家重置游戏后会使得其他玩家自动重置游戏。
+
+#### objResetWait
+
+联机模式下，如果房间中存在该 `object`，则仅当所有人选择重置游戏时，游戏才会重置。
+
+?> BOSS 房间中强烈推荐
+
+#### objGameClear
+
+玩家碰到之后即将 `global.clear` 设置为 `true`，停止游戏时间的计算。
 
 ### Visual 视觉效果
 
@@ -555,25 +640,32 @@ num = 1 // 隐藏道具编号
 
 #### objShake
 
-通过脚本 `screenShake` 调用，请参考脚本 `screenShake`。
+通过脚本 screenShake 调用，请参考脚本 [screenShake](scriptref?id=screenshaketime-shakex-shakey)。
 
 #### objScreenFlash
 
-通过脚本 `screenFlash` 调用，请参考脚本 `screenFlash`。
+通过脚本 screenFlash 调用，请参考脚本 [screenFlash](scriptref?id=screenflashtime)。
 
 #### objShadow
 
-通过脚本 `createShadow` 调用，请参考脚本 `createShadow`。
-
-#### objSmoothView
-
-用于在视野跟随的房间中使用更平滑的视野。使用了@波导 Lucario 的代码。
-
-使用方法：将这个 obj 放到房间中的任意位置，然后到房间的 views （视野） 选项栏的 Object following（视野跟随）中，选择 objSmoothView，并将 Hbor 设置为 400，Vbor 设置为 304。Hsp 与 Vsp 可以不设置。
+通过脚本 createShadow 调用，请参考脚本 [createShadow](scriptref?id=createshadowalpha_speed-scale_speed)。
 
 ### Parent 父对象
 
-这个文件夹中包含了 `platform`、`playerKiller`、`roomChanger` 这几个父对象。
+| 名称              | 用途                             |
+| ----------------- | -------------------------------- |
+| platform          | 板子父对象                       |
+| block             | 砖块父对象（不要直接放在房间中） |
+| blockConveyor     | 传送带父对象                     |
+| objTriggerable    | 所有能被触发的 `object` 的父对象 |
+| playerKiller      | 障碍物父对象                     |
+| playerKillerHost  | 仅对房主生效的障碍物父对象       |
+| playerKillerGuest | 仅对非房主生效的障碍物父对象     |
+| roomChanger       | 传送点父对象                     |
+| roomChangerSync   | 同步传送点父对象                 |
+| roomChangerWait   | 等待传送点父对象                 |
+| bulletParent      | 子弹父对象                       |
+| objWaterParent    | 水父对象                         |
 
 ### Bosses
 
@@ -591,10 +683,54 @@ num = 1 // 隐藏道具编号
 
 这个文件夹中包含了 `player` 以及有关游戏系统的 obj。这里介绍本引擎与 yuuutu 引擎中不同的地方。
 
+#### options
+
+| 名称            | 用途             |
+| --------------- | ---------------- |
+| objOptionButton | 设置房间的按钮   |
+| objMusicBar     | 音乐音量调整滑块 |
+| objSoundBar     | 音效音量调整滑块 |
+| objMusic        | 音乐图标显示     |
+| objSound        | 音效图标显示     |
+
+### title
+
+| 名称                | 用途                           |
+| ------------------- | ------------------------------ |
+| objTitleController  | rTitle 控制器                  |
+| objLanguageSwitch   | 语言切换按钮                   |
+| objControllerButton | 登录/注册/加入房间等操作的按钮 |
+
+#### lobby
+
+| 名称               | 用途          |
+| ------------------ | ------------- |
+| objLobbyController | rLobby 控制器 |
+| objLobbyRoomDrawer | 房间列表绘制  |
+
+#### room
+
+| 名称              | 用途         |
+| ----------------- | ------------ |
+| objRoomController | rRoom 控制器 |
+| objRoomProfile    | 玩家信息绘制 |
+
+#### player
+
+##### player
+
+##### bloodEmitter
+
+##### objBlood
+
+##### bullet
+
+#### online
+
 #### world
 
-* 计时方式为精确到毫秒
-* 在 draw 事件中可以修改暂停界面。其中 pauseback 为暂停前游戏画面的截图
+- 计时方式为精确到毫秒
+- 在 draw 事件中可以修改暂停界面。其中 pauseback 为暂停前游戏画面的截图
 
 !> gm8.1 中生成截图的函数 `background_create_from_screen`有一定概率会出现 bug。
 
@@ -604,27 +740,27 @@ num = 1 // 隐藏道具编号
 
 新增：
 
-* `global.reverse`: 设置为 true 时，颠倒重力
-* `global.frozen`: 设置为 true 时，玩家无法操作 kid
-* `global.frozen2`: 设置为 true 时，kid 无法移动（上下左右均不可）
-* `infJump`: 设置为 true 时，kid 可以无限跳
-* `jump[i]`: kid 第 i 段跳跃的速度
-* `maxJumps`: 最大跳跃次数（3 或者 3 以上时，需额外指定跳跃高度）
-* `curJumps`: 当前处于的跳跃编号
-* `grav`: 重力大小
+- `global.reverse`: 设置为 true 时，颠倒重力
+- `global.frozen`: 设置为 true 时，玩家无法操作 kid
+- `global.frozen2`: 设置为 true 时，kid 无法移动（上下左右均不可）
+- `infJump`: 设置为 true 时，kid 可以无限跳
+- `jump[i]`: kid 第 i 段跳跃的速度
+- `maxJumps`: 最大跳跃次数（3 或者 3 以上时，需额外指定跳跃高度）
+- `curJumps`: 当前处于的跳跃编号
+- `grav`: 重力大小
 
 有关 player 的脚本：
 
-* `playerMove` 控制 player 左右移动的脚本
-* `playerWallJump` 控制 player 爬墙时动作的脚本
-* `playerJump` 控制 player 跳跃的脚本
-* `playerShoot` 控制 player 射击的脚本
-* `playerSlope` 控制 player 在斜面上移动的脚本
-* `playerReverse` 控制 player 翻转重力的脚本
-* `playerMisc` 控制 player 的杂项脚本，包括死亡判定、调试功能等新增功能（仅在调试模式（F6）中有效）：
-  * 使用鼠标左键同屏传送(´・ω・｀)
-  * 使用 S 键即时存档(´・ω・｀)
-  * 使用 G 键开启上帝模式(´・ω・｀)
+- `playerMove` 控制 player 左右移动的脚本
+- `playerWallJump` 控制 player 爬墙时动作的脚本
+- `playerJump` 控制 player 跳跃的脚本
+- `playerShoot` 控制 player 射击的脚本
+- `playerSlope` 控制 player 在斜面上移动的脚本
+- `playerReverse` 控制 player 翻转重力的脚本
+- `playerMisc` 控制 player 的杂项脚本，包括死亡判定、调试功能等新增功能（仅在调试模式（F6）中有效）：
+  - 使用鼠标左键同屏传送(´・ω・｀)
+  - 使用 S 键即时存档(´・ω・｀)
+  - 使用 G 键开启上帝模式(´・ω・｀)
 
 #### bloodEmitter
 
@@ -638,8 +774,8 @@ num = 1 // 隐藏道具编号
 
 均用于在 `rMenu` 中绘制死亡次数、时间、boss 图标等。
 
-* menuSelect 为跳刺选难度，menuSelect2 为直接选难度
-* 在 create 中可以指定各个 boss 图标
+- menuSelect 为跳刺选难度，menuSelect2 为直接选难度
+- 在 create 中可以指定各个 boss 图标
 
 通过在 draw 事件中简单的改动，也可以绘制隐藏道具的图标。
 

@@ -22,7 +22,9 @@
       auto2top: true,
       loadSidebar: true,
       formatUpdated: '{MM}/{DD} {HH}:{mm}',
-      disqus: 'shortname',
+      search: {
+        placeholder: '搜索一下'
+      },
       plugins: [
         function (hook, vm) {
           hook.beforeEach(function (html) {
@@ -35,6 +37,7 @@
     }
   </script>
   <script src="./docsify.min.js"></script>
+  <script src="./search.min.js"></script>
   <script>/*!
 * docsify-copy-code
 * v2.0.2

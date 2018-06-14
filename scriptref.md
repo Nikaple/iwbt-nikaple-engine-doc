@@ -113,7 +113,7 @@ alarm[0] = 2;
 
 #### setScale(xscale,yscale)
 
-设置 obj 在 x、y 方向上的拉伸量。在设置触发区域（trigger）时会经常用到。
+设置 obj 在 x、y 方向上的拉伸量。现已被 `xs`，`ys` 这两个参数取代。
 
 * xscale：x 方向拉伸量
 * yscale: y 方向拉伸量
@@ -343,7 +343,6 @@ ds_map_destroy(eventMap)
 | handler_event_warp         | 玩家传送或重置 |
 | handler_event_reset_sync   | 同步重置       |
 | handler_event_save_sync    | 同步存档       |
-| handler_event_boss_hit     | 击中 BOSS      |
 
 #### wait
 
@@ -863,7 +862,7 @@ json_get(json, 3, "foo", "bar", 0) // baz
 
 #### cmd_init(cmd)
 
-初始化一个 `cmd`。例如：
+初始化一个 `cmd`，返回 `cmdId` 。例如：
 
 ```gml
 cmd = cmd_init('hello', 1, 'name', 'Nikaple')
@@ -887,7 +886,7 @@ cmd_log(cmd)
 
 #### cmd_add(cmd, kvCount, key1, value1, ..., keyn, valuen)
 
-向 `cmd` 中加入新的键值对。例如：
+向 `cmd` 中加入新的键值对，返回 `cmdId` 。例如：
 
 ```gml
 cmd = cmd_init('hello')
@@ -908,7 +907,7 @@ cmd_log(cmd)
 
 #### cmd_add_list(cmd, key, itemCount, item1, item2, ..., itemn)
 
-向 `cmd` 中加入一个 `list`。例如：
+向 `cmd` 中加入一个 `list`，返回 `listId` 。例如：
 
 ```gml
 cmd = cmd_init('hello', 1, 'name', 'Nikaple')
@@ -928,7 +927,7 @@ cmd_log(cmd)
 
 #### cmd_add_map(cmd, key, kvCount, key1, value1, ..., keyn, valuen)
 
-向 `cmd` 中加入一个 `ds_map`。例如：
+向 `cmd` 中加入一个 `ds_map`，返回 `mapId` 。例如：
 
 ```gml
 cmd = cmd_init('hello')
@@ -951,7 +950,7 @@ cmd_log(cmd)
 
 #### cmd_list_add(list, itemCount, item1, item2, ..., itemn)
 
-向 `cmd` 的一个 `list` 中添加新的元素。例如：
+向 `cmd` 的一个 `list` 中添加新的元素，返回 `listId `。例如：
 
 ```gml
 cmd = cmd_init('hello', 1, 'name', 'Nikaple')
@@ -972,7 +971,7 @@ cmd_log(cmd)
 
 #### cmd_list_add_list(list, itemCount, item1, item2, ..., itemn)
 
-向 `cmd` 中的一个 `list` 添加一个 `list`。例如：
+向 `cmd` 中的一个 `list` 添加一个 `list`，返回 `listId` 。例如：
 
 ```gml
 cmd = cmd_init('hello', 1, 'name', 'Nikaple')
@@ -993,7 +992,7 @@ cmd_log(cmd)
 
 #### cmd_list_add_map(cmd, kvCount, key1, value1, ..., keyn, valuen)
 
-向 `cmd` 中的一个 `list` 添加一个 `map`。
+向 `cmd` 中的一个 `list` 添加一个 `map`，返回 `mapId` 。例如：
 
 ```gml
 cmd = cmd_init('hello', 1, 'name', 'Nikaple')
@@ -1015,6 +1014,18 @@ cmd_log(cmd)
 */
 ```
 
+### fake_random
+
+用于伪随机。在 BOSS 战途中，除了 BOSS 以外其他的 `object` 均不应该使用 random 系列函数，否则会破坏当前的随机数种子。如要使用，必须使用伪随机。
+
+| 名称               | 用途             |
+| ------------------ | ---------------- |
+| fake_random_init   | 伪随机初始化     |
+| fake_random        | 伪 random        |
+| fake_irandom       | 伪 irandom       |
+| fake_random_range  | 伪 random_range  |
+| fake_irandom_range | 伪 irandom_range |
+
 ## Plugins
 
 ### Http Dll 2.3
@@ -1027,7 +1038,18 @@ cmd_log(cmd)
 
 ### CleanMem
 
-这个也需要文档吗？
+* cleanmem_init(free_switch)
+
+  * free_switch = 0：初始化 Dll
+  * free_switch = 1：释放 Dll
+
+* cleanmem_get_mem
+
+  获取当前内存占用量
+
+* cleanmem
+
+  清除内存
 
 ### Super Sound System
 

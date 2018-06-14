@@ -8,19 +8,19 @@
 
 ![trigger system](_images/trigger.png)
 
-* 触发器指一类会响应 `player` 动作的 `object`，它可以在某种条件下发出带有一定标记（`trg`）的 `触发事件`。包括：
+- 触发器指一类会响应 `player` 动作的 `object`，它可以在某种条件下发出带有一定标记（`trg`）的 `触发事件`。包括：
 
-  * 隐形的 `trigger`，当 `player` 与之相碰撞时，发出 `触发事件`；
-  * 延时的 `trigger`，当 `player` 与之相碰撞之后，过一段时间再发出 `触发事件`；
-  * 可见的 `button`，当 `player` 射击击中时，发出 `触发事件`；
-  * ...
+  - 隐形的 `trigger`，当 `player` 与之相碰撞时，发出 `触发事件`；
+  - 延时的 `trigger`，当 `player` 与之相碰撞之后，过一段时间再发出 `触发事件`；
+  - 可见的 `button`，当 `player` 射击击中时，发出 `触发事件`；
+  - ...
 
-- 触发对象是一类可以响应 `触发事件` 的 `object`，包括：
+* 触发对象是一类可以响应 `触发事件` 的 `object`，包括：
 
-  * 在触发后会运动的刺
-  * 在触发后会运动的板子
-  * 在触发后会被创建的隐形砖
-  * 在触发后会做任何动作的任意 `object`
+  - 在触发后会运动的刺
+  - 在触发后会运动的板子
+  - 在触发后会被创建的隐形砖
+  - 在触发后会做任何动作的任意 `object`
 
 ## trg 与 key 一体化
 
@@ -47,7 +47,7 @@ ys = 6
 
 这也是果引擎 2.0 版中触发系统最明显的变化。
 
-这意味着你可以将 `spikeDown` 直接摆放在房间中，然后在 `Creation Code` 中写入：
+你可以将 `spikeDown` 直接摆放在房间中，然后在 `Creation Code` 中写入：
 
 ```gml
 trg = 1
@@ -64,14 +64,37 @@ spd = 6
 dir = 45
 ```
 
-当然，`path` 模式也支持。如果在 `Creation Code` 中将 `move` 设置为 `true`，在 `player` 死亡时触发刺会脱离原来的 path 而改为直线运动，防止对玩家的剧透：
+当然，`path`、`scale`、`rotate` 模式均支持该写法。如果在 `Creation Code` 中将 `move` 设置为 `true`，在 `player` 死亡时触发刺会脱离原来的 path 而改为直线运动，防止对玩家的剧透：
 
 ```gml
+// 使用 path 模式
 trg = 1
 pth = pCircle
 spd = 5
+enda = PATH_ACTION_STOP
 // 猜猜我要去哪？
 move = true
+```
+
+```gml
+// 使用 scale 模式
+spr = sprSpikeUp
+tarx = 2
+tary = 2
+cx = 16
+cy = 32
+time = 15
+trg = 1
+```
+
+```gml
+// 使用 rotate 模式
+spr = sprSpikeUp
+trg = 7
+cx = 0
+cy = 32
+angle = 90
+time = 20
 ```
 
 ?> 当 playerKiller 被直接摆放在房间外时，引擎会自动设置 `noDes = true`，确保它能被正确地创建。
