@@ -83,6 +83,8 @@ autotile(2, bg)
 - 大小为 48 \* 48 像素；
 - 周围 8 块为边界贴图，中间为内部贴图。
 
+?> 如果想用这种方式，强烈建议使用[八向贴图](autotile?id=八向贴图)
+
 调用方法：
 
 ```gml
@@ -142,6 +144,7 @@ autotile(8, bg)
 
 看不清？看下图
 
+![dir8](_images/autotile/explanation8.png)
 ![dir8_explanation](_images/autotile/explanation8_32.png)
 
 这样你可以对不同位置的贴图进行一些随机的装饰，使地图看起来更加自然。

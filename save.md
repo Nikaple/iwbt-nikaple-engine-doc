@@ -4,14 +4,17 @@
 
 存档系统涉及到四个脚本：
 
-* `saveGame` 用于保存游戏
-* `loadGame` 用于读取游戏
-* `saveDeathTime` 用于只保存时间以及死亡次数
-* `loadIcons` 用于在选择存档页面读取存档信息
+- `saveGame` 用于保存游戏
+- `loadGame` 用于读取游戏
+- `saveDeathTime` 用于只保存时间以及死亡次数
+- `loadIcons` 用于在选择存档页面读取存档信息
 
 ## 储存自定义变量
 
-在新版引擎中，支持 64 个自定义变量的储存，它们被定义为 `global.data[1] - global.data[64]`。你可以利用它们来保存游戏中的全局状态。
+在新版引擎中，默认支持 64 个自定义数字以及 64 个字符串的储存，你可以利用它们来保存游戏中的全局状态。
+
+- 数字类型的储存使用 `global.data[1] - global.data[64]`
+- 字符串类型的储存使用 `global.text[1] - global.text[64]`
 
 你可以灵活利用 `GM` 的 `Resources -> Define Constants...` 功能来定义常量，以达到更好的代码可读性。
 
@@ -20,6 +23,8 @@
 1.  定义常量 `SAVE_DIAMOND_AMOUNT` 为 1；
 2.  每次玩家获得钻石时，执行 `global.data[SAVE_DIAMOND_AMOUNT] += 1`；
 3.  在每次读档之后，钻石数量就能够以 `global.data[SAVE_DIAMOND_AMOUNT]` 的形式获取。
+
+!> `global.data` 只能用于存储数字类型变量，`global.text` 只能用于储存字符串类型的变量，如果混合使用会导致储存失败！
 
 ?> 自定义变量的总数可以在 `setGlobalsMinor` 中设置。
 
@@ -52,24 +57,24 @@
 
 1.  在 `saveGame` 中，找到下面的注释，在注释下方增加自定义变量并保存；
 
-```gml
-// for more save data, add script here
-// If you don't know which buffer_write_* script to use,
-// use buffer_write_float32
-buffer_write_float32(buffer, global.myVar1)
-buffer_write_float32(buffer, global.myVar2)
-```
+    ```gml
+    // for more save data, add script here
+    // If you don't know which buffer_write_* script to use,
+    // use buffer_write_float32
+    buffer_write_float32(buffer, global.myVar1)
+    buffer_write_float32(buffer, global.myVar2)
+    ```
 
 2.  在 `loadGame` 中，找到下面的注释，在注释下方增加自定义变量并读取。
 
-```gml
-// for more save data, add script here
-// If you don't know which buffer_read_* script to use,
-// use buffer_read_float32
-global.myVar1 = buffer_read_float32(buffer)
-global.myVar2 = buffer_read_float32(buffer)
-```
+    ```gml
+    // for more save data, add script here
+    // If you don't know which buffer_read_* script to use,
+    // use buffer_read_float32
+    global.myVar1 = buffer_read_float32(buffer)
+    global.myVar2 = buffer_read_float32(buffer)
+    ```
 
-注意，变量储存和读取的数据必须一致，否则存档系统会出现 BUG。
+注意，变量储存和读取的数据、顺序必须一致，否则存档系统会出现 BUG。
 
 !> 在修改存档脚本之后必须 **开始新游戏** 而不能读档！

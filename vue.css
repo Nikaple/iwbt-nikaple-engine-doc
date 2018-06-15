@@ -679,7 +679,7 @@ body {
 .markdown-section code,
 .markdown-section pre {
   background-color: #f8f8f8;
-  font-family: Roboto Mono, Monaco, courier, monospace;
+  font-family: "Source Code Pro", Monaco, courier, monospace;
 }
 .markdown-section pre {
   -moz-osx-font-smoothing: initial;
@@ -778,7 +778,7 @@ body {
   border-radius: 2px;
   color: #525252;
   display: block;
-  font-family: Roboto Mono, Monaco, courier, monospace;
+  font-family: "Source Code Pro", Monaco, courier, monospace;
   font-size: 0.8rem;
   line-height: inherit;
   margin: 0 2px;

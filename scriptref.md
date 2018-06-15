@@ -35,16 +35,16 @@
 
 将房间的四周用砖块密封。
 
-* noTop：是否不封顶
-* noLeft：是否不封左侧
-* noBottom：是否不封底
-* noRight：是否不封右侧
+- noTop：是否不封顶
+- noLeft：是否不封左侧
+- noBottom：是否不封底
+- noRight：是否不封右侧
 
 #### fadeIn(time)
 
 在 step 事件中使用，实现 obj 的淡入效果。
 
-* time： obj 淡入所经过的时间（帧），默认为 10（1 帧 = 0.02 秒）。
+- time： obj 淡入所经过的时间（帧），默认为 10（1 帧 = 0.02 秒）。
 
 ?> 在使用这个脚本之前，务必先把当前 obj 的不透明度 `image_alpha` 设置为 0。
 
@@ -52,7 +52,7 @@
 
 在 step 事件中使用，实现 obj 的淡出效果。
 
-* time：obj 淡出所经过的时间（帧），默认为 10（1 帧 = 0.02 秒） 。
+- time：obj 淡出所经过的时间（帧），默认为 10（1 帧 = 0.02 秒） 。
 
 ?> 如果不透明度或尺寸降低到 0 以下，则会摧毁当前 obj。
 
@@ -62,18 +62,18 @@
 
 当闪烁结束后，flash 变量会自动回到 0，这在设置 boss 被子弹击中事件的时候十分有用。
 
-* flash_time：闪烁一次所需要的时间；
-* flash_count: 总共闪烁次数。
+- flash_time：闪烁一次所需要的时间；
+- flash_count: 总共闪烁次数。
 
 #### splitObject(number, speed, object, direction, sprite)
 
 生成一圈相同的 `obj` 向外发散。
 
-* number：生成 `obj` 的总数；
-* speed：生成 `obj` 的速度；
-* object：生成 `obj` 的名字；
-* direction：第一个 `obj` 瞄准的方向；
-* sprite：生成 `obj` 的精灵名称（可选） 。
+- number：生成 `obj` 的总数；
+- speed：生成 `obj` 的速度；
+- object：生成 `obj` 的名字；
+- direction：第一个 `obj` 瞄准的方向；
+- sprite：生成 `obj` 的精灵名称（可选） 。
 
 其中，如果将 direction 设置为-1，生成 obj 的方向将是随机的；如果将 direction 设置为 1，生成 obj 的方向将瞄准 player；如果将 direction 设置为其他值，则会瞄准所指定的方向
 
@@ -87,22 +87,22 @@
 
 产生一个震屏效果。
 
-* time：震屏效果的持续时间（帧）；
-* shakeX：横向震动的振幅；
-* shakeY：纵向震动的振幅。
+- time：震屏效果的持续时间（帧）；
+- shakeX：横向震动的振幅；
+- shakeY：纵向震动的振幅。
 
 #### screenFlash(time)
 
 产生一个屏幕闪白效果。
 
-* time：闪白效果的持续时间（帧）。
+- time：闪白效果的持续时间（帧）。
 
 #### createShadow(alpha_speed, scale_speed)
 
 产生拖影效果， 常用于 alarm 事件并重复调用。
 
-* alpha_speed：每步影子不透明度的减小量；
-* scale_speed：每步影子大小的减小量。
+- alpha_speed：每步影子不透明度的减小量；
+- scale_speed：每步影子大小的减小量。
 
 例如：`objBossBullet` 的 `Alarm 0` 事件：
 
@@ -115,8 +115,8 @@ alarm[0] = 2;
 
 设置 obj 在 x、y 方向上的拉伸量。现已被 `xs`，`ys` 这两个参数取代。
 
-* xscale：x 方向拉伸量
-* yscale: y 方向拉伸量
+- xscale：x 方向拉伸量
+- yscale: y 方向拉伸量
 
 ## Music
 
@@ -162,11 +162,11 @@ alarm[0] = 2;
 
 它可分为 5 个主要的部分：
 
-* ns_get：获取游戏信息；
-* ns_is：判别游戏状态；
-* ns_actions：执行一些操作，例如注册、登录、加入房间等；
-* ns_send：向服务器同步信息（使用 TCP 协议，常用）；
-* ns_sync：向服务器同步信息（使用 UDP 协议，不常用）。
+- ns_get：获取游戏信息；
+- ns_is：判别游戏状态；
+- ns_actions：执行一些操作，例如注册、登录、加入房间等；
+- ns_send：向服务器同步信息（使用 TCP 协议，常用）；
+- ns_sync：向服务器同步信息（使用 UDP 协议，不常用）。
 
 #### ns_get
 
@@ -239,29 +239,31 @@ alarm[0] = 2;
 
 有时， `ns_send_instance`、`ns_send_event`、`ns_send_wait` 这三个脚本可能并不能满足你的需求，这可能是因为：
 
-* 仅在某些条件下添加属性，以减小传输大小；
-* 因为 `GM` 最多支持 16 个参数，添加的属性有可能超过参数上限。
+- 仅在某些条件下添加属性，以减小传输大小；
+- 因为 `GM` 最多支持 16 个参数，添加的属性有可能超过参数上限。
 
-此时 `ns_send_*_direct` 系列函数则恰好派上用场。它们均接收一个 `ds_map`，代表需要同步的属性。
+此时 `ns_send_*_direct` 系列函数则恰好派上用场。它们均接收一个 `cmd`，代表需要同步的属性。
 
 例如，在 `player` 的 `alarm[11]` 中，同步当前房间：
 
 ```gml
 // 创建一个含有 5 个元素的 ds_map
-eventMap = ds_map_init(
-    5,
+eventMap = cmd_init(
+    4,
     'roomTo', room,
     'x', x,
     'y', floor(y),
     'xs', image_xscale,
-    'rev', global.reverse
 )
-// 如果 global.__sync_position 为 true，则再添加一条 'sync' 属性
-ds_map_add_if_exists(eventMap, 'sync', global.__sync_position)
+// 选择性添加 rev 与 sync
+cmd_add_if_exists(
+  eventMap, 2,
+  'sync', global.__sync_position,
+  'rev', global.reverse
+)
 // 直接将该 ds_map 作为事件发送
 ns_send_event_direct('warp', eventMap)
-// 本函数不会对参数中的 ds_map 做任何处理，需要手动释放内存
-ds_map_destroy(eventMap)
+// 不需要手动调用 ds_map_destroy
 ```
 
 ```gml
@@ -284,8 +286,6 @@ ds_map_append(
 )
 // 这样就可以发送一个带有 9 个属性的事件了
 ns_send_instance_direct(eventMap)
-// 别忘了释放内存
-ds_map_destroy(eventMap)
 ```
 
 #### ns_sync
@@ -362,22 +362,18 @@ ds_map_destroy(eventMap)
 
 #### ds_map_init(kvCount, k1, v1, k2, v2, ..., kn, vn)
 
-初始化一个 `ds_map`。
+初始化一个 `ds_map`，返回 `id` 。
 
-* 第一个参数为键值对的数量 n；
-* 紧接着的 2n 个参数为形如 key<sub>1</sub>, value<sub>1</sub>, key<sub>2</sub>, value<sub>2</sub>, ..., key<sub>n</sub>, value<sub>n</sub> 的键值对。
+- 第一个参数为键值对的数量 n；
+- 紧接着的 2n 个参数为形如 key<sub>1</sub>, value<sub>1</sub>, key<sub>2</sub>, value<sub>2</sub>, ..., key<sub>n</sub>, value<sub>n</sub> 的键值对。
 
 #### ds_map_append(id, kvCount, k1, v1, k2, v2, ..., kn, vn)
 
-向一个 `ds_map` 中追加键值对。
+向一个 `ds_map` 中追加键值对，返回 `id`。
 
-* 第一个参数为 `ds_map` 的 `id`；
-* 第一个参数为键值对的数量 n；
-* 紧接着的 2n 个参数为形如 key<sub>1</sub>, value<sub>1</sub>, key<sub>2</sub>, value<sub>2</sub>, ..., key<sub>n</sub>, value<sub>n</sub> 的键值对。
-
-#### ds_map_add_if_exists(map, key, value)
-
-如果 `value` 存在，则向 `ds_map` 中添加 `key-value` 键值对。
+- 第一个参数为 `ds_map` 的 `id`；
+- 第一个参数为键值对的数量 n；
+- 紧接着的 2n 个参数为形如 key<sub>1</sub>, value<sub>1</sub>, key<sub>2</sub>, value<sub>2</sub>, ..., key<sub>n</sub>, value<sub>n</sub> 的键值对。W
 
 #### ds_map_clone(id)
 
@@ -391,18 +387,18 @@ ds_map_destroy(eventMap)
 
 #### ds_list_init(itemCount, item1, item2, ..., itemn)
 
-初始化一个 `ds_list`。
+初始化一个 `ds_list`，返回 `id`。
 
-* 第一个参数为列表中元素的数量 n；
-* 紧接着的 n 个参数为需要添加进列表的元素。
+- 第一个参数为列表中元素的数量 n；
+- 紧接着的 n 个参数为需要添加进列表的元素。
 
 #### ds_list_append(id, itemCount, item1, item2, ..., itemn)
 
-向一个 `ds_list` 中追加元素。
+向一个 `ds_list` 中追加元素，返回 `id` 。
 
-* 第一个参数为 `ds_list` 的 `id`；
-* 第一个参数为列表中元素的数量 n；
-* 紧接着的 n 个参数为需要添加进列表的元素。
+- 第一个参数为 `ds_list` 的 `id`；
+- 第一个参数为列表中元素的数量 n；
+- 紧接着的 n 个参数为需要添加进列表的元素。
 
 #### ds_list_clone(id)
 
@@ -410,7 +406,7 @@ ds_map_destroy(eventMap)
 
 #### ds_list_log(id)
 
-以字符串形式输出一个 ds_map
+以字符串形式输出一个 `ds_list`
 
 #### ds_list_remove(id, item)
 
@@ -424,33 +420,15 @@ ds_map_destroy(eventMap)
 
 用于错误信息处理
 
-#### ensure
-
-确认某一变量存在
-
-#### error_ind_zero
-
-以 0 为编号的某个资源存在
-
-#### error_kv
-
-使用 `cmd`、`ns_send` 等函数时没有声明 `kvCount`
-
-#### error_item
-
-使用 `cmd` 系列函数时没有声明 `itemCount`
-
-#### error_kv_zero
-
-使用 `cmd`、`ns_send` 等函数时，提供了比声明的 `kvCount` 更多的键值对
-
-#### error_arg_exceed
-
-参数个数太多
-
-#### error_info
-
-通用错误信息
+| 脚本名称         | 用途                                                                  |
+| ---------------- | --------------------------------------------------------------------- |
+| ensure           | 确保某一变量存在（不为 0）                                            |
+| error_ind_zero   | 确保以 0 为编号的某个资源不存在                                       |
+| error_kv         | 使用 `cmd`、`ns_send` 等函数时没有声明 `kvCount`                      |
+| error_item       | 使用 `cmd_list` 系列函数时没有声明 `itemCount`                        |
+| error_kv_zero    | 使用 `cmd`、`ns_send` 等函数时，提供了比声明的 `kvCount` 更多的键值对 |
+| error_arg_exceed | 参数个数太多                                                          |
+| error_info       | 通用错误信息                                                          |
 
 ### 杂项
 
@@ -498,9 +476,9 @@ sprite_index = set_default(spr, sprite_index)
 drawSelf();
 //draw the text
 if (is_string(text)) {
-​    i18n_draw_set_font(fontMsyh12);
-​    i18n_draw_set_align(fa_center, fa_bottom)
-​    i18n_draw_text_ext_color(x + 16, y - 8, text, 8, -1, color, color, alpha);
+  i18n_draw_set_font(fontMsyh12);
+  i18n_draw_set_align(fa_center, fa_bottom)
+  i18n_draw_text_ext_color(x + 16, y - 8, text, 8, -1, color, color, alpha);
 }
 ```
 
@@ -508,12 +486,12 @@ if (is_string(text)) {
 
 在 draw 事件中使用，用于绘制血条。
 
-* (x1,y1), (x2,y2)：血条左上角与右下角的坐标
-* curVal：表示当前血量的变量
-* maxVal：最大血量
-* col1：满血时血条的颜色
-* col2：空血时血条的颜色
-* outline：是否绘制边框
+- (x1,y1), (x2,y2)：血条左上角与右下角的坐标
+- curVal：表示当前血量的变量
+- maxVal：最大血量
+- col1：满血时血条的颜色
+- col2：空血时血条的颜色
+- outline：是否绘制边框
 
 `objHPBar - Draw Event`:
 
@@ -527,7 +505,7 @@ drawLife(
 
 #### draw_set_align(halign, valign)
 
-快速设定横向与纵向对齐方式
+快速设定文字横向与纵向对齐方式
 
 #### draw_rectangle_view()
 
@@ -545,13 +523,13 @@ drawLife(
 
 绘制描边文字
 
-* x, y 绘制位置
-* string 文字
-* xscale 水平所放量
-* yscale 竖直所放量
-* angle 文字角度
-* outline_color 描边颜色
-* text_color 文字颜色
+- x, y 绘制位置
+- string 文字
+- xscale 水平缩放量
+- yscale 竖直缩放量
+- angle 文字角度
+- outline_color 描边颜色
+- text_color 文字颜色
 
 ## System
 
@@ -565,14 +543,14 @@ drawLife(
 
 对 `player` 的参数进行初始化。
 
-* infJump：是否可以无限跳
-* jump[1]：一段跳速度
-* jump[2]：二段跳速度
-* maxJumps：跳跃总数（会写入存档）
-* maxSpeed：横向速度（会写入存档）
-* grav：重力（会写入存档）
-* maxAirSpeed：最大下落速度
-* maxWaterSpeed：水中最大下落速度
+- infJump：是否可以无限跳
+- jump[1]：一段跳速度
+- jump[2]：二段跳速度
+- maxJumps：跳跃总数（会写入存档）
+- maxSpeed：横向速度（会写入存档）
+- grav：重力（会写入存档）
+- maxAirSpeed：最大下落速度
+- maxWaterSpeed：水中最大下落速度
 
 #### 其余 player 脚本
 
@@ -737,29 +715,29 @@ drawLife(
 
 从 `Data/Fonts` 目录下读取一个字体，返回其 id。
 
-* name：字体文件名；
-* size：字体大小；
-* bold：是否粗体；
-* italic：是否斜体；
-* underline：是否加下划线。
+- name：字体文件名；
+- size：字体大小；
+- bold：是否粗体；
+- italic：是否斜体；
+- underline：是否加下划线。
 
 #### i18n_font_add(name, cn, en, jp)
 
 添加一个 `i18n 字体`。
 
-* name：字体名称；
-* cn：中文字体；
-* en：英文字体；
-* jp：日文字体。
+- name：字体名称；
+- cn：中文字体；
+- en：英文字体；
+- jp：日文字体。
 
 #### i18n_add(i18n_id, cn, en, jp)
 
 向 i18n 库中添加一个条目。
 
-* i18n_id：i18n 标识符；
-* cn：该标识符代表的中文字符串；
-* ce：该标识符代表的英文字符串；
-* jp：该标识符代表的日文字符串。
+- i18n_id：i18n 标识符；
+- cn：该标识符代表的中文字符串；
+- ce：该标识符代表的英文字符串；
+- jp：该标识符代表的日文字符串。
 
 #### i18n_get(i18n_id)
 
@@ -950,7 +928,7 @@ cmd_log(cmd)
 
 #### cmd_list_add(list, itemCount, item1, item2, ..., itemn)
 
-向 `cmd` 的一个 `list` 中添加新的元素，返回 `listId `。例如：
+向 `cmd` 的一个 `list` 中添加新的元素，返回 `listId`。例如：
 
 ```gml
 cmd = cmd_init('hello', 1, 'name', 'Nikaple')
@@ -1030,24 +1008,24 @@ cmd_log(cmd)
 
 ### Http Dll 2.3
 
-* [Http Dll 2.3 帮助文档](http://www.maartenbaert.be/game-maker-dlls/http-dll-2/)
+- [Http Dll 2.3 帮助文档](http://www.maartenbaert.be/game-maker-dlls/http-dll-2/)
 
 ### FoxWriting
 
-* [FoxWriting 帮助文档](http://docs.magecorn.com/doc-view-54.shtml)
+- [FoxWriting 帮助文档](http://docs.magecorn.com/doc-view-54.shtml)
 
 ### CleanMem
 
-* cleanmem_init(free_switch)
+- cleanmem_init(free_switch)
 
-  * free_switch = 0：初始化 Dll
-  * free_switch = 1：释放 Dll
+  - free_switch = 0：初始化 Dll
+  - free_switch = 1：释放 Dll
 
-* cleanmem_get_mem
+- cleanmem_get_mem
 
   获取当前内存占用量
 
-* cleanmem
+- cleanmem
 
   清除内存
 
@@ -1055,42 +1033,42 @@ cmd_log(cmd)
 
 #### 常用
 
-* SS_Init()
+- SS_Init()
 
   初始化，必须在游戏开始时调用。
 
-* SS_LoadSound(fname, stream)
+- SS_LoadSound(fname, stream)
 
   该函数返回一个其他函数均要用到的音乐 `id`。
 
-  * fname：文件名
-  * stream：设置为 0，则一次性将音乐加载至内存；设置为 1，则会分段加载
+  - fname：文件名
+  - stream：设置为 0，则一次性将音乐加载至内存；设置为 1，则会分段加载
 
-* SS_PlaySound(id)
+- SS_PlaySound(id)
 
   播放音乐。`id` 来自 `SS_LoadSound`
 
-* SS_LoopSound(id)
+- SS_LoopSound(id)
 
   循环播放音乐。`id` 来自 `SS_LoadSound`
 
-* SS_StopSound(id)
+- SS_StopSound(id)
 
   停止播放音乐。`id` 来自 `SS_LoadSound`
 
-* SS_FreeSound(id)
+- SS_FreeSound(id)
 
   释放音乐所占的内存空间。`id` 来自 `SS_LoadSound`
 
-* SS_PauseSound(id)
+- SS_PauseSound(id)
 
   暂停播放音乐。`id` 来自 `SS_LoadSound`
 
-* SS_ResumeSound(id)
+- SS_ResumeSound(id)
 
   继续播放音乐。`id` 来自 `SS_LoadSound`。如果该音乐被暂停，则会继续播放；否则重头开始播放。如果成功则返回 1，否则返回 0。
 
-* SS_Unload()
+- SS_Unload()
 
   必须在游戏结束时调用。
 
@@ -1098,19 +1076,19 @@ cmd_log(cmd)
 
 SS_Set 系列函数可以让你设定声音的参数
 
-* SS_SetSoundVol(id, vol)
+- SS_SetSoundVol(id, vol)
 
   设置音乐音量。`id` 来自 `SS_LoadSound`。最小为 0，最大为 10000.
 
-* SS_SetSoundPan(id, pan)
+- SS_SetSoundPan(id, pan)
 
   设置音乐声道位置。`id` 来自 `SS_LoadSound`。-10000 为完全左，0 为中间，10000 为完全右。
 
-* SS_SetSoundFreq(id, freq)
+- SS_SetSoundFreq(id, freq)
 
   设置音乐频率。`id` 来自 `SS_LoadSound`。freq 范围为 10000 - 100000.
 
-* SS_SetSoundPosition(id, pos)
+- SS_SetSoundPosition(id, pos)
 
   设置音乐的播放位置。`id` 来自 `SS_LoadSound`。pos 是音乐的位置（字节），real 类型。
 
@@ -1118,27 +1096,27 @@ SS_Set 系列函数可以让你设定声音的参数
 
 SS_Get 系列函数可以让你获取声音的参数
 
-* SS_GetSoundVol(id)
+- SS_GetSoundVol(id)
 
   获取音乐的音量设定。`id` 来自 `SS_LoadSound`。
 
-* SS_GetSoundPan(id)
+- SS_GetSoundPan(id)
 
   获取音乐的声道位置。`id` 来自 `SS_LoadSound`。
 
-* SS_GetSoundfreq(id)
+- SS_GetSoundfreq(id)
 
   获取音乐的频率。`id` 来自 `SS_LoadSound`。
 
-* SS_GetSoundPosition(id)
+- SS_GetSoundPosition(id)
 
   获取音乐的播放位置。`id` 来自 `SS_LoadSound`。
 
-* SS_GetSoundLength(id)
+- SS_GetSoundLength(id)
 
   获取音乐的总长度（字节）。`id` 来自 `SS_LoadSound`。
 
-* SS_GetSoundBytesPerSecond(id)
+- SS_GetSoundBytesPerSecond(id)
 
   获取音乐每秒钟的字节数。`id` 来自 `SS_LoadSound`。
 
@@ -1146,18 +1124,18 @@ SS_Get 系列函数可以让你获取声音的参数
 
 SS_IsSound 系列函数可以帮助你获取音乐的状态
 
-* SS_IsSoundPlaying(id)
+- SS_IsSoundPlaying(id)
 
   获取音乐是否正在播放。`id` 来自 `SS_LoadSound`。该函数无法区分播放与暂停，暂停需要用下一个函数判断。
 
-* SS_IsSoundPaused(id)
+- SS_IsSoundPaused(id)
 
   获取音乐是否暂停。`id` 来自 `SS_LoadSound`。
 
-* SS_IsSoundLooping(id)
+- SS_IsSoundLooping(id)
 
   获取音乐是否循环播放。`id` 来自 `SS_LoadSound`。
 
-* SS_IsidValid(id)
+- SS_IsidValid(id)
 
   获取音乐 id 是否有效。`id` 来自 `SS_LoadSound`。

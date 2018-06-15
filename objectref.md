@@ -14,21 +14,6 @@
 
 挡子弹专用砖。save 保护用。
 
-#### blockPush 可推动砖
-
-可以推动的砖，能够随着传送带和木板移动。
-
-!> 1.8 版本中仍然有 bug
-
-Creation Code 参数：
-
-```gml
-frc = 1 // 可选，摩擦力，默认为 1
-wrap = false // 可选，如果设置为 true，纵向掉出房间后会从另一端出现，默认为 false
-grav = 0.4 // 可选，重力，默认为 0.4
-maxVspeed = 10 // 可选，最大下落速度，默认为 10
-```
-
 #### blockMove 运动砖
 
 在碰到`player`后会发生移动的砖。
@@ -65,6 +50,21 @@ spr = sprBlock // 可选，精灵
 snd = sndBlockChange // 可选，音效
 ```
 
+#### blockPush 可推动砖
+
+可以推动的砖，能够随着传送带和木板移动。
+
+!> 1.8 版本中仍然有 bug
+
+Creation Code 参数：
+
+```gml
+frc = 1 // 可选，摩擦力，默认为 1
+wrap = false // 可选，如果设置为 true，纵向掉出房间后会从另一端出现，默认为 false
+grav = 0.4 // 可选，重力，默认为 0.4
+maxVspeed = 10 // 可选，最大下落速度，默认为 10
+```
+
 #### BlockConveyorL 左向传送带
 
 Creation Code 参数：
@@ -90,6 +90,15 @@ h = 2 // 可选，传送带速度，默认为 2
 ### Killers 障碍物
 
 #### deliciousFruit
+
+好吃的水果。
+
+除了[默认的 Creation Code ](cc.md)之外，还支持额外的 Creation Code 参数：
+
+```gml
+bounce = true // 碰到墙壁是否反弹
+wrap = true // 如果为 true，出屏后会从另一端出现
+```
 
 #### spikeDown, spikeLeft, spikeUp, spikeRight
 
