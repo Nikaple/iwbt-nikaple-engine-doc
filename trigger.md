@@ -67,34 +67,52 @@ dir = 45
 当然，`path`、`scale`、`rotate` 模式均支持该写法。如果在 `Creation Code` 中将 `move` 设置为 `true`，在 `player` 死亡时触发刺会脱离原来的 path 而改为直线运动，防止对玩家的剧透：
 
 ```gml
-// 使用 path 模式
+// 使用路径触发器
+// 必填，触发器编号
 trg = 1
+// 必填，路径名称
 pth = pCircle
+// 必填，路径运动速度
 spd = 5
+// 可选，路径缩放大小
+scl = 1
+// 可选，路径结束动作
 enda = PATH_ACTION_STOP
 // 猜猜我要去哪？
 move = true
 ```
 
 ```gml
-// 使用 scale 模式
-spr = sprSpikeUp
+// 使用缩放触发器
+// 必填，触发器编号
+trg = 1
+// tarx、tary 必须有一个存在，代表 x/y 方向上的目标缩放大小
 tarx = 2
 tary = 2
-cx = 16
-cy = 32
+// 必填，缩放时间
 time = 15
-trg = 1
+// 可选，精灵
+spr = sprSpikeUp
+// 可选，缩放中心与 spr 中心的横向偏移量
+cx = 0
+// 可选，缩放中心与 spr 中心的纵向偏移量
+cy = 0
 ```
 
 ```gml
-// 使用 rotate 模式
-spr = sprSpikeUp
+// 使用旋转触发器
+// 必填，触发器编号
 trg = 7
-cx = 0
-cy = 32
+// 必填，旋转角度
 angle = 90
+// 必填，旋转时间
 time = 20
+// 可选，精灵
+spr = sprSpikeUp
+// 可选，旋转中心与 spr 中心的横向偏移量
+cx = 0
+// 可选，旋转中心与 spr 中心的纵向偏移量
+cy = 0
 ```
 
 ?> 当 playerKiller 被直接摆放在房间外时，引擎会自动设置 `noDes = true`，确保它能被正确地创建。
