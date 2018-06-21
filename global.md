@@ -26,9 +26,21 @@
 
 默认语言设定，默认为 `LANG_CN`。可选项为 `LANG_CN`, `LANG_EN`, `LANG_JP`。
 
+#### global.encoding
+
+文字编码，默认为 `gb2312`。该项应与你使用的操作系统文字编码一致，详见[编码表](https://msdn.microsoft.com/en-us/library/windows/desktop/dd317756.aspx)。
+
 #### global.enable_builtin_drawing
 
-是否使用内置绘图函数，默认为 `false`。如果关闭，则会统一使用 `FoxWriting` 进行绘制。
+是否使用内置绘图函数，默认为 `false`。如果开启，则在语言为 `LANG_EN` 时会使用内置回吐函数；如果关闭，则会统一使用 `FoxWriting` 进行绘制。
+
+#### global.game_room_width
+
+游戏窗口宽度
+
+#### global.game_room_height
+
+游戏窗口高度
 
 #### global.enable_stream_music
 
@@ -36,13 +48,7 @@
 
 ?> 流式播放模式下，在玩家死亡或游戏暂停时，背景音乐将不会暂停播放，而仅仅减少音量。
 
-#### global.enable_dll_focus
-
-是否使用 dll 开启窗口聚焦模式。
-
-!> 该功能使用的 dll 在部分 Win 10 机器上有 bug 导致无法启动，原因未知。
-
-#### global.enable_simulate_focus
+#### global.enable_focus
 
 是否使用键盘模拟聚焦模式。原理是在游戏中不断触发某个不存在的按键，这个按键只能在窗口聚焦时有效。默认开启。
 

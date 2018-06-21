@@ -1,6 +1,6 @@
 # Object 文档
 
-!> 该板块仍然处于:chicken::chicken::chicken:状态，有一些说明可能有误。
+!> 勘误请点击左上角的 **Edit Document**，感谢！
 
 ### Blocks 砖块
 
@@ -145,7 +145,7 @@ ys = 2 // 可选，垂直缩放
 // 以下代码中 i >= 1
 trg[i] = 1 // 必填，第 i 个触发器编号
 time[i] = 50 // 必填，从编号 i 触发到编号 i + 1 触发所用的时间
-snd[i] = 6 // 可选，第 i 个触发器的触发音效
+snd[i] = sndBlockChange // 可选，第 i 个触发器的触发音效
 xs = 2 // 可选，水平缩放
 ys = 2 // 可选，垂直缩放
 ```
@@ -177,68 +177,6 @@ scl[i] = 2 // 可选，第 i 个路径的路径缩放倍数
 ```
 
 在常量表中可找到[路径结束事件](constant?id=路径结束动作)的可能值
-
-#### trgScale
-
-缩放刺。当触发之后会放大/缩小。共有两种触发方式：
-
-- 缩放时间
-- x, y 缩放分速度。
-
-缩放时间触发，`Creation Code` 参数：
-
-```gml
-spr = sprSpikeUp // 必填，使用的精灵
-trg = 1 // 必填，触发器编号
-tarx = 2 // 可选，触发之后 x 方向的目标缩放量
-tary = 2 // 可选，触发之后 y 方向的目标缩放量
-time = 50 // 必填，缩放到目标缩放量所需要的时间（帧）
-origin = 5 // 可选，缩放中心位置
-```
-
-x, y 缩放速度触发。Creation Code 参数：
-
-```gml
-spr = sprSpikeUp // 必填，使用的精灵
-trg = 1 // 必填，触发器编号
-// (tarx, xsp) 与 (tary, ysp) 至少有一组必填
-tarx = 2 // 可选，触发之后 x 方向的目标缩放量
-xsp = 0.04 // 可选，触发之后 x 方向的缩放速度
-tary = 2 // 可选，触发之后 y 方向的目标缩放量
-ysp = 0.04 // 可选，触发之后 y 方向的缩放速度
-origin = 5 // 可选，缩放中心位置
-```
-
-其中，origin 的值为 1 - 9，分别对应精灵的左上角，中上，右上角......见下：
-
-```
-1 2 3
-4 5 6
-7 8 9
-```
-
-对于这几个参数的额外说明：
-
-假设你需要将某刺在 1 秒内缩放到原来的 3 倍大小，那么 tarx，tary 的值就为 3；
-
-- 对于缩放时间方式，time = 50；
-
-- 对于缩放速度方式，xsp 与 ysp 的值均为：(3 – 1) / 50 = 0.04。
-
-#### trgRotate
-
-旋转刺。在触发之后会相对于某一点旋转一定的度数。
-
-Creation Code 参数：
-
-```gml
-spr = sprSpikeUp // 必填，使用的精灵
-trg = 1 // 触发器编号
-cx = 16 // 旋转中心离 spr 原点的横向距离
-cy = 16 // 旋转中心离 spr 原点的纵向距离
-angle = 90 // 旋转总度数
-time = 50 // 旋转到目标度数所需要的时间（帧）
-```
 
 #### trgPathBlock
 
@@ -277,7 +215,7 @@ Creation Code 参数：
 
 ```gml
 trg = 1 // 必填，触发器编号
-sprite_index = sprBlock // 可选，使用的精灵
+spr = sprBlock // 可选，使用的精灵
 ```
 
 ### Gimmicks 功能
@@ -312,6 +250,10 @@ sprite_index = sprBlock // 可选，使用的精灵
 
 碰到玩家之后使之不能无限跳。
 
+#### WalljumpR、WallJumpL
+
+藤蔓
+
 #### movingPlatform
 
 普通木板。
@@ -344,7 +286,7 @@ spd = 7 // 必填，运动速度
 其他可选参数：
 
 ```gml
-enda = PATH_ACTION_STOP // 可选，路径结束事件
+enda = PATH_ACTION_STOP // 路径结束事件
 scl = 1 // 路径缩放倍数
 move = false // 是否防止剧透（玩家死亡之后会沿着当前方向移动，不会停止/转弯）
 draw = false // 是否绘制路径
@@ -383,7 +325,17 @@ spd = 2 // 各刺沿路径移动的速度
 spr = sprSpikeUp // 刺的精灵（可选，默认情况下为朝上的普通刺）
 ```
 
-### Host
+#### objJumpRefresher
+
++1 跳。
+
+Creation Code 参数：
+
+```gml
+time = 50 // 刷新时间
+```
+
+### Host 主机专用
 
 该文件夹中的 `object` 仅对房主生效。
 
@@ -398,7 +350,7 @@ spr = sprSpikeUp // 刺的精灵（可选，默认情况下为朝上的普通刺
 | playerStartHost | 出生点 |
 | freeButtonHost  | 按钮   |
 
-### Guest
+### Guest 非主机专用
 
 该文件夹中的 `object` 仅对非房主生效
 
@@ -415,56 +367,44 @@ spr = sprSpikeUp // 刺的精灵（可选，默认情况下为朝上的普通刺
 
 ### Saves 存档点
 
+引擎中的存档点共有 4 种状态：
+
+- 红色：默认
+- 黄色：说明该存档点需要所有玩家共同射击才能生效。
+- 蓝色：说明其他玩家已存档（但是与你无关）
+- 绿色：存档成功
+
 #### savePoint
 
-普通单人存档点。一共有四种状态：
-
-1.  红色：默认
-2.  黄色：说明该存档点需要所有玩家共同射击才能生效。
-3.  蓝色：说明其他玩家已存档（但是与你无关）
-4.  绿色：存档成功
+普通单人存档点，有 `红`、`蓝`、`绿` 三种状态。
 
 #### savePointWait
 
-等待存档。所有人射击才能存档成功。存档位置以最后一个人的位置为准。
+等待存档。所有人射击才能存档成功，存档位置以最后一个人的位置为准。有 `红`、`黄`、`绿` 三种状态。
 
 #### savePointSync
 
-同步存档。当一个人存档之后，其他所有人均可以通过重置游戏传送到该存档。
+同步存档。当一个人存档之后，其他所有人均可以通过重置游戏传送到该存档。有 `红`、`绿` 两种状态。
 
 ### Warps 传送点
 
-这个文件夹中包含了各种 warp（传送点）
+在果引擎 2.0 版中，取消了 warpX/warpY 参数，取而代之的是 **有编号的 `playerStart` **。即你可以在 warp 中指定一个编号 `num`，当玩家进入该传送点时，则会被传送到对应房间中编号为 `num` 的 `playerStart` 位置。
 
 #### warp
 
 普通 warp。
 
-传送到 `playerStart` 的位置时，`Creation Code` 参数：
+Creation Code 参数：
 
 ```gml
-roomTo = rTraps // 传送到的房间名称
-kind = 0 // 使用的房间转场效果
-text = "text" // 绘制文字
-color = c_red // 文字颜色
+roomTo = rTraps // 必填，传送到的房间名称。如果是房间内传送，则填 -1。
+num = 0 // 可选，传送到 playerStart 的编号
+kind = 0 // 可选，使用的房间转场效果
+clearSpeed = false // 可选，是否清除玩家速度
+screens = 1 // 可选，平移房间的个数
+text = "text" // 可选，绘制文字
+color = c_red // 可选，文字颜色
 ```
-
-传送到指定位置时，`Creation Code` 参数：
-
-```gml
-roomTo = rTraps // 传送到的房间名称
-kind = 0 // 使用的房间转场效果
-warpX = 400 // 指定传送的 x 坐标
-warpY = 304 // 指定传送的 y 坐标
-clearSpeed = false // 是否清除玩家速度
-screens = 1 // 移动房间的个数
-```
-
-关于 `warpX` / `warpY` 的说明：
-
-`warpX` 与 `warpY` 的设置位置与 playerStart 类似，其值应为 `32 * 32` 网格的左上角坐标。
-
-例如，想将 `player` 传送到屏幕正中间时，`warpX` 为 384， `warpY` 为 288。
 
 关于 `screens` 参数的说明：
 
@@ -472,32 +412,43 @@ screens = 1 // 移动房间的个数
 
 如图所示，假设你想从 room1 中的 (800, 912) 处传送到 room2 中的 (0, 304) 处，不仅得将 x 坐标设为 0，还需要将 y 坐标向上平移一个屏幕的距离（608 像素）。这样可以使 `player` 的纵坐标在屏幕上看起来没有变化，增强游戏的连续性。
 
-在这种情况下，将 `warpX` 设置为目标点的 x 坐标，再将 `screens` 设置为 -1 即可。
-
-- 目标点在屏幕左侧时，`warpX = -12`；
-- 目标点在屏幕右侧时，`warpX = room_width - 24`；
-- 目标点在屏幕上方时，`warpY = -5`；
-- 目标点在屏幕下方时，`warpY = room_height - 32`。
-
-上面例子的 `Creation Code` 中参数：
-
-```
-roomTo = room2;
-warpX = -12;
-screens = -1;
-```
-
-?> 将 roomTo 设置为 -1，可以在同房间内传送
+在这种情况下，将 `screens` 设置为 -1 即可。
 
 ?> 关于房间转场效果，可以参考[转场效果](transition.md)
 
-#### invisibleWarp
+#### warpSync
 
-#### invisibleWarpSync
+传送后会将其他玩家一并传送（包括死亡的）。
 
-#### invisibleWarpWait
+#### warpWait
 
-隐形 warp。如果将 `warp` 放在房间外，我们往往需要对其进行拉伸。而由于 `warp` 的形状不规则，拉伸之后会导致在某些角度下传送失败。因此，在房间边缘需要传送到另一个房间时，请使用 `invisibleWarp*`。
+所有玩家一起进入才会生效的传送点。
+
+#### warpWaitingBG
+
+在玩家进入 warpWait 后显示的等待画面。
+
+#### borderWarp
+
+#### borderWarpSync
+
+#### borderWarpWait
+
+隐形 warp。如果将 `warp` 放在房间外，我们往往需要对其进行拉伸。而由于 `warp` 的形状不规则，拉伸之后会导致在某些角度下传送失败。因此，在房间边缘需要传送到另一个房间时，请使用 `borderWarp*`。
+
+Creation Code 参数：
+
+```gml
+roomTo = rTraps // 必填，传送到的房间名称。
+kind = 0 // 可选，使用的房间转场效果
+width = 1 // 可选，目标房间的宽度与视野宽度的比值，通常情况下可以用 room_width / 800 代替
+height = 1 // 可选，目标房间的高度与视野高度的比值，通常情况下可以用 room_height / 800 代替
+screens = 1 // 可选，平移房间的个数
+```
+
+?> 关于 screens 参数，可以参考[这里](objectref?id=warp)
+
+!> 使用该 obj 时，默认将 player 传到目标房间的房间边缘。如果想要 player 传送到目标房间的 playerStart 位置，可以设置 `mode = 'normal'`。
 
 #### warpStart
 
@@ -631,7 +582,7 @@ infJump = false // 是否开启无限跳
 
 #### objResetWait
 
-联机模式下，如果房间中存在该 `object`，则仅当所有人选择重置游戏时，游戏才会重置。
+联机模式下，当所有人选择重置游戏时，游戏才会重置。
 
 ?> BOSS 房间中强烈推荐
 
@@ -642,10 +593,6 @@ infJump = false // 是否开启无限跳
 ### Visual 视觉效果
 
 这个文件夹中包含了一些常见的游戏效果。
-
-#### objHPBar
-
-用来绘制 boss 血条。这仅仅是一个如何使用 `drawLife` 脚本的范例
 
 #### objShake
 
@@ -658,6 +605,17 @@ infJump = false // 是否开启无限跳
 #### objShadow
 
 通过脚本 createShadow 调用，请参考脚本 [createShadow](scriptref?id=createshadowalpha_speed-scale_speed)。
+
+#### objViewFlipper
+
+翻转视角。
+
+Creation Code 参数：
+
+```gml
+angle = 180 // 可选，旋转度数，默认 180
+time = 15 // 可选，旋转时间，默认 15
+```
 
 ### Parent 父对象
 
@@ -676,7 +634,7 @@ infJump = false // 是否开启无限跳
 | bulletParent      | 子弹父对象                       |
 | objWaterParent    | 水父对象                         |
 
-### Bosses
+### Bosses BOSS
 
 #### miku
 
@@ -686,11 +644,27 @@ infJump = false // 是否开启无限跳
 
 如果想学习如何制作耐久，可以先参考一下[耐久制作基础教程](avoidance.md)。
 
-这个文件夹中包含了两个范例 boss（强化版的 boss 有二形态），objBossBullet 是 boss 中发射的弹幕 obj。这个 boss 与之前的教程中的 boss 范例差不多，只是放出一些攻击方式的代码供大家参考，仅供学习交流用，还请不要将这些傻蛋攻击方式仅仅是直接抄到你自己的高端大气的 boss 战中(´・ω・｀)
+#### objHPBar
+
+用来绘制 boss 血条。这仅仅是一个如何使用 `drawLife` 脚本的范例
+
+#### objBossSample
+
+BOSS 示例。
+
+#### objBossSampleBuffed
+
+强化 BOSS 示例。
+
+#### objBossSampleOnline
+
+联机 BOSS 示例。
+
+#### objBossBullet
+
+BOSS 发射的弹幕 obj。
 
 ### System 系统
-
-这个文件夹中包含了 `player` 以及有关游戏系统的 obj。这里介绍本引擎与 yuuutu 引擎中不同的地方。
 
 #### options
 
@@ -702,7 +676,7 @@ infJump = false // 是否开启无限跳
 | objMusic        | 音乐图标显示     |
 | objSound        | 音效图标显示     |
 
-### title
+#### title
 
 | 名称                | 用途                           |
 | ------------------- | ------------------------------ |
@@ -728,58 +702,46 @@ infJump = false // 是否开启无限跳
 
 ##### player
 
+初始化参数参考 [playerInit](scriptref?id=player)
+
+其他可能有用的变量如下：
+
+```gml
+onBlock = 是否站在砖块上
+onPlatform = 是否站在板子上
+onConveyor = 是否站在传送带上
+onIvy = 是否在藤蔓上
+inWater = 是否在水中
+isRunning = 是否移动
+isJumping = 是否跳跃
+curJumps = 当前跳跃数
+
+// 例如：
+if (player.isJumping && player.curJumps == 2) {
+  // 在二段跳时触发...
+}
+if (player.isJumping && player.inWater) {
+  // 在水中跳跃时触发...
+}
+```
+
 ##### bloodEmitter
+
+血液喷泉生成器。
 
 ##### objBlood
 
+血迹。
+
 ##### bullet
+
+玩家发射的子弹。
 
 #### online
 
-#### world
+#### menu
 
-- 计时方式为精确到毫秒
-- 在 draw 事件中可以修改暂停界面。其中 pauseback 为暂停前游戏画面的截图
-
-!> gm8.1 中生成截图的函数 `background_create_from_screen`有一定概率会出现 bug。
-
-#### player
-
-!> 移除原有变量：frozen, djump
-
-新增：
-
-- `global.reverse`: 设置为 true 时，颠倒重力
-- `global.frozen`: 设置为 true 时，玩家无法操作 kid
-- `global.frozen2`: 设置为 true 时，kid 无法移动（上下左右均不可）
-- `infJump`: 设置为 true 时，kid 可以无限跳
-- `jump[i]`: kid 第 i 段跳跃的速度
-- `maxJumps`: 最大跳跃次数（3 或者 3 以上时，需额外指定跳跃高度）
-- `curJumps`: 当前处于的跳跃编号
-- `grav`: 重力大小
-
-有关 player 的脚本：
-
-- `playerMove` 控制 player 左右移动的脚本
-- `playerWallJump` 控制 player 爬墙时动作的脚本
-- `playerJump` 控制 player 跳跃的脚本
-- `playerShoot` 控制 player 射击的脚本
-- `playerSlope` 控制 player 在斜面上移动的脚本
-- `playerReverse` 控制 player 翻转重力的脚本
-- `playerMisc` 控制 player 的杂项脚本，包括死亡判定、调试功能等新增功能（仅在调试模式（F6）中有效）：
-  - 使用鼠标左键同屏传送(´・ω・｀)
-  - 使用 S 键即时存档(´・ω・｀)
-  - 使用 G 键开启上帝模式(´・ω・｀)
-
-#### bloodEmitter
-
-更换为粒子效果，减少了死亡之后的 obj 数量
-
-#### titleButton
-
-增加了轻量化模式下，直接读取 SaveData1 的功能。
-
-#### menuSelect / menuSelect2
+##### objMenuSelect / objMenuSelect2
 
 均用于在 `rMenu` 中绘制死亡次数、时间、boss 图标等。
 
@@ -798,3 +760,16 @@ infJump = false // 是否开启无限跳
 ```
 
 只用在 `Draw` 事件中根据 `menu_item[i, j]` 来判断图标并绘制即可
+
+#### 杂项
+
+| obj 名称        | 用途                  | 备注                                                                  |
+| --------------- | --------------------- | --------------------------------------------------------------------- |
+| objInit         | 在 rInit 中初始化游戏 |                                                                       |
+| objLoad         | 在 rLoad 中读取存档   |                                                                       |
+| world           | 游戏的全局控制器      | 参考 [World](scriptref?id=world)                                      |
+| objEffectParent | 全局效果控制器        | 控制 [flashObject](scriptref?id=flashobjectflash_time-flash_count) 等 |
+| objGameover     | GAMEOVER！            |                                                                       |
+| objDeathSound   | 死亡时音效控制        |                                                                       |
+| objNothing      | 啥都不干              |                                                                       |
+| objDebug        | 调试控制台            | 参考 [调试功能](debug.md)                                             |

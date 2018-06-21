@@ -8,8 +8,8 @@
 
 2.  根据 GameMaker 版本的不同，添加 `Creation Code` 的方式也不同
 
-    * GameMaker 8.0：`Ctrl + 右键 -> Creation Code...`
-    * GameMaker 8.1：`右键 -> Creation Code...`
+    - GameMaker 8.0：`Ctrl + 右键 -> Creation Code...`
+    - GameMaker 8.1：`右键 -> Creation Code...`
 
 ## 果引擎中的 Creation Code 规范
 
@@ -27,6 +27,7 @@
        v = 触发纵向速度
      spd = 触发速度
      dir = 触发方向
+  origin = 旋转/缩放中心
     time = 时间（以帧为单位）
      num = 编号（boss编号，道具编号等）
    noDes = 出房间后是否不销毁（默认为出房间后直接销毁）
@@ -43,8 +44,8 @@
 ------------- 传送相关 -------------
   roomTo = 目标房间
     kind = 转场效果（可选）
-   waprX = 传送 X 坐标（可选）
-   warpY = 传送 Y 坐标（可选）
+     num = 目标 playerStart 的编号（可选）
+    mode = warp 模式（'normal'/'border'，默认为'normal'）
     text = warp 上方文字（可选）
    color = warp 上方文字颜色（可选）
 ```

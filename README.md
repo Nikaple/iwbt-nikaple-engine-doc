@@ -2,6 +2,10 @@
 
 > 一个完整的 [I Wanna](https://kayin.moe/iwbtg/downloads.php) 衍生游戏制作框架。
 
+# 我刚接触 GameMaker
+
+请查阅[入门教程](https://www.heabot.cn/forum.php?mod=viewthread&tid=76)
+
 # 引擎功能
 
 - [多人联机支持](network.md)

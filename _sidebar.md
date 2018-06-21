@@ -15,11 +15,11 @@
   - [新存档系统](save.md)
   - [游戏发布](release.md)
   - [调试功能](debug.md)
+  - [其他新特性](misc.md)
 
 - 详细信息
   - [房间过渡效果](transition.md)
   - [常量表](constant.md)
   - [Script 文档](scriptref.md)
   - [Object 文档](objectref.md)
-  - [新手教程](tutorial.md)
   - [耐久超基础教程](avoidance.md)

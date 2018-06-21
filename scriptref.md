@@ -6,30 +6,32 @@
 
 游戏的初期设定，详见[全局设定](global.md)
 
-| 配置名                             | 用途                                              | 默认值                                |
-| ---------------------------------- | ------------------------------------------------- | ------------------------------------- |
-| global.game_title                  | 设置游戏标题                                      | I wanna be the Engine Nikaple Edition |
-| global.first_stage                 | 设置游戏正式开始时的初始房间                      | rHub                                  |
-| global.enable_production_mode      | 是否开启生产模式                                  | false                                 |
-| global.enable_internationalization | 是否启用多语言                                    | true                                  |
-| global.language                    | 语言设定，可选值有`LANG_CN`，`LANG_EN`，`LANG_JP` | LANG_CN                               |
-| global.enable_builtin_drawing      | 是否使用内置绘图函数                              | false                                 |
-| global.enable_stream_music         | 是否使用流式播放音乐                              | true                                  |
-| global.enable_dll_focus            | 是否加入聚焦支持                                  | true                                  |
-| global.enable_simulate_focus       | 是否使用键盘模拟聚焦模式                          | false                                 |
-| global.focus_key_code              | 使用键盘模拟聚焦的键码                            | 1                                     |
-| global.enable_encryption           | 存档文件是否加密                                  | true                                  |
-| global.key                         | 存档文件加密密钥（至少 64 位）                    | huY...BTS                             |
-| global.ip_address                  | 服务器 IP 地址                                    | 139.199.18.59                         |
-| global.tcp_port                    | 服务器 TCP 端口                                   | 3738                                  |
-| global.udp_port                    | 服务器 UDP 端口                                   | 3738                                  |
-| global.online_mode                 | 是否为联机模式                                    | true                                  |
-| global.max_sync_cycle              | 同步周期                                          | 3                                     |
-| global.enable_lite_mode            | 是否开启轻量化模式                                | false                                 |
-| global.debug_host_name             | 调试主机用户名                                    | username                              |
-| global.debug_host_pass             | 调试主机密码                                      | password                              |
-| global.debug_guest_name            | 调试非主机用户名                                  | test                                  |
-| global.debug_guest_pass            | 调试非主机密码                                    | test                                  |
+| 配置名                             | 用途                                         | 默认值                                |
+| ---------------------------------- | -------------------------------------------- | ------------------------------------- |
+| global.game_title                  | 设置游戏标题                                 | I wanna be the Engine Nikaple Edition |
+| global.first_stage                 | 设置游戏正式开始时的初始房间                 | rHub                                  |
+| global.enable_production_mode      | 是否开启生产模式                             | false                                 |
+| global.enable_internationalization | 是否启用多语言                               | true                                  |
+| global.language                    | 语言设定，可选值有 LANG_CN、LANG_EN、LANG_JP | LANG_CN                               |
+| global.encoding                    | 文字编码                                     | gb2312                                |
+| global.enable_builtin_drawing      | 是否使用内置绘图函数                         | false                                 |
+| global.enable_stream_music         | 是否使用流式播放音乐                         | true                                  |
+| global.game_room_width             | 窗口宽度                                     | 800                                   |
+| global.game_room_height            | 窗口高度                                     | 608                                   |
+| global.enable_focus                | 是否使用键盘模拟聚焦模式                     | true                                  |
+| global.focus_key_code              | 使用键盘模拟聚焦的键码                       | 1                                     |
+| global.enable_encryption           | 存档文件是否加密                             | true                                  |
+| global.key                         | 存档文件加密密钥（至少 64 位）               | huY...BTS                             |
+| global.ip_address                  | 服务器 IP 地址                               | 139.\*.\*.59                          |
+| global.tcp_port                    | 服务器 TCP 端口                              | 3738                                  |
+| global.udp_port                    | 服务器 UDP 端口                              | 3738                                  |
+| global.online_mode                 | 是否为联机模式                               | true                                  |
+| global.max_sync_cycle              | 同步周期                                     | 3                                     |
+| global.enable_lite_mode            | 是否开启轻量化模式                           | false                                 |
+| global.debug_host_name             | 调试主机用户名                               | username                              |
+| global.debug_host_pass             | 调试主机密码                                 | password                              |
+| global.debug_guest_name            | 调试非主机用户名                             | test                                  |
+| global.debug_guest_pass            | 调试非主机密码                               | test                                  |
 
 #### scrSealRoom(noTop, noLeft, noBottom, noRight)
 
@@ -549,6 +551,7 @@ drawLife(
 - maxJumps：跳跃总数（会写入存档）
 - maxSpeed：横向速度（会写入存档）
 - grav：重力（会写入存档）
+- shootInterval: 连射间隔（会写入存档）
 - maxAirSpeed：最大下落速度
 - maxWaterSpeed：水中最大下落速度
 
@@ -651,7 +654,7 @@ drawLife(
 
 判断是否为游戏内房间（非标题、大厅、选择关卡等房间）
 
-#### scrWarpRoom(roomTo, warpX, warpY, clearSpeed, screens, kind)
+#### scrWarpRoom(roomTo, num, mode, width, height, clearSpeed, screens, kind)
 
 ## Lib
 
@@ -854,6 +857,8 @@ cmd_log(cmd)
 */
 ```
 
+?> 当省略 cmd 参数时，会创建一个空 `ds_map`
+
 #### cmd_destroy(cmd)
 
 清除一个 `cmd`，释放它所占用的内存空间。
@@ -1003,6 +1008,10 @@ cmd_log(cmd)
 | fake_irandom       | 伪 irandom       |
 | fake_random_range  | 伪 random_range  |
 | fake_irandom_range | 伪 irandom_range |
+
+### auto_tile
+
+用于自动绘制贴图。详见 [自动贴图](autotile.md)
 
 ## Plugins
 

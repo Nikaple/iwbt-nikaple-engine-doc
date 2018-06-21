@@ -6,38 +6,38 @@
 
 服务器是客户端与客户端之间沟通的媒介，离开了服务器的支持，利用果引擎制作出的游戏只能单机运行。果引擎配套的服务器端代码 [iw-nikaple-server](https://github.com/Nikaple/iw-nikaple-server) 使用 [Node.js](https://nodejs.org) 编写，基于 [Patchwire](https://www.npmjs.com/package/patchwire) 魔改而来，在没有特殊需求的情况下，一般不需要修改。
 
-果引擎为开发者提供了一个默认的 IP 地址（139.199.18.59，请在引擎的`ns_init`脚本中查看），仅供测试使用。在公开发布游戏时最好将 IP 地址改为你自己服务器的 IP，以增加游戏服务器的稳定性。
+果引擎为开发者提供了一个默认的 IP 地址（139.\*.\*.59，请在引擎的 `setGlobals` 脚本中查看），仅供测试使用。在公开发布游戏时最好将 IP 地址改为你自己服务器的 IP，以增加游戏服务器的稳定性。
 
 # 客户端
 
 客户端的基础引擎部分基于 [I wanna be the Engine Yuuutu Edition](https://www.delicious-fruit.com/ratings/game_details.php?id=10483)（~~其实已经差不多全部重写了~~），网络通讯部分为高度定制化的 Patchwire 配套 [GM:S 引擎](https://github.com/gm-core/patchwire-gm)，使用的 Dll 插件包括：
 
-* [Http Dll 2.3](http://www.maartenbaert.be/game-maker-dlls/http-dll-2/) 用于网络通信
-* [Super Sound System](http://gmc.yoyogames.com/index.php?showtopic=120034) 用于音乐播放
-* [FoxWriting](https://www.noisyfox.io/fox-writing-gamemaker.html) 用于多语言支持
-* [CleanMem](http://gmc.yoyogames.com/index.php?showtopic=438215) 用于释放多余内存
+- [Http Dll 2.3](http://www.maartenbaert.be/game-maker-dlls/http-dll-2/) 用于网络通信
+- [Super Sound System](http://gmc.yoyogames.com/index.php?showtopic=120034) 用于音乐播放
+- [FoxWriting](https://www.noisyfox.io/fox-writing-gamemaker.html) 用于多语言支持
+- [CleanMem](http://gmc.yoyogames.com/index.php?showtopic=438215) 用于释放多余内存
 
 # 通讯协议
 
 服务器与客户端的通信协议主要分为两种，TCP 以及 UDP，它们的特点如下：
 
-* TCP：稳定，但相对来说效率较低
-* UDP：不稳定，丢包率相对较大，但效率高
+- TCP：稳定，但相对来说效率较低
+- UDP：不稳定，丢包率相对较大，但效率高
 
 基于以上特性，你需要对不同数据选择不同协议来进行传输：
 
-* 用户登录，创建房间，射击存档，重置游戏等功能，由于其数据量较小（一般只发送一次数据即可），为了保证其稳定性使用 TCP 协议传输。
-* 玩家位置同步，可推动的箱子的位置同步等功能，由于数据量大（几乎每帧都会传送数据），但对稳定性要求不高（后面的数据会自然覆盖前面的，所以就算丢包也会很快恢复正常），使用 UDP 协议传输。
+- 用户登录，创建房间，射击存档，重置游戏等功能，由于其数据量较小（一般只发送一次数据即可），为了保证其稳定性使用 TCP 协议传输。
+- 玩家位置同步，可推动的箱子的位置同步等功能，由于数据量大（几乎每帧都会传送数据），但对稳定性要求不高（后面的数据会自然覆盖前面的，所以就算丢包也会很快恢复正常），使用 UDP 协议传输。
 
 # 使用 TCP 协议传输数据
 
 在引擎中，一共有三种预设的 TCP 传输模式，可以满足大部分的需求。它们分别是：
 
-* [Instance 实例模式](/network?id=instance-实例模式)，用于同步静态放置在房间中，具有相同 `id` 的实例。
+- [Instance 实例模式](/network?id=instance-实例模式)，用于同步静态放置在房间中，具有相同 `id` 的实例。
 
-* [Event 事件模式](/network?id=event-事件模式)，用于同步任意时间点，在任意实例中的任意信息。
+- [Event 事件模式](/network?id=event-事件模式)，用于同步任意时间点，在任意实例中的任意信息。
 
-* [Wait 等待模式](/network?id=wait-等待模式)，用于同步一些需要所有客户端同时触发才能进行的事件。
+- [Wait 等待模式](/network?id=wait-等待模式)，用于同步一些需要所有客户端同时触发才能进行的事件。
 
   ?> 注意，由于引擎的限制，同步脚本 `ns_send_*` 只能写在 **除 Create, Begin Step, End Step, Draw 以外** 其他的事件中。如果实在需要在这些事件中调用同步脚本，请在需要同步的地方设定 alarm[i] = 1，并在 Alarm i （i = 0 ~11）事件中发送同步请求。
 
@@ -47,9 +47,9 @@
 
 `scope` 的值可以是：
 
-* `SCOPE_DEFAULT` 默认范围，发送给同房间的其他玩家（不填就是它）
-* `SCOPE_OTHERS` 发送给其他玩家（无论在不在同一房间）
-* `SCOPE_ALL` 发送给所有人（包括你自己）
+- `SCOPE_DEFAULT` 默认范围，发送给同房间的其他玩家（不填就是它）
+- `SCOPE_OTHERS` 发送给其他玩家（无论在不在同一房间）
+- `SCOPE_ALL` 发送给所有人（包括你自己）
 
 例如：
 
@@ -68,8 +68,8 @@ ns_send_event(
 
 脚本接收任意个数的参数，但需满足以下条件：
 
-* 第一个参数为需要同步信息（键值对）的数量 n；
-* 紧接着的 2n 个参数为形如 key<sub>1</sub>, value<sub>1</sub>, key<sub>2</sub>, value<sub>2</sub>, ..., key<sub>n</sub>, value<sub>n</sub> 的键值对，代表需要同步的信息。
+- 第一个参数为需要同步信息（键值对）的数量 n；
+- 紧接着的 2n 个参数为形如 key<sub>1</sub>, value<sub>1</sub>, key<sub>2</sub>, value<sub>2</sub>, ..., key<sub>n</sub>, value<sub>n</sub> 的键值对，代表需要同步的信息。
 
 注意，该脚本只能用于同步直接摆放在房间内，固定 `id` 的 `object` 。（使用 `instance_create` 创建的 `object` 无效，会报错）
 
@@ -130,9 +130,9 @@ vspeed = v
 
 脚本接收任意个数的参数，但需满足以下条件：
 
-* 第一个参数为事件的名称（后面会用到）；
-* 第二个参数为该事件中需要同步信息（键值对）的数量 n；
-* 紧接着的 2n 个参数为形如 key<sub>1</sub>, value<sub>1</sub>, key<sub>2</sub>, value<sub>2</sub>, ..., key<sub>n</sub>, value<sub>n</sub> 的键值对，代表需要同步的信息。
+- 第一个参数为事件的名称（后面会用到）；
+- 第二个参数为该事件中需要同步信息（键值对）的数量 n；
+- 紧接着的 2n 个参数为形如 key<sub>1</sub>, value<sub>1</sub>, key<sub>2</sub>, value<sub>2</sub>, ..., key<sub>n</sub>, value<sub>n</sub> 的键值对，代表需要同步的信息。
 
 以 `savePointSync` 为例，当某个客户端的 `player` 利用该存档保存之后，其他所有玩家均可以通过重置游戏（也就是按 R ）来移动到该存档前。由于存档时玩家可能在不同房间，因此不适合使用 Instance 方式来进行同步。
 
@@ -194,10 +194,10 @@ _y = json_pick(data, 'y')
 
 该脚本接收任意个数的参数，满足以下条件：
 
-* 第一个参数为等待事件的名称（后面会用到）；
-* 第二个参数为该事件的标记信息；
-* 第三个参数为该等待事件中需要同步信息（键值对）的数量 n；
-* 紧接着的 2n 个参数为形如 key<sub>1</sub>, value<sub>1</sub>, key<sub>2</sub>, value<sub>2</sub>, ..., key<sub>n</sub>, value<sub>n</sub> 的键值对。
+- 第一个参数为等待事件的名称（后面会用到）；
+- 第二个参数为该事件的标记信息；
+- 第三个参数为该等待事件中需要同步信息（键值对）的数量 n；
+- 紧接着的 2n 个参数为形如 key<sub>1</sub>, value<sub>1</sub>, key<sub>2</sub>, value<sub>2</sub>, ..., key<sub>n</sub>, value<sub>n</sub> 的键值对。
 
 如果返回数据中的 `fin` 项为 1，即说明所有客户端均已触发该事件。
 
@@ -219,9 +219,9 @@ if (shouldResetWait) {
 
 该类脚本均接收三个参数：
 
-* 第一个参数为发送该事件的玩家名；
-* 第二个参数是一个 `ds_map`，存放着所有同步的数据；
-* 第三个参数代表着是否所有客户端均已触发该事件
+- 第一个参数为发送该事件的玩家名；
+- 第二个参数是一个 `ds_map`，存放着所有同步的数据；
+- 第三个参数代表着是否所有客户端均已触发该事件
 
 ```gml
 // handler_wait_reset(fromName, data, isFinished)
