@@ -11,8 +11,8 @@ In debug mode, you can see almost any object in the map. Including bricks, trigg
 `Create Event`:
 
 ```gml
-If (debug_mode) {
-    visible = true
+if (debug_mode && global.__debug_mode) {
+    visible = true
 }
 ```
 

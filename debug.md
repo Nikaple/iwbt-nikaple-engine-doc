@@ -9,7 +9,7 @@
 `Create Event`：
 
 ```gml
-if (debug_mode) {
+if (debug_mode && global.__debug_mode) {
     visible = true
 }
 ```

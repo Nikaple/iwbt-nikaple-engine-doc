@@ -28,7 +28,7 @@ GameMaker (以下简称 GM) 是如今大部分 I wanna 制作所使用的软件�
 
 一些游戏制作者慷慨的放出了他们制作游戏所使用的“引擎”，也就是他们制作好的半成品 GM 工程文件，里面包含了大部分 I wanna 游戏所必须的资源（包括 kid、刺、苹果等图片素材以及游戏基本操作、基本系统的构建等）。这里使用果引擎（不然你来这干嘛？）
 
-看到这里你应该下载并安装好了 GM，并且下载好了[果引擎](http://p9wc9w6dq.bkt.clouddn.com/iwbte-nikaple-edition-1.9.0.zip)并将引擎解压到一个文件夹中。准备好之后，便可以开始我们的 I wanna 制作了。
+看到这里你应该下载并安装好了 GM，并且下载好了[果引擎](http://p9wc9w6dq.bkt.clouddn.com/iwbte-nikaple-edition-1.9.3.zip)并将引擎解压到一个文件夹中。准备好之后，便可以开始我们的 I wanna 制作了。
 
 ## 概览
 
