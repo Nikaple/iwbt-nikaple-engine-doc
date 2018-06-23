@@ -1,14 +1,16 @@
 # 联机简介
 
-为了自定义游戏中的联机效果，你首先需要对联机游戏的运行机制有一个基本的概念。
+## 启用
 
-# 服务器
+在脚本 `setGlobals` 中，将设置 `global.online_mode = true` 即可。（默认启用）
+
+## 服务器
 
 服务器是客户端与客户端之间沟通的媒介，离开了服务器的支持，利用果引擎制作出的游戏只能单机运行。果引擎配套的服务器端代码 [iw-nikaple-server](https://github.com/Nikaple/iw-nikaple-server) 使用 [Node.js](https://nodejs.org) 编写，基于 [Patchwire](https://www.npmjs.com/package/patchwire) 魔改而来，在没有特殊需求的情况下，一般不需要修改。
 
 果引擎为开发者提供了一个默认的 IP 地址（139.\*.\*.59，请在引擎的 `setGlobals` 脚本中查看），仅供测试使用。在公开发布游戏时最好将 IP 地址改为你自己服务器的 IP，以增加游戏服务器的稳定性。
 
-# 客户端
+## 客户端
 
 客户端的基础引擎部分基于 [I wanna be the Engine Yuuutu Edition](https://www.delicious-fruit.com/ratings/game_details.php?id=10483)（~~其实已经差不多全部重写了~~），网络通讯部分为高度定制化的 Patchwire 配套 [GM:S 引擎](https://github.com/gm-core/patchwire-gm)，使用的 Dll 插件包括：
 
@@ -17,7 +19,7 @@
 - [FoxWriting](https://www.noisyfox.io/fox-writing-gamemaker.html) 用于多语言支持
 - [CleanMem](http://gmc.yoyogames.com/index.php?showtopic=438215) 用于释放多余内存
 
-# 通讯协议
+## 通讯协议
 
 服务器与客户端的通信协议主要分为两种，TCP 以及 UDP，它们的特点如下：
 
@@ -29,7 +31,7 @@
 - 用户登录，创建房间，射击存档，重置游戏等功能，由于其数据量较小（一般只发送一次数据即可），为了保证其稳定性使用 TCP 协议传输。
 - 玩家位置同步，可推动的箱子的位置同步等功能，由于数据量大（几乎每帧都会传送数据），但对稳定性要求不高（后面的数据会自然覆盖前面的，所以就算丢包也会很快恢复正常），使用 UDP 协议传输。
 
-# 使用 TCP 协议传输数据
+## 使用 TCP 协议传输数据
 
 在引擎中，一共有三种预设的 TCP 传输模式，可以满足大部分的需求。它们分别是：
 
@@ -62,7 +64,7 @@ ns_send_event(
 )
 ```
 
-## Instance 实例模式
+### Instance 实例模式
 
 该模式使用脚本 `ns_send_instance` 声明，用于同步具有相同 `id` 的 `object` 。
 
@@ -124,7 +126,7 @@ vspeed = v
 
 这样便完成了该实例的速度在不同客户端中的同步，这种模式也是应用得最广的一种模式。
 
-## Event 事件模式
+### Event 事件模式
 
 该模式使用脚本 `ns_send_event` 声明，用于在任意时间点，任意 `object` 中同步任意信息。
 
@@ -184,7 +186,7 @@ _y = json_pick(data, 'y')
 
 这样便完成了在任意时间点、任意 `object` 中，对于任意数据的同步。在 `ns_send_instance` 实现不了需求的时候可以考虑考虑这个～
 
-## Wait 等待模式
+### Wait 等待模式
 
 该模式使用脚本 `ns_send_wait` 声明，用于那些在所有玩家都触发某事件后额外发生的事件（例如，所有玩家进入后才会传送的 `warp` 等）。
 
@@ -239,9 +241,9 @@ if (isFinished) {
 }
 ```
 
-# 使用 UDP 协议传输数据
+## 使用 UDP 协议传输数据
 
-## 你可能并不需要 UDP 模式
+### 你可能并不需要 UDP 模式
 
 使用 UDP 协议同步数据对于网络的开销是相当大的，请慎重使用，并且在有可能不用的地方尽可能不用。
 
@@ -249,7 +251,7 @@ if (isFinished) {
 
 另外，在使用该模式之前你需要对缓冲区 `buffer` 以及基本的数据类型有一些基本的了解。关于 `buffer` 读写函数以及数据类型的说明可以参考 `Http Dll 2.3` 的[文档](http://www.maartenbaert.be/game-maker-dlls/http-dll-2/buffers/)。
 
-## 使用 UDP 来同步
+### 使用 UDP 来同步
 
 使用 UDP 模式进行同步的方式也很简单，下面以 `blockPush` 为例简单说明：
 

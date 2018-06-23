@@ -6,8 +6,8 @@
 
 音乐播放主要涉及到两个脚本： `music_init` 与 `music_config` ，它们都在`Scripts -> audio`文件夹下。
 
-* `music_init` 用来从外部文件夹中读取音乐至游戏中；
-* `music_config` 会在各个房间刚开始时调用一次，决定各个房间中需要播放的音乐。
+- `music_init` 用来从外部文件夹中读取音乐至游戏中；
+- `music_config` 会在各个房间刚开始时调用一次，决定各个房间中需要播放的音乐。
 
 ?> 音乐的存放位置可以通过 `setGlobalsMinor` 中的 `global.music_directory` 设置，默认为 `Data/Music`
 
@@ -30,19 +30,18 @@ music_resume(BGM_1)
 
 ## 房间音乐的设置方法
 
-* 在 `music_init` 中，仿照示例增加代码加载音乐，例如：
-  ```gml
-  // add your code here
-  globalvar myMusic;
-  myMusic = music_load("b6.ogg");
-  ```
-  这个变量 `myMusic` 就存入了刚载入的音乐文件 `b6.ogg`，在后面的播放脚本中用到。
-* 在 `music_config` 中，仿照示例增加代码播放音乐，例如：
+- 在 `music_init` 中，引擎会自动读取音乐文件夹（默认为 Data/Music）中的所有文件，并将其 id 储存至全局变量 `BGM_文件名` 中。例如：
+
+  - `Death.ogg` 会被自动读取为 `BGM_Death`；
+  - `faQ.ogg` 会被自动读取为 `BGM_faQ`；
+  - `myMusic.ogg` 会被自动读取为 `BGM_myMusic`。
+
+- 在 `music_config` 中，仿照示例增加代码播放音乐，例如：
 
   ```gml
   // add your code here
   case myRoom:
-      music_play(myMusic);
+      music_play(BGM_myMusic);
       break;
   ...
   ```

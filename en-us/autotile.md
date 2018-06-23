@@ -156,3 +156,14 @@ Code:
 ```gml
 autotile(8, bg, 32)
 ```
+
+## The top row of tile is wrong!
+
+Sometimes, the texture at the top of the room will be different from what you expected. At this point you can refer to `rOnlineWarpWait`, place an objBlock anywhere in the room, and write the following code in its Creation Code:
+
+```gml
+// Place a bar objBlock above the room to change the topmost texture state
+x = 0
+y = -32
+xs = room_width / 32
+```

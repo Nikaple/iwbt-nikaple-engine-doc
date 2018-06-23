@@ -32,29 +32,21 @@ music_resume(BGM_1)
 
 ## How to set up room music
 
-- In `music_init`, follow the example to add code to load music, for example:
+- In `music_init`, the engine will automatically read all files in the music folder (default is Data/Music) and store its id in the global variable `BGM_ filename`. E.g:
 
-  ```gml
-  // add your code here
-  globalvar myMusic;
-  myMusic = music_load("b6.ogg");
-  ```
-
-  This variable `myMusic` is stored in the newly loaded music file `b6.ogg`, which is used in the following playback script.
-
-  ```
-
-  ```
+  - `Death.ogg` is automatically read as `BGM_Death`;
+  - `faQ.ogg` is automatically read as `BGM_faQ`;
+  - `myMusic.ogg` is automatically read as `BGM_myMusic`.
 
 - In `music_config`, follow the example to add code to play music, for example:
 
-```gml
-// add your code here
-case myRoom:
-  music_play(myMusic);
-  break;
-...
-```
+  ```gml
+  // add your code here
+  case myRoom:
+      music_play(BGM_myMusic);
+      Break;
+  ...
+  ```
 
 Note that the following `break` cannot be omitted!
 

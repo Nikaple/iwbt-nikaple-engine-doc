@@ -154,3 +154,14 @@ autotile(8, bg)
 ```gml
 autotile(8, bg, 32)
 ```
+
+## 最上面的一排贴图不对！
+
+有时，房间最上方的贴图会与你期望的不一样。此时可以参考 `rOnlineWarpWait` ，在房间中任意位置放置一个 objBlock，然后在其 Creation Code 中写入如下代码：
+
+```gml
+// 在房间上端放置一个长条 objBlock 以改变最上面的贴图状态
+x = 0
+y = -32
+xs = room_width / 32
+```

@@ -25,6 +25,14 @@ Many constants are provided in the engine to enhance code readability.
 
 ## Internet connection
 
+### Game Mode
+
+| Constant Name    | Constant Value | Description        |
+| ---------------- | -------------- | ------------------ |
+| MODE_TOURNAMENT  | 1              | Forced Athletics   |
+| MODE_COOPERATION | 2              | Forced Cooperation |
+| MODE_USER_SELECT | 3              | Player Select      |
+
 ### Event propagation scope
 
 | Constant Name | Constant Value | Description                            |

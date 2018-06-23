@@ -12,6 +12,16 @@ In the engine, the main game-related global configurable items are placed in `Sc
 
 The title of the game is displayed in the title bar of the game window.
 
+#### global.game_mode
+
+Game mode, the optional values are as follows:
+
+- `MODE_TOURNAMENT`: Can only create rooms in competitive mode
+- `MODE_COOPERATION`: Can only create rooms in cooperative mode
+- `MODE_USER_SELECT`: Players choose competitive or cooperative mode when creating a room
+
+In competitive mode, only the player's position is synchronized, while other information remains independent.
+
 #### global.first_stage
 
 The initial room when the game officially begins (excluding rooms such as titles and selections).

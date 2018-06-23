@@ -388,9 +388,9 @@ Wait for the archive. Shooting can be successful for all people. The position of
 
 Synchronous archiving. After an individual is archived, everyone else can transfer it to the archive by resetting the game. There are two states `red` and `green`.
 
-### Warps Delivery Points
+### Warps
 
-In Fruit Engine version 2.0, the warpX/warpY parameter was removed and replaced by the **numbered `playerStart` **. That is, you can specify a number `num` in the warp. When the player enters the transmission point, it will be sent to the `playerStart` position numbered `num` in the corresponding room.
+In Nikaple Engine version 2.0, the warpX/warpY parameter was removed and replaced by the **numbered `playerStart` **. That is, you can specify a number `num` in the warp. When the player enters the transmission point, it will be sent to the `playerStart` position numbered `num` in the corresponding room.
 
 #### warp
 

@@ -656,6 +656,8 @@ drawLife(
 
 #### scrWarpRoom(roomTo, num, mode, width, height, clearSpeed, screens, kind)
 
+参考 [Warp](objectref?id=warps-传送点)
+
 ## Lib
 
 ### audio

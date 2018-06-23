@@ -22,6 +22,7 @@ If (debug_mode) {
 
 - You can use `left mouse button` to send to any place in the room
 - You can use the `G key` switch invincible mode
+- You can use the `F key` to set the room frame rate (room_speed)
 - Archived at any time using `S key`
 - You can use the `A key` to move 1 pixel to the left
 - You can use the `D key` to move 1 pixel to the right

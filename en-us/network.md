@@ -4,13 +4,17 @@
 
 In order to customize the online effect in the game, you first need to have a basic concept of the online game's operating mechanism.
 
-# Server
+## Enabled
+
+In the script `setGlobals`, `global.online_mode = true` will be set. (enabled by default)
+
+## Server
 
 The server is the medium of communication between the client and the client. Without the support of the server, the game created using the nikaple engine can only be run in stand-alone mode. The server-side code [iw-nikaple-server](https://github.com/Nikaple/iw-nikaple-server) is written using [Node.js](https://nodejs.org), based on [ Patchwire](https://www.npmjs.com/package/patchwire) The magic comes from, in the absence of special needs, generally do not need to modify.
 
 The engine provides developers with a default IP address (139.\*.\*.59, see the engine's `setGlobals` script) for testing purposes only. It is best to change the IP address to the IP of your own server when you publish the game to increase the stability of the game server.
 
-# client
+## client
 
 The basic engine part of the client is based on [I wanna be the Engine Yuuutu Edition](https://www.delicious-fruit.com/ratings/game_details.php?id=10483) (~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ), The network communication part is a highly customized patchwire package [GM:S Engine](https://github.com/gm-core/patchwire-gm). The Dll plug-ins used include:
 
@@ -19,7 +23,7 @@ The basic engine part of the client is based on [I wanna be the Engine Yuuutu Ed
 - [FoxWriting](https://www.noisyfox.io/fox-writing-gamemaker.html) for multilingual support
 - [CleanMem](http://gmc.yoyogames.com/index.php?showtopic=438215) Used to free extra memory
 
-# Protocol
+## Protocol
 
 The communication protocol between server and client is mainly divided into two types: TCP and UDP. Their characteristics are as follows:
 
@@ -31,7 +35,7 @@ Based on the above characteristics, you need to select different protocols for d
 - Users log in, create rooms, shoot archives, reset games, and other functions. Because of their small amount of data (usually only sent once the data can be), in order to ensure its stability using the TCP protocol transmission.
 - Synchronization of player position, positional synchronization of pushable boxes, etc. Because of the large amount of data (almost every frame will transmit data), but the stability requirements are not high (the latter data will naturally cover the front, so even if the loss is also Will return to normal soon) using UDP protocol transmission.
 
-# Transfer data using TCP protocol
+## Transfer data using TCP protocol
 
 In the engine, there are three preset TCP transmission modes that can meet most of the requirements. they are, respectively:
 
@@ -64,7 +68,7 @@ ns_send_event(
 )
 ```
 
-## Instance instance pattern
+### Instance instance pattern
 
 This pattern uses the script `ns_send_instance` declaration to synchronize `object`with the same`id`.
 
@@ -126,7 +130,7 @@ vspeed = v
 
 This completes the synchronization of the speed of the instance in different clients. This mode is also the most widely used mode.
 
-## Event Event Mode
+### Event Event Mode
 
 This pattern uses the script `ns_send_event` declaration to synchronize arbitrary information in any object at any point in time.
 
@@ -186,7 +190,7 @@ _y = json_pick(data, 'y')
 
 This completes the synchronization of any data at any point in time in any object. When considering the need for `ns_send_instance`, consider this.
 
-## Wait Waiting Mode
+### Wait Waiting Mode
 
 This pattern uses the script `ns_send_wait` declaration for events that occur after all players have triggered an event (for example, `warp`, which is passed after all players enter).
 
@@ -241,9 +245,9 @@ If (isFinished) {
 }
 ```
 
-# Use UDP protocol to transmit data
+## Use UDP protocol to transmit data
 
-## You may not need UDP mode
+### You may not need UDP mode
 
 Using UDP protocol to synchronize data is very costly for the network. Please use it carefully and try not to use it where possible.
 
@@ -251,7 +255,7 @@ For example, the motion state of `blockMove` can be determined instantaneously o
 
 In addition, before using this pattern you need to have some basic understanding of buffer `buffer` and basic data types. For a description of the `buffer` read-write function and data type, refer to the `Documentation of`Http Dll 2.3` (http://www.maartenbaert.be/game-maker-dlls/http-dll-2/buffers/).
 
-## Using UDP to Synchronize
+### Using UDP to Synchronize
 
 The way to use UDP mode for synchronization is also very simple. Here's a simple explanation using `blockPush` as an example:
 

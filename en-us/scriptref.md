@@ -658,7 +658,7 @@ To determine if it is an in-game room (non-title, lobby, select levels, etc.)
 
 #### scrWarpRoom(roomTo, num, mode, width, height, clearSpeed, screens, kind)
 
-Warping function.
+Warping function. See [Warps](en-us/objectref?id=warps)
 
 ## Lib
 
