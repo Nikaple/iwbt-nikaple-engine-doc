@@ -24,20 +24,24 @@
 为了制作一个跳刺游戏，你需要准备如下素材：
 
 - 一首好听的 BGM （ogg 格式），其他格式请用 [在线转码网站](https://convertio.co/zh/audio-converter/) 或你常用的格式转换软件将音乐格式转化为 `.ogg`
-- 一个好看的刺素材
+- 一个你喜欢的刺素材
 - 按照 [自动贴图](autotile.md) 中的说明准备你想使用的贴图
 
 ## 全局配置
 
-首先我们对游戏进行全局配置，按 `Ctrl + F` 调出搜索框（GM 8.1 使用 `Ctrl + R`），输入 setGlobals ，点击确定找到全局配置脚本。
+首先你需要对游戏进行全局配置，按 `Ctrl + F` 调出搜索框（GM 8.1 使用 `Ctrl + R`），输入 setGlobals ，点击确定找到全局配置脚本。
 
 1.  设置游戏标题：`global.game_title = 'I wanna be the Tutorial'`
 2.  设置游戏模式：
 
-    - 单机模式，设置 `global.game_mode = MODE_SINGLE_PLAYER`
-    - 竞技模式，设置 `global.game_mode = MODE_TOURNAMENT`
+    - 单机模式，设置 `global.game_mode = MODE_SINGLE_PLAYER`；
+    - 竞技模式，设置 `global.game_mode = MODE_TOURNAMENT` 之后，即允许玩家创建最多容纳 8 人的竞技房间。
 
-3.  设置游戏初始房间（假设我们的初始房间名为 rStage01）：`global.first_stage = rStage01`
+3.  设置游戏初始房间（假设你的初始房间名为 rStage01）：`global.first_stage = rStage01`
 4.  如果不需要多语言支持，可以关闭该功能：`global.enable_internationalization = false`
 
 ## 第一个房间
+
+## 播放音乐
+
+为了给游戏注入灵魂，

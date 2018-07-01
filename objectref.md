@@ -452,7 +452,7 @@ color = c_red // 可选，文字颜色
 
 #### borderWarpWait
 
-隐形 warp。如果将 `warp` 放在房间外，我们往往需要对其进行拉伸。而由于 `warp` 的形状不规则，拉伸之后会导致在某些角度下传送失败。因此，在房间边缘需要传送到另一个房间时，请使用 `borderWarp*`。
+隐形 warp。如果将 `warp` 放在房间外，你往往需要对其进行拉伸。而由于 `warp` 的形状不规则，拉伸之后会导致在某些角度下传送失败。因此，在房间边缘需要传送到另一个房间时，请使用 `borderWarp*`。
 
 Creation Code 参数：
 
@@ -479,7 +479,7 @@ Creation Code 中：
 
 #### bossWarp
 
-拿到特定的 `bossItem` 才会出现的 `warp`，`Creation Code` 参考普通的 `warp` 即可，该 `object` 默认不可见。因此，我们需要在同房间 boss 的 destroy 事件中写入：
+拿到特定的 `bossItem` 才会出现的 `warp`，`Creation Code` 参考普通的 `warp` 即可，该 `object` 默认不可见。因此，你需要在同房间 boss 的 destroy 事件中写入：
 
 ```gml
 bossWarp.visible = true
@@ -487,7 +487,7 @@ bossWarp.visible = true
 
 #### bossWarpSync
 
-拿到特定的 `bossItem` 才会出现的 `warpSync`，`Creation Code` 参考普通的 `warpSync` 即可，该 `object` 默认不可见。因此，我们需要在同房间 boss 的 destroy 事件中写入：
+拿到特定的 `bossItem` 才会出现的 `warpSync`，`Creation Code` 参考普通的 `warpSync` 即可，该 `object` 默认不可见。因此，你需要在同房间 boss 的 destroy 事件中写入：
 
 ```gml
 bossWarpSync.visible = true
@@ -520,7 +520,7 @@ num = 1 // 必填，道具编号
 spr = sprBossIcon1 // 可选，精灵
 ```
 
-该 obj 默认不可见。因此，我们需要在同房间 boss 的 destroy 事件中写入：
+该 obj 默认不可见。因此，你需要在同房间 boss 的 destroy 事件中写入：
 
 ```gml
 bossItem.visible = true
