@@ -61,7 +61,15 @@ OK，你的背景就搞好了，接下来你就可以开始摆东西了，灵活
 
 ## 设置刺的精灵
 
+autoSpikeSprite + spikeSprite
+
 ## 设置自动贴图
+
+autoBlockTile + autotile
+
+## 设置存档点
+
+savePoint + bulletBlock + 按 S 存档
 
 ## 播放音乐
 
@@ -73,4 +81,19 @@ OK，你的背景就搞好了，接下来你就可以开始摆东西了，灵活
 
 ## 房间传送
 
+使用普通 warp
+使用 borderWarp
+
 ## 游戏结束
+
+objGameClear
+
+## 如果我需要...
+
+### 大房间
+
+objCamera
+
+### 视野跟随
+
+objSmoothView
