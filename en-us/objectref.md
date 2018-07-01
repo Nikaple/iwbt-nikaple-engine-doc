@@ -130,7 +130,7 @@ Use player to kill `player` when it falls off the screen. Used to simulate a nor
 
 trigger. Please refer to [New Trigger System](trigger.md)
 
-`Creation Code` parameters:
+Creation Code parameters:
 
 ```gml
 trg = 1 // Required, trigger number
@@ -155,7 +155,7 @@ ys = 2 // Optional, vertical scaling
 #### objButton
 
 Button trigger. When `player` fires this button, the corresponding mechanism will be triggered. (The `key` parameter is not supported)
-`Creation Code` parameters:
+Creation Code parameters:
 
 ```gml
 trg = 1 // Required, trigger number
@@ -166,7 +166,7 @@ spr = sprGreenButtonLeft // Optional, sprite
 
 Multiple paths stab. Can be triggered by multiple triggers in sequence.
 
-`Creation Code` parameters:
+Creation Code parameters:
 
 ```gml
 // i >= 1 in the following code
@@ -278,7 +278,7 @@ vine
 
 Ordinary wood board.
 
-`Creation Code` parameters:
+Creation Code parameters:
 
 ```gml
 // Direct assignment will directly move
@@ -293,7 +293,7 @@ v = 3 // vertical speed after touch
 
 Wooden planks moving along the path.
 
-`Creation Code` parameters:
+Creation Code parameters:
 
 ```gml
 // Move along pth directly at spd speed.
@@ -479,7 +479,7 @@ Creation Code:
 
 #### bossWarp
 
-Get the `warp` that only appears for a particular `bossItem`, `Creation Code` refers to the normal `warp`, which is not visible by default. Therefore, we need to write in the destroy event of the same room boss:
+Get the `warp` that only appears for a particular `bossItem`, Creation Code refers to the normal `warp`, which is not visible by default. Therefore, we need to write in the destroy event of the same room boss:
 
 ```gml
 bossWarp.visible = true
@@ -487,7 +487,7 @@ bossWarp.visible = true
 
 #### bossWarpSync
 
-Get the `warpSync` that only appears for a particular `bossItem`, `Creation Code` refers to the normal `warpSync`, which is not visible by default. Therefore, we need to write in the destroy event of the same room boss:
+Get the `warpSync` that only appears for a particular `bossItem`, Creation Code refers to the normal `warpSync`, which is not visible by default. Therefore, we need to write in the destroy event of the same room boss:
 
 ```gml
 bossWarpSync.visible = true
@@ -513,7 +513,7 @@ This folder contains various items that are available in the game and related ob
 
 The item created when the boss was defeated, the player will record the boss with the specified number after it is defeated.
 
-`Creation Code` parameters:
+Creation Code parameters:
 
 ```gml
 num = 1 // Required, item number
@@ -530,7 +530,7 @@ bossItem.visible = true
 
 Used to show if a boss is defeated in the room.
 
-`Creation Code` parameters:
+Creation Code parameters:
 
 ```gml
 num = 1 // required, boss number
@@ -541,7 +541,7 @@ spr = sprBossIcon1 // Optional, use sprites
 
 When you get the boss's item, it will automatically destroy the block.
 
-`Creation Code` parameters:
+Creation Code parameters:
 
 ```gml
 num = 1 // required, boss number
@@ -552,7 +552,7 @@ spr = sprBlock // Optional, use sprites
 
 Hidden props.
 
-`Creation Code` parameters:
+Creation Code parameters:
 
 ```gml
 num = 1 // Required, hidden item number
@@ -563,7 +563,7 @@ spr = sprItemIcon1 // Optional, use sprites
 
 Used to show whether a hidden item has been acquired in the room.
 
-`Creation Code` parameters:
+Creation Code parameters:
 
 ```gml
 num = 1 // Required, hidden item number
@@ -576,7 +576,7 @@ spr = sprItemIcon1 // Optional, use sprites
 
 Default birth point.
 
-`Creation Code` parameters:
+Creation Code parameters:
 
 ```gml
 autoSave = false // whether to auto archive

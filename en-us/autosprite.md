@@ -22,4 +22,4 @@ case myRoom:
 
 After the setting is completed, the eight common stings of `spikeUp, spikeDown, spikeLeft, spikeRight, minispikeUp, minispikeDown, minispikeLeft, and minispikeRight` can be placed and designed in each room, and they will automatically be in the designated room. Replaced with the sprite specified in the script.
 
-!> When using `Creation Code` to add `path_start` to the spine to make it expand (or other path), it will make path not work properly. You can use [pathSpike](objectref?id=pathspike) instead.
+!> When using Creation Code to add `path_start` to the spine to make it expand (or other path), it will make path not work properly. You can use [pathSpike](objectref?id=pathspike) instead.

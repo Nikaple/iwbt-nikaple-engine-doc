@@ -26,7 +26,7 @@ The trigger system mainly contains two kinds of object: triggers and trigger obj
 
 ## trg integration with key
 
-In previous versions, `keyTrigger` was often used in the back-end pit because it did not respond to any of the `player` actions until the `freeTrigger` of `trg` was fired. In version 2.0, `freeTrigger` was merged with `keyTrigger` for `objTrigger`. The use of `objTrigger` is exactly the same as `freeTrigger`. Also, when `key` is specified in `Creation Code`, it can be used as `keyTrigger`.
+In previous versions, `keyTrigger` was often used in the back-end pit because it did not respond to any of the `player` actions until the `freeTrigger` of `trg` was fired. In version 2.0, `freeTrigger` was merged with `keyTrigger` for `objTrigger`. The use of `objTrigger` is exactly the same as `freeTrigger`. Also, when `key` is specified in Creation Code, it can be used as `keyTrigger`.
 
 Ordinary objTrigger:
 
@@ -230,8 +230,8 @@ When the game is running in debug mode, `objTrigger` displays the current `trg` 
 
 ![trigger debug](../_images/trigger-debug.jpg)
 
-When there is no `trg` in `Creation Code` of `objTrigger` and object, the engine catches this type of error and throws an error such as:
+When there is no `trg` in Creation Code of `objTrigger` and object, the engine catches this type of error and throws an error such as:
 
 ![trigger error](../_images/trigger-error.jpg)
 
-Add the necessary parameters to the `Creation Code` of `objTrigger`at`rOnlineSpike` (384, 480).
+Add the necessary parameters to the Creation Code of `objTrigger`at`rOnlineSpike` (384, 480).

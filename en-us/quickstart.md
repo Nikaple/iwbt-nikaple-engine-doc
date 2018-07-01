@@ -24,7 +24,7 @@ The online system is added to the new version of the engine, and the debug onlin
 
 - [Introduction to Creation Code](cc.md)
 
-In previous versions, the `Creation Code` of object differed considerably, causing considerable inconvenience in use. Therefore, a new version of the `Creation Code` specification was redesigned in the new version so that developers can know what parameters to write without looking at the documentation.
+In previous versions, the Creation Code of object differed considerably, causing considerable inconvenience in use. Therefore, a new version of the Creation Code specification was redesigned in the new version so that developers can know what parameters to write without looking at the documentation.
 
 - [New music system](music.md)
 

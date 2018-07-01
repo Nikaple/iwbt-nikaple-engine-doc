@@ -22,7 +22,7 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
 
 - [Creation Code 简介](cc.md)
 
-  在老版本中，不同 `object` 的 `Creation Code` 相差甚远，在使用上造成了相当大的不便。因此，新版中重新设计了一套 `Creation Code` 规范，使得开发者可以不用看文档也知道要写什么参数。
+  在老版本中，不同 `object` 的 Creation Code 相差甚远，在使用上造成了相当大的不便。因此，新版中重新设计了一套 Creation Code 规范，使得开发者可以不用看文档也知道要写什么参数。
 
 * [新音乐系统](music.md)
 

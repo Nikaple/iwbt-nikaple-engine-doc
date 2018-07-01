@@ -2,18 +2,18 @@
 
 ## 如何使用 Creation Code
 
-在引擎中，大量存在着通用 `object`，它们通过放置在房间之后的 `Creation Code` 来实现差异化功能。具体使用方法为：
+在引擎中，大量存在着通用 `object`，它们通过放置在房间之后的 Creation Code 来实现差异化功能。具体使用方法为：
 
 1.  打开房间编辑器，将 `object` 摆放到房间中
 
-2.  根据 GameMaker 版本的不同，添加 `Creation Code` 的方式也不同
+2.  根据 GameMaker 版本的不同，添加 Creation Code 的方式也不同
 
     - GameMaker 8.0：`Ctrl + 右键 -> Creation Code...`
     - GameMaker 8.1：`右键 -> Creation Code...`
 
 ## 果引擎中的 Creation Code 规范
 
-`Creation Code`中，存在着许多通用代码，记住它们将能帮助你更快更好地使用引擎，归类如下：
+Creation Code中，存在着许多通用代码，记住它们将能帮助你更快更好地使用引擎，归类如下：
 
 ```gml
 --------------- 通用 ---------------

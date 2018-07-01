@@ -8,7 +8,7 @@ To improve the development experience, the engine adds custom error handling to 
 
 - The parameters provided in the script are insufficient, excessive, and of the wrong type
 - The required parameters used in the script are not provided
-- No required parameters in `Creation Code`
+- No required parameters in Creation Code
 - ...
 
 In order to avoid the player seeing these error messages after the game is released, you can suppress the error by opening the production mode in the global configuration:

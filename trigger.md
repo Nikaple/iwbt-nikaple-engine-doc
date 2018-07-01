@@ -24,7 +24,7 @@
 
 ## trg 与 key 一体化
 
-在之前的版本中，`keyTrigger` 经常用于回头坑，因为它在指定 `trg` 的 `freeTrigger` 触发之前不会对 `player` 的任何动作作出反应。而在 2.0 版中，`freeTrigger` 与 `keyTrigger` 合并为了 `objTrigger`。`objTrigger` 的使用方法与 `freeTrigger` 完全一致。并且，当在 `Creation Code` 中指定 `key` 时，即可当做 `keyTrigger` 使用。
+在之前的版本中，`keyTrigger` 经常用于回头坑，因为它在指定 `trg` 的 `freeTrigger` 触发之前不会对 `player` 的任何动作作出反应。而在 2.0 版中，`freeTrigger` 与 `keyTrigger` 合并为了 `objTrigger`。`objTrigger` 的使用方法与 `freeTrigger` 完全一致。并且，当在 Creation Code 中指定 `key` 时，即可当做 `keyTrigger` 使用。
 
 普通 objTrigger：
 
@@ -226,8 +226,8 @@ trg[3] = 2
 
 ![trigger debug](_images/trigger-debug.jpg)
 
-当 `objTrigger` 等 `object` 的 `Creation Code` 中没有 `trg` ，或者 `trg` 为 `0` 时，引擎会捕捉到这类错误并抛出一个错误，如：
+当 `objTrigger` 等 `object` 的 Creation Code 中没有 `trg` ，或者 `trg` 为 `0` 时，引擎会捕捉到这类错误并抛出一个错误，如：
 
 ![trigger error](_images/trigger-error.jpg)
 
-此时在位于 `rOnlineSpike` (384, 480) 处的 `objTrigger` 的 `Creation Code` 中补充必要的参数即可。
+此时在位于 `rOnlineSpike` (384, 480) 处的 `objTrigger` 的 Creation Code 中补充必要的参数即可。

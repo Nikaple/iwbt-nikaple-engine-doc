@@ -20,4 +20,4 @@ case myRoom:
 
 设置完毕之后， 在各房间中的就可以使用 `spikeUp、spikeDown、spikeLeft、spikeRight、minispikeUp、minispikeDown、minispikeLeft、minispikeRight` 这八种普通刺来进行摆放与设计了，它们在指定的房间中会自动更换为脚本中所指定的精灵。
 
-!> 当使用 `Creation Code` 来给刺添加 `path_start` 使其伸缩（或其他路径）的时候，会使得 path 并不能正常工作。 这时可以使用 [pathSpike](objectref?id=pathspike) 来代替。
+!> 当使用 Creation Code 来给刺添加 `path_start` 使其伸缩（或其他路径）的时候，会使得 path 并不能正常工作。 这时可以使用 [pathSpike](objectref?id=pathspike) 来代替。

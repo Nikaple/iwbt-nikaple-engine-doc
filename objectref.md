@@ -128,7 +128,7 @@ wrap = true // 如果为 true，出屏后会从另一端出现
 
 触发器。请参考 [新触发系统](trigger.md)
 
-`Creation Code` 参数：
+Creation Code 参数：
 
 ```gml
 trg = 1 // 必填，触发器编号
@@ -153,7 +153,7 @@ ys = 2 // 可选，垂直缩放
 #### objButton
 
 按钮触发器。当 `player` 射击该按钮后，对应的机关将会被触发。（不支持 `key` 参数）
-`Creation Code` 参数：
+Creation Code 参数：
 
 ```gml
 trg = 1 // 必填，触发器编号
@@ -164,7 +164,7 @@ spr = sprGreenButtonLeft // 可选，精灵
 
 多重路径刺。可以按顺序被多个触发器所触发。
 
-`Creation Code` 参数：
+Creation Code 参数：
 
 ```gml
 // 以下代码中 i >= 1
@@ -276,7 +276,7 @@ spd = 2 // 可选，水中最大下落速度
 
 普通木板。
 
-`Creation Code` 参数：
+Creation Code 参数：
 
 ```gml
 // 直接赋值，则会直接运动
@@ -291,7 +291,7 @@ v = 3 // 触碰后的纵向速度
 
 沿路径运动的木板。
 
-`Creation Code` 参数：
+Creation Code 参数：
 
 ```gml
 // 直接以 spd 速度沿 pth 运动。
@@ -406,7 +406,7 @@ time = 50 // 刷新时间
 
 ### Warps 传送点
 
-在果引擎 2.0 版中，取消了 warpX/warpY 参数，取而代之的是 **有编号的 `playerStart` **。即你可以在 warp 中指定一个编号 `num`，当玩家进入该传送点时，则会被传送到对应房间中编号为 `num` 的 `playerStart` 位置。
+在果引擎 2.0 版中，取消了 warpX/warpY 参数，取而代之的是 **有编号的 `objPlayerStart` **。即你可以在 warp 中指定一个编号 `num`，当玩家进入该传送点时，则会被传送到对应房间中编号为 `num` 的 `objPlayerStart` 位置。
 
 #### warp
 
@@ -416,7 +416,7 @@ Creation Code 参数：
 
 ```gml
 roomTo = rTraps // 必填，传送到的房间名称。如果是房间内传送，则填 -1。
-num = 0 // 可选，传送到 playerStart 的编号
+num = 0 // 可选，传送到 objPlayerStart 的编号
 kind = 0 // 可选，使用的房间转场效果
 clearSpeed = false // 可选，是否清除玩家速度
 screens = 1 // 可选，平移房间的个数
@@ -466,7 +466,7 @@ screens = 1 // 可选，平移房间的个数
 
 ?> 关于 screens 参数，可以参考[这里](objectref?id=warp)
 
-!> 使用该 obj 时，默认将 player 传到目标房间的房间边缘。如果想要 player 传送到目标房间的 playerStart 位置，可以设置 `mode = 'normal'`。
+!> 使用该 obj 时，默认将 player 传到目标房间的房间边缘。如果想要 player 传送到目标房间的 objPlayerStart 位置，可以设置 `mode = 'normal'`。
 
 #### warpStart
 
@@ -479,7 +479,7 @@ Creation Code 中：
 
 #### bossWarp
 
-拿到特定的 `bossItem` 才会出现的 `warp`，`Creation Code` 参考普通的 `warp` 即可，该 `object` 默认不可见。因此，你需要在同房间 boss 的 destroy 事件中写入：
+拿到特定的 `bossItem` 才会出现的 `warp`，Creation Code 参考普通的 `warp` 即可，该 `object` 默认不可见。因此，你需要在同房间 boss 的 destroy 事件中写入：
 
 ```gml
 bossWarp.visible = true
@@ -487,7 +487,7 @@ bossWarp.visible = true
 
 #### bossWarpSync
 
-拿到特定的 `bossItem` 才会出现的 `warpSync`，`Creation Code` 参考普通的 `warpSync` 即可，该 `object` 默认不可见。因此，你需要在同房间 boss 的 destroy 事件中写入：
+拿到特定的 `bossItem` 才会出现的 `warpSync`，Creation Code 参考普通的 `warpSync` 即可，该 `object` 默认不可见。因此，你需要在同房间 boss 的 destroy 事件中写入：
 
 ```gml
 bossWarpSync.visible = true
@@ -513,7 +513,7 @@ total = 8 // 指定数量
 
 boss 被击败时所创建的 item，player 拿到之后则会记录指定编号的 boss 已被击败。
 
-`Creation Code` 参数：
+Creation Code 参数：
 
 ```gml
 num = 1 // 必填，道具编号
@@ -530,7 +530,7 @@ bossItem.visible = true
 
 用于在房间中显示某 boss 是否被击败。
 
-`Creation Code` 参数：
+Creation Code 参数：
 
 ```gml
 num = 1 // 必填，boss编号
@@ -541,7 +541,7 @@ spr = sprBossIcon1 // 可选，使用精灵
 
 当拿到对应 boss 的 item 的时候，会自动摧毁的 block。
 
-`Creation Code` 参数：
+Creation Code 参数：
 
 ```gml
 num = 1 // 必填，boss编号
@@ -552,7 +552,7 @@ spr = sprBlock // 可选，使用精灵
 
 隐藏道具。
 
-`Creation Code` 参数：
+Creation Code 参数：
 
 ```gml
 num = 1 // 必填，隐藏道具编号
@@ -563,7 +563,7 @@ spr = sprItemIcon1 // 可选，使用精灵
 
 用于在房间中显示某隐藏道具是否已获取。
 
-`Creation Code` 参数：
+Creation Code 参数：
 
 ```gml
 num = 1 // 必填，隐藏道具编号
@@ -572,19 +572,30 @@ spr = sprItemIcon1 // 可选，使用精灵
 
 ### Room 房间杂物
 
-#### playerStart
+#### objPlayerStart
 
 默认出生点。
 
-`Creation Code` 参数：
+Creation Code 参数：
 
 ```gml
 autoSave = false // 是否自动存档
 wrap = false // 设置为 true 时，出房间后会从另一端出现而不是死亡
 infJump = false // 是否开启无限跳
+forceSync = false // 是否强制同步 player
 ```
 
-#### camera
+#### objPlayMusic
+
+音乐播放，使用该 obj 会覆盖 `music_config` 中设置的 BGM。
+
+Creation Code 参数：
+
+```gml
+bgm = BGM_Rock // 当前房间的 BGM
+```
+
+#### objCamera
 
 在大房间中使用，使得游戏的视角能根据玩家切换房间而移动。
 
@@ -592,7 +603,7 @@ infJump = false // 是否开启无限跳
 
 平滑视角，通常放在大房间中使用。
 
-!> 该 `object` 会覆盖 `camera` 的效果。
+!> 该 `object` 会覆盖 `objCamera` 的效果。
 
 #### objResetSync
 

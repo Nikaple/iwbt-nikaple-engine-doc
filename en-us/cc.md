@@ -4,18 +4,18 @@
 
 ## How to use Creation Code
 
-In the engine, there is a large number of generic objects, which are differentiated by `Creation Code` placed after the room. The specific use method is:
+In the engine, there is a large number of generic objects, which are differentiated by Creation Code placed after the room. The specific use method is:
 
 1.  Open the room editor and place the object in the room
 
-2.  According to the GameMaker version, adding `Creation Code` is different
+2.  According to the GameMaker version, adding Creation Code is different
 
 - GameMaker 8.0: `Ctrl + Right -> Creation Code...`
       - GameMaker 8.1:`Right click -> Creation Code...`
 
 ## Creation Code Specification in the Fruit Engine
 
-There are many common codes in `Creation Code`. Remember that they will help you to use the engine faster and better. They are categorized as follows:
+There are many common codes in Creation Code. Remember that they will help you to use the engine faster and better. They are categorized as follows:
 
 ```gml
 --------------- General ---------------
