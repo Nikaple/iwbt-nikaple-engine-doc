@@ -23,4 +23,5 @@
   - [Script 文档](scriptref.md)
   - [Object 文档](objectref.md)
   - [你的第一个跳刺游戏](tutorial.md)
+  - [常见问题](faq.md)
   - [耐久超基础教程](avoidance.md)
