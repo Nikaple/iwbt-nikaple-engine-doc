@@ -627,7 +627,9 @@ drawLife(
 | global.data_number               | 自定义数据数量上限      | 64          |
 | global.saving_directory          | 存档保存路径            | Data/Save   |
 | global.music_directory           | 音乐读取路径            | Data/Music  |
+| global.sound_directory           | 音效读取路径            | Data/Sound  |
 | global.plugin_directory          | 插件读取路径            | Data/Plugin |
+| global.font_directory            | 字体读取路径            | Data/Font   |
 | global.option_file_name          | 配置文件名              | options.ini |
 
 #### spikeSprite(spr, miniSpr, image_speed)

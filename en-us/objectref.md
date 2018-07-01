@@ -220,7 +220,7 @@ trg = 1 // Required, trigger number
 spr = sprBlock // Optional, using sprites
 ```
 
-### Gimmicks Features
+### Gimmicks
 
 This folder contains obj, which inverts gravity, water, vines, boards, etc.
 
@@ -236,13 +236,31 @@ Return to normal gravity. The perspective will be restored.
 
 Normal water. The jump height is two jump heights, and the water has two sections.
 
+Creation Code:
+
+```gml
+spd = 2 // max fall speed in water
+```
+
 #### objWaterNo2ndJump
 
 Second paragraph water. The jump height is two jump heights, and there is no water in the second section.
 
+Creation Code:
+
+```gml
+spd = 2 // max fall speed in water
+```
+
 #### objWaterNoJump
 
-No diving. Only the speed will be reduced without recovering the number of hops.
+No diving. Only the speed will be reduced without recovering the number of jumps.
+
+Creation Code:
+
+```gml
+spd = 2 // max fall speed in water
+```
 
 #### objInfiniteJump
 
@@ -252,11 +270,11 @@ After hitting the player, it allows him to jump infinitely.
 
 After hitting the player, it cannot be jumped infinitely.
 
-#### WalljumpR, WallJumpL
+#### objWalljumpR, objWallJumpL
 
 vine
 
-#### movingPlatform
+#### objMovingPlatform
 
 Ordinary wood board.
 
@@ -271,7 +289,7 @@ h = 3 // Lateral speed after touch
 v = 3 // vertical speed after touch
 ```
 
-#### pathPlatform
+#### objPathPlatform
 
 Wooden planks moving along the path.
 
@@ -296,7 +314,7 @@ color = c_black // draw the color of the path
 width = 1 // draw the width of the path
 ```
 
-#### roundingCherry
+#### objRoundingCherry
 
 Generate an apple circle. The obj needs to be placed at the center of the apple circle.
 
@@ -313,7 +331,7 @@ spr = sprCherry // optional, apple sprite (default is normal red apple)
 - Changing `ang` can change the position of each apple in the apple circle
 - The unit of spd is degree/frame. If you need to rotate 360 ​​degrees within 10 seconds, spd = 360/(10\*50) = 0.72
 
-#### pathSpike
+#### objPathSpike
 
 Generate a series of evenly distributed motion punctures following a path. The obj needs to be placed at the start of the path.
 
@@ -668,13 +686,12 @@ BOSS launch barrage obj.
 
 #### options
 
-| Name            | Use                            |
-| --------------- | ------------------------------ |
-| objOptionButton | Set Room Button                |
-| objMusicBar     | Music Volume Adjustment Slider |
-| objSoundBar     | Sound volume adjustment slider |
-| objMusic        | Music Icon Display             |
-| objSound        | Audio Icon Display             |
+| Name            | Use                           |
+| --------------- | ----------------------------- |
+| objOptionButton | Set Room Button               |
+| objConfigBar    | Setting the adjustment slider |
+| objMusic        | Music Icon Display            |
+| objSound        | Audio Icon Display            |
 
 #### title
 

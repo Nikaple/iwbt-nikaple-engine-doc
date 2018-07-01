@@ -234,13 +234,31 @@ spr = sprBlock // 可选，使用的精灵
 
 普通水。跳跃高度为二段跳高度，出水有二段。
 
+Creation Code:
+
+```gml
+spd = 2 // 可选，水中最大下落速度
+```
+
 #### objWaterNo2ndJump
 
 二段水。跳跃高度为二段跳高度，出水无二段。
 
+Creation Code:
+
+```gml
+spd = 2 // 可选，水中最大下落速度
+```
+
 #### objWaterNoJump
 
 无跳水。只会降低移动速度，而不恢复跳跃次数。
+
+Creation Code:
+
+```gml
+spd = 2 // 可选，水中最大下落速度
+```
 
 #### objInfiniteJump
 
@@ -250,11 +268,11 @@ spr = sprBlock // 可选，使用的精灵
 
 碰到玩家之后使之不能无限跳。
 
-#### WalljumpR、WallJumpL
+#### objWalljumpR、objWallJumpL
 
 藤蔓
 
-#### movingPlatform
+#### objMovingPlatform
 
 普通木板。
 
@@ -269,7 +287,7 @@ h = 3 // 触碰后的横向速度
 v = 3 // 触碰后的纵向速度
 ```
 
-#### pathPlatform
+#### objPathPlatform
 
 沿路径运动的木板。
 
@@ -294,7 +312,7 @@ color = c_black // 绘制路径的颜色
 width = 1 // 绘制路径的宽度
 ```
 
-#### roundingCherry
+#### objRoundingCherry
 
 生成一个苹果圈。该 obj 需放在苹果圈的圆心处。
 
@@ -311,7 +329,7 @@ spr = sprCherry // 可选，苹果的精灵（默认为普通红色苹果）
 - 改变 `ang` 可以改变各个苹果在苹果圈上的刷新位置
 - `spd` 的单位为 度/帧，如果需要在 10 秒内转 360 度，则 spd = 360/(10\*50) = 0.72
 
-#### pathSpike
+#### objPathSpike
 
 生成一系列均匀分布的按照某个 path 运动刺。该 obj 需放在 path 的起始点。
 
@@ -668,13 +686,12 @@ BOSS 发射的弹幕 obj。
 
 #### options
 
-| 名称            | 用途             |
-| --------------- | ---------------- |
-| objOptionButton | 设置房间的按钮   |
-| objMusicBar     | 音乐音量调整滑块 |
-| objSoundBar     | 音效音量调整滑块 |
-| objMusic        | 音乐图标显示     |
-| objSound        | 音效图标显示     |
+| 名称            | 用途           |
+| --------------- | -------------- |
+| objOptionButton | 设置房间的按钮 |
+| objConfigBar    | 设置调整滑块   |
+| objMusic        | 音乐图标显示   |
+| objSound        | 音效图标显示   |
 
 #### title
 

@@ -628,9 +628,11 @@ Some modify the less likely configuration items.
 | global.item_number               | Maximum Number of Items                         | 64          |
 | global.data_number               | Maximum number of custom data                   | 64          |
 | global.saving_directory          | Archive Save Path                               | Data/Save   |
-| global.music_directory           | Music Reading Path                              | Data/Music  |
-| Global.plugin_directory          | Plugin Read Path                                | Data/Plugin |
-| Global.option_file_name          | Configuration File Name                         | options.ini |
+| global.music_directory           | Music Read Path                                 | Data/Music  |
+| global.sound_directory           | Sound Read Path                                 | Data/Sound  |
+| global.plugin_directory          | Plugin Read Path                                | Data/Plugin |
+| global.font_directory            | Font Read Path                                  | Data/Font   |
+| global.option_file_name          | Configuration File Name                         | options.ini |
 
 #### spikeSprite(spr, miniSpr, image_speed)
 

@@ -79,4 +79,6 @@ Under special requirements, you may need to add custom storage variables. This c
 
 Note that the variables must be stored and read in the same data and order, otherwise the archive system will have a BUG.
 
+!> If you need to save a string, you can't use `buffer_*_float32` and you need to use `buffer_*_string`!
+
 !> You must start a new game \*\* after modifying the archive script and cannot read the file!
