@@ -30,6 +30,21 @@ music_resume(BGM_1)
 
 ## 房间音乐的设置方法
 
+以下两种方法任选其一，同时使用时分房间设置的 BGM 会覆盖集中设置的 BGM。
+
+### 分房间设置
+
+在房间中放入 `objPlayMusic` （位于 rooms 文件夹下），并设置 Creation Code：
+
+Creation Code 参数：
+
+```gml
+// 当前房间的 BGM
+bgm = BGM_Rock
+```
+
+### 集中设置
+
 - 在 `music_init` 中，引擎会自动读取音乐文件夹（默认为 Data/Music）中的所有文件，并将其 id 储存至全局变量 `BGM_文件名` 中。例如：
 
   - `Death.ogg` 会被自动读取为 `BGM_Death`；

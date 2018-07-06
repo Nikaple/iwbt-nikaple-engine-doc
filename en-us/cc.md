@@ -44,7 +44,7 @@ There are many common codes in Creation Code. Remember that they will help you t
     move = whether to prevent spoilers (the player will move in the current direction after death, not stop/turn)
 
 ------------- Warp related -------------
-  roomTo = target room
+       r = target room
      num = target playerStart num
     mode = warp mode ('normal' or 'border', default = 'normal')
     kind = transition effect (optional)

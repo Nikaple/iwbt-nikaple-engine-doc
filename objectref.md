@@ -178,13 +178,13 @@ scl[i] = 2 // 可选，第 i 个路径的路径缩放倍数
 
 在常量表中可找到[路径结束事件](constant?id=路径结束动作)的可能值
 
-#### trgPathBlock
+#### trgBlock
 
-路径砖。触发后会按照指定路径移动。
+可以被触发的砖。
 
-?> 如果 player 触碰到在移动中的 pathFreeBlock 则会判断为死亡。
+?> 如果 player 触碰到在移动中的 trgBlock 则会判断为死亡。
 
-Creation Code 参数：
+路径模式下，Creation Code 参数：
 
 ```gml
 spr = sprBlock // 必填，使用的精灵
@@ -195,6 +195,8 @@ enda = PATH_ACTION_STOP // 可选，路径结束事件
 scl = 1 // 可选，路径缩放倍数
 move = true // 可选，是否防止剧透（玩家死亡之后会沿着当前方向移动，不会停止/转弯）
 ```
+
+更多触发模式请参考 [新触发系统](trigger.md)
 
 #### trgBlockFake
 
@@ -324,10 +326,12 @@ rad = 100 // 必填，苹果圈半径
 spd = 0.72 // 必填，绕圈速度
 ang = 0 // 可选，初始角度（0~360）
 spr = sprCherry // 可选，苹果的精灵（默认为普通红色苹果）
+mode = 'normal' // 可选，共有两种模式：'normal'/'center'
 ```
 
 - 改变 `ang` 可以改变各个苹果在苹果圈上的刷新位置
 - `spd` 的单位为 度/帧，如果需要在 10 秒内转 360 度，则 spd = 360/(10\*50) = 0.72
+- normal 模式为普通苹果圈，center 模式为旋转半径 0~rad 周期性变化的苹果圈
 
 #### objPathSpike
 
@@ -385,7 +389,22 @@ time = 50 // 刷新时间
 
 ### Saves 存档点
 
-引擎中的存档点共有 4 种状态：
+引擎中的存档点共有 3 种模式：
+
+- 射击模式：子弹射击存档（默认）
+- 触碰模式：玩家触碰存档
+  Creation Code 参数：
+  ```gml
+  mode = 'touch'
+  ```
+- 按键模式：玩家触碰存档时按键存档
+  Creation Code 参数：
+  ```gml
+  mode = 'press'
+  key = 'S' // 可选，默认为按 S 键存档，该参数可为字母（如 'S'）或虚拟键码（如 vk_up）
+  ```
+
+4 种状态：
 
 - 红色：默认
 - 黄色：说明该存档点需要所有玩家共同射击才能生效。
@@ -415,7 +434,7 @@ time = 50 // 刷新时间
 Creation Code 参数：
 
 ```gml
-roomTo = rTraps // 必填，传送到的房间名称。如果是房间内传送，则填 -1。
+r = rTraps // 必填，传送到的房间名称。如果是房间内传送，则填 -1。
 num = 0 // 可选，传送到 objPlayerStart 的编号
 kind = 0 // 可选，使用的房间转场效果
 clearSpeed = false // 可选，是否清除玩家速度
@@ -457,7 +476,7 @@ color = c_red // 可选，文字颜色
 Creation Code 参数：
 
 ```gml
-roomTo = rTraps // 必填，传送到的房间名称。
+r = rTraps // 必填，传送到的房间名称。
 kind = 0 // 可选，使用的房间转场效果
 width = 1 // 可选，目标房间的宽度与视野宽度的比值，通常情况下可以用 room_width / 800 代替
 height = 1 // 可选，目标房间的高度与视野高度的比值，通常情况下可以用 room_height / 800 代替
@@ -592,7 +611,34 @@ forceSync = false // 是否强制同步 player
 Creation Code 参数：
 
 ```gml
-bgm = BGM_Rock // 当前房间的 BGM
+// 当前房间的 BGM
+bgm = BGM_Rock
+```
+
+#### objSpikeSprite
+
+用于给房间中的刺更换精灵。
+
+Creation Code 参数：
+
+```gml
+// 当前房间中刺的精灵，32 * 32，原点位于 (16, 16)
+spr = sprSpikeM
+// 可选，当前房间中小刺的精灵
+miniSpr = sprMiniSpikeM
+// 可选，当前房间中刺的精灵播放速度（image_speed）
+ispd = 0
+```
+
+#### objBlockTile
+
+用于给房间中的砖更换贴图。素材准备请参考 [自动贴图](autotile.md)，贴图模式会自动设置。
+
+Creation Code 参数：
+
+```gml
+// 当前房间中砖使用的贴图
+tile = bgLine
 ```
 
 #### objCamera
@@ -601,7 +647,13 @@ bgm = BGM_Rock // 当前房间的 BGM
 
 #### objSmoothView
 
-平滑视角，通常放在大房间中使用。
+平滑视角，通常放在大房间中使用。在默认情况下，该 obj 会启用视野平滑效果。
+
+Creation Code 参数：
+
+```gml
+noSmooth = true // 是否关闭视野平滑效果
+```
 
 !> 该 `object` 会覆盖 `objCamera` 的效果。
 
@@ -743,6 +795,8 @@ inWater = 是否在水中
 isRunning = 是否移动
 isJumping = 是否跳跃
 curJumps = 当前跳跃数
+shouldDieWhenOutsideRoom = 出房间时是否死亡
+shouldWrapWhenOutsideRoom = 出房间时是否应从房间另一侧出现
 
 // 例如：
 if (player.isJumping && player.curJumps == 2) {

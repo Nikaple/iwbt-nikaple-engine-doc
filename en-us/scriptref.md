@@ -27,7 +27,6 @@ For the initial setting of the game, see [Global Settings](global.md)
 | Global.ip_address                  | server IP address                                        | 139.\*.\*.59                          |
 | Global.tcp_port                    | Server TCP Port                                          | 3738                                  |
 | global.udp_port                    | Server UDP Port                                          | 3738                                  |
-| Global.online_mode                 | Online Mode                                              | true                                  |
 | global.max_sync_cycle              | Synchronization cycle                                    | 3                                     |
 | Global.enable_lite_mode            | Whether lightweight mode is enabled                      | false                                 |
 | Global.debug_host_name             | Debugging Host User Name                                 | username                              |
@@ -254,7 +253,7 @@ For example, in the `alarm[11]` of `player`, sync the current room:
 // Create a ds_map with 5 elements
 eventMap = cmd_init(
     4,
-    'roomTo', room,
+    'r', room,
     'x', x,
     'y', floor(y),
     'xs', image_xscale,
@@ -658,7 +657,7 @@ Called when you press `F2`
 
 To determine if it is an in-game room (non-title, lobby, select levels, etc.)
 
-#### scrWarpRoom(roomTo, num, mode, width, height, clearSpeed, screens, kind)
+#### scrWarpTo(r, num, mode, width, height, clearSpeed, screens, kind)
 
 Warping function. See [Warps](en-us/objectref?id=warps)
 

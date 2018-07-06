@@ -4,9 +4,9 @@
 
 In order to customize the online effect in the game, you first need to have a basic concept of the online game's operating mechanism.
 
-## Enabled
+## Disable
 
-In the script `setGlobals`, `global.online_mode = true` will be set. (enabled by default)
+In the script `setGlobals`, set `global.game_mode = MODE_SINGLE_PLAYER`. (enabled by default)
 
 ## Server
 
@@ -196,7 +196,7 @@ This pattern uses the script `ns_send_wait` declaration for events that occur af
 
 When using this event, you need to pass in tag information (default is the current instance's `id`).
 
-?> If you have more than one `warp` but send to the same room, you can set the tag information to the room number (`roomTo`) that you want to transfer, so that the server will use this flag information to perform on each client. mark.
+?> If you have more than one `warp` but send to the same room, you can set the tag information to the room number (`r`) that you want to transfer, so that the server will use this flag information to perform on each client. mark.
 
 The script receives any number of arguments and satisfies the following conditions:
 

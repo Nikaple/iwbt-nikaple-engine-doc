@@ -14,6 +14,7 @@
 
 游戏模式，可选值如下：
 
+- `MODE_SINGLE_PLAYER`：仅单人模式
 - `MODE_TOURNAMENT`：只能创建竞技模式的房间
 - `MODE_COOPERATION`：只能创建合作模式的房间
 - `MODE_USER_SELECT`：创建房间时由玩家选择竞技或合作模式
@@ -38,59 +39,25 @@
 
 #### global.encoding
 
-文字编码，默认为 `gb2312`。该项应与你使用的操作系统文字编码一致，详见[编码表](https://msdn.microsoft.com/en-us/library/windows/desktop/dd317756.aspx)。
-
-#### global.enable_builtin_drawing
-
-是否使用内置绘图函数，默认为 `false`。如果开启，则在语言为 `LANG_EN` 时会使用内置回吐函数；如果关闭，则会统一使用 `FoxWriting` 进行绘制。
-
-#### global.game_room_width
-
-游戏窗口宽度
-
-#### global.game_room_height
-
-游戏窗口高度
-
-#### global.enable_stream_music
-
-是否开启流式播放，默认为 `true`。开启之后音乐将被分段加载至内存中，极大提升运行效率，但缺陷是不能暂停。
-
-?> 流式播放模式下，在玩家死亡或游戏暂停时，背景音乐将不会暂停播放，而仅仅减少音量。
-
-#### global.enable_focus
-
-是否使用键盘模拟聚焦模式。原理是在游戏中不断触发某个不存在的按键，这个按键只能在窗口聚焦时有效。默认开启。
-
-#### global.focus_key_code
-
-使用键盘模拟聚焦的键码。默认为 `1`，即 ``。
-
-#### global.enable_encryption
-
-存档文件是否加密，默认为 `true`。
+文字编码，默认为 `gb2312`。该项应与你使用的 **操作系统** 文字编码一致，详见[编码表](https://msdn.microsoft.com/en-us/library/windows/desktop/dd317756.aspx)。
 
 #### global.key
 
-存档文件加密密钥，为了保证安全，密钥长度应该不小于 64。
+存档文件加密密钥，为了保证安全，密钥长度应该不小于 40。
+
+#### global.save_mode
+
+存档方式。可选项有：
+
+- `SAVE_MODE_SHOOT`，射击存档（默认）；
+- `SAVE_MODE_TOUCH`，触碰存档；
+- `SAVE_MODE_PRESS`，按键存档。存档键可以在 `controls_init` 中通过 `global.savebutton` 设置
 
 ### 网络相关设定
 
 #### global.ip_address
 
-服务器 IP 地址。引擎中提供的地址仅供测试，不保证随时可用。推荐发布游戏时部署自己的服务器以增强稳定性。
-
-#### global.tcp_port
-
-服务器 TCP 端口，默认 3738。
-
-#### global.udp_port
-
-服务器 UDP 端口，默认 3738。
-
-#### global.online_mode
-
-联机模式，默认开启。
+服务器 IP 地址。引擎中提供的地址仅供测试，不保证随时可用。推荐发布游戏时[部署自己的服务器](https://github.com/Nikaple/iw-nikaple-server)以增强稳定性。
 
 #### global.max_sync_cycle
 
@@ -122,6 +89,44 @@
 
 一些基本不会改的配置项，位于 `system -> setGlobalsMinor` 中。
 
+#### global.tcp_port
+
+服务器 TCP 端口，默认 3738。
+
+#### global.udp_port
+
+服务器 UDP 端口，默认 3738。
+
+#### global.enable_stream_music
+
+是否开启流式播放，默认为 `true`。开启之后音乐将被分段加载至内存中，极大提升运行效率，但缺陷是不能暂停。
+
+?> 流式播放模式下，在玩家死亡或游戏暂停时，背景音乐将不会暂停播放，而仅仅减少音量。
+
+#### global.enable_builtin_drawing
+
+是否使用内置绘图函数，默认为 `false`。如果开启，则在语言为 `LANG_EN` 时会使用内置回吐函数；如果关闭，则会统一使用 `FoxWriting` 进行绘制。
+
+#### global.game_room_width
+
+游戏窗口宽度。
+
+#### global.game_room_height
+
+游戏窗口高度。
+
+#### global.enable_encryption
+
+存档文件是否加密，默认为 `true`。
+
+#### global.enable_focus
+
+是否使用键盘模拟聚焦模式。原理是在游戏中不断触发某个不存在的按键，这个按键只能在窗口聚焦时有效。默认开启。
+
+#### global.focus_key_code
+
+使用键盘模拟聚焦的键码。默认为 `1`，即 ``。
+
 #### global.enable_pause_in_boss_room
 
 BOSS 房间内是否允许暂停，默认为 `false`。
@@ -140,7 +145,11 @@ BOSS 房间内是否允许暂停，默认为 `false`。
 
 #### global.enable_auto_spike_sprite
 
-是否[自动更换刺的精灵](autosprite.md)，默认为 `true`。
+是否开启[自动更换刺的精灵](autosprite.md)，默认为 `true`。
+
+#### global.enable_auto_tile
+
+是否开启[自动贴图](autotile.md)，默认为 `true`。
 
 #### global.boss_number
 
@@ -154,6 +163,10 @@ BOSS 数量上限，默认为 `64`。
 
 自定义数据数量上限，默认为 `64`。
 
+#### global.text_number
+
+自定义字符串数量上限，默认为 `64`。
+
 #### global.saving_directory
 
 存档保存路径，默认为 `Data/Save`。
@@ -162,9 +175,17 @@ BOSS 数量上限，默认为 `64`。
 
 音乐读取路径，默认为 `Data/Music`。
 
+#### global.sound_directory
+
+音效读取路径，默认为 `Data/Sound`。
+
 #### global.plugin_directory
 
 插件读取路径，默认为 `Data/Plugin`。
+
+#### global.plugin_directory
+
+字体读取路径，默认为 `Data/Font`。
 
 #### global.option_file_name
 

@@ -16,6 +16,7 @@ The title of the game is displayed in the title bar of the game window.
 
 Game mode, the optional values are as follows:
 
+- `MODE_SINGLE_PLAYER`: Single player
 - `MODE_TOURNAMENT`: Can only create rooms in competitive mode
 - `MODE_COOPERATION`: Can only create rooms in cooperative mode
 - `MODE_USER_SELECT`: Players choose competitive or cooperative mode when creating a room
@@ -89,10 +90,6 @@ Server TCP port, default 3738.
 #### global.udp_port
 
 Server UDP port, default 3738.
-
-#### global.online_mode
-
-Online mode, turned on by default.
 
 #### global.max_sync_cycle
 

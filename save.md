@@ -60,7 +60,7 @@
     ```gml
     // for more save data, add script here
     // If you don't know which buffer_write_* script to use,
-    // use buffer_write_float32
+    // use buffer_write_float32 for numbers and buffer_write_string for strings
     buffer_write_float32(buffer, global.myVar1)
     buffer_write_float32(buffer, global.myVar2)
     ```
@@ -70,7 +70,7 @@
     ```gml
     // for more save data, add script here
     // If you don't know which buffer_read_* script to use,
-    // use buffer_read_float32
+    // use buffer_read_float32 for numbers and buffer_read_string for strings
     global.myVar1 = buffer_read_float32(buffer)
     global.myVar2 = buffer_read_float32(buffer)
     ```

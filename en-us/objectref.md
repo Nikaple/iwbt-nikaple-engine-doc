@@ -417,7 +417,7 @@ Normal warp.
 Creation Code Parameter:
 
 ```gml
-roomTo = rTraps // Required, the name of the room sent to. If it is in the room, fill in -1.
+r = rTraps // Required, the name of the room sent to. If it is in the room, fill in -1.
 num = 0 // optional, number passed to playerStart
 kind = 0 // Optional, room transition effect used
 clearSpeed ​​= false // Optional, whether to clear the player's speed
@@ -459,7 +459,7 @@ Invisible warp. If we put `warp` outside the room, we often need to stretch it. 
 Creation Code Parameter:
 
 ```gml
-roomTo = rTraps // Required, the name of the room sent to.
+r = rTraps // Required, the name of the room sent to.
 kind = 0 // Optional, room transition effect used
 width = 1 // Optional, the ratio of the width of the target room to the width of the field of view. Normally room_width / 800 can be used instead
 height = 1 // Optional, the ratio of the height of the target room to the height of the field of view, which can usually be replaced with room_height/800

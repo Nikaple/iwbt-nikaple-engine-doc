@@ -177,7 +177,7 @@ Creation Code Parameter:
 // Required, trigger number
 trg = 7
 // Required, rotation angle
-angle = 90
+ang = 90
 // Required, rotation time
 time = 20
 // Optional, use the sprite
