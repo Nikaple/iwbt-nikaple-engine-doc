@@ -17,7 +17,7 @@
     9.  房间命名为 **r**xxx。
 
 2.  rInit 一定要处于所有房间的顶端，不能移动。
-3.  如果你觉得引擎自带的脚本、物体太多，看不顺眼，请将它们移动到一个文件夹内。
+3.  如果你觉得引擎自带的脚本、物体太多，看不顺眼，请将它们移动到一个文件夹内，而不要删除。
 
 !> **因删除引擎自带脚本（script）、物体（object）引起的任意问题本人不予解答** 。
 
@@ -44,60 +44,67 @@
 
 ## 第一个房间
 
-由于自带 rTemplate 这个房间，所以可以直接复制 rTemplate 这个房间，接下来就设置背景
+引擎已经为你准备好了标准房间 rTemplate，每次新建房间时复制它即可（右键 -> 复制）。房间中有如下参数可以设置：
 
-1.  首先到上面那个选项栏里面去选择`创建背景图片`
-2.  点击`载入背景图片`按钮
-3.  选择一张你喜欢的图片当做背景
-4.  点击`编辑背景图片`按钮
-5.  找到`变换`，点击`拉伸图像`
-6.  `宽`和`高`改成 800 和 608，并且选择`完美`选项
+- 大小
+  在设定选项卡中，改变宽和高即可
+- 背景图片
+  1.  首先到 GM 工具栏中选择 **创建背景图片**；
+  2.  点击 **载入背景图片**；
+  3.  选择一张你喜欢的图片当作背景；
+  4.  点击 **编辑背景图片** 按钮；
+  5.  找到 **变换**，点击 **拉伸图像**；
+  6.  **宽** 和 **高** 改成 800 和 608，并且选择 **完美** 选项；
+  7.  找到你想要设置背景的房间，打开它；
+  8.  点击 **背景图片**；
+  9.  点击 **房间打开时可见** 然后选择导入的背景。
 
-插一下话，如果你能够确保你的图片能够平铺下来无缝衔接的话可以选择无视 4-6 步骤
+?> 如果你的图片的宽和高恰好为 800 \* 608，可以选择无视 4-6 步骤
 
-7.  找到你想要设置背景的房间，打开它
-8.  点击`背景图片`
-9.  点击`房间打开时可见`然后选择背景
+到这一步你的背景就已设置完毕，接下来在房间中摆上刺与砖块即可。
 
-OK，你的背景就搞好了，接下来你就可以开始摆东西了，灵活运用贴图与对象，下面我会讲讲贴图和对象是什么以及怎么使用的
+## 设置存档点
+
+在想设置存档的地方放置 `Objects -> saves -> savePoint` 即可。
+
+另外，在全局配置 `setGlobals` 中，我们可以通过变量 `global.save_mode` 定义存档的默认工作模式。可选值如下：
+
+- `global.save_mode = SAVE_MODE_SHOOT` 射击存档（默认）
+- `global.save_mode = SAVE_MODE_TOUCH` 触碰存档
+- `global.save_mode = SAVE_MODE_PRESS` 按键存档，默认为 'S'。默认按键可到 `controls_init` 脚本中修改 `global.savebutton`。
 
 ## 设置刺的精灵
 
-设置刺精灵的步骤如下：
+在摆放好刺与砖块后，我们可以给刺设置你喜欢的精灵。步骤如下：
 
-1.  将准备好的刺素材作为精灵导入 GameMaker ，并将其中心点设置为 (16, 16)，取名为 sprMySpikeM。
-2.  将 `Objects -> rooms -> objSpikeSprite` 放入房间，并设置其 Creation Code：
+1.  在 GM 工具栏中选择 **创建精灵**；
+2.  点击 **载入精灵**；
+3.  选择你喜欢的刺的精灵；
+4.  点击 **中心**， 将其中心点设置为 (16, 16)，取名为 **sprMySpikeM**；
+5.  将 `Objects -> rooms -> objSpikeSprite` 放入房间任意位置，并设置其 Creation Code：
     ```gml
     spr = sprMySpikeM
     ```
 
 ## 设置自动贴图
 
-设置自动贴图的步骤如下：
+刺的精灵设置好之后，我们也可以自动设置砖块的贴图（前提是格式符合[自动贴图](autotile.md)中的说明）。步骤如下：
 
-1.  将准备好的贴图素材作为背景导入 GameMaker ，取名为 bgMyTile
-2.  将 `Objects -> rooms -> objBlockTile` 放入房间，并设置其 Creation Code：
+1.  将准备好的贴图素材作为背景导入 GameMaker ，取名为 **bgMyTile**；
+2.  将 `Objects -> rooms -> objBlockTile` 放入房间任意位置，并设置其 Creation Code：
     ```gml
     tile = bgMyTile
     ```
 
 ## 播放音乐
 
-为游戏设置 BGM 的步骤如下：
+接下来，我们为游戏设置 BGM 。步骤如下：
 
-1.  将准备好的 BGM 命名为 myMusic.ogg 放入音乐文件夹（Data/Music）下。
-2.  将 `Objects -> rooms -> objPlayMusic` 放入房间，并设置其 Creation Code：
+1.  将准备好的 BGM 命名为 myMusic.ogg 放入音乐文件夹（Data/Music）下；
+2.  将 `Objects -> rooms -> objPlayMusic` 放入房间任意位置，并设置其 Creation Code：
     ```gml
     bgm = BGM_myMusic
     ```
-
-## 设置存档点
-
-在想设置存档的地方放置 `Objects -> saves -> savePoint` 。在全局配置 `setGlobals` 中，我们可以通过变量 `global.save_mode` 定义存档的默认工作模式。可选值如下：
-
-- `global.save_mode = SAVE_MODE_SHOOT` 射击存档（默认）
-- `global.save_mode = SAVE_MODE_TOUCH` 触碰存档
-- `global.save_mode = SAVE_MODE_PRESS` 按键存档，默认为 'S'。默认按键可到 `controls_init` 脚本中修改 `global.savebutton`。
 
 ## 房间传送
 
@@ -111,7 +118,7 @@ r = rMyStage02
 
 ### 使用 borderWarp
 
-如果想让 player 从 rMyStage01 的最右侧传送到 rMyStage02 的最左侧，你可以在 rMyStage01 的最右侧放置 borderWarp，并在 Creation Code 中写入：
+如果想让 player 从 rMyStage01 的 **最右侧** 传送到 rMyStage02 的 **最左侧**，你可以在 rMyStage01 的最右侧放置 borderWarp，并在 Creation Code 中写入：
 
 ```gml
 r = rMyStage02
@@ -152,7 +159,9 @@ ys = 纵向拉伸倍数
 
 ### 视野跟随
 
-在需要视野跟随时，仅需要将 `Objects -> rooms -> objSmoothView` 放入房间即可。在默认情况下，该 obj 会启用视野平滑效果，如需关闭，可以设置其 Creation Code 参数：
+在需要视野跟随时，仅需要将 `Objects -> rooms -> objSmoothView` 放入房间即可。
+
+在默认情况下，该 obj 会启用视野平滑效果，如需关闭，可以设置其 Creation Code 参数：
 
 ```gml
 noSmooth = true

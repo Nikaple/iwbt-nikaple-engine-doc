@@ -34,13 +34,13 @@ music_resume(BGM_1)
 
 ### 分房间设置
 
-在房间中放入 `objPlayMusic` （位于 rooms 文件夹下），并设置 Creation Code：
+在房间中放入 `objPlayMusic` （位于 rooms 文件夹下），如果你想将音乐文件夹中的 `Rock.ogg` 设置为当前房间的 BGM，则：
 
 Creation Code 参数：
 
 ```gml
 // 当前房间的 BGM
-bgm = BGM_Rock
+bgm = BGM_Rock // <- 在文件名前面加上 BGM_ 即可
 ```
 
 ### 集中设置
@@ -75,4 +75,6 @@ bgm = BGM_Rock
 music_play(myMusic);
 ```
 
-?> 在默认设置下，BOSS 房间中不可暂停。如果需要允许暂停，可以到 `setGlobalsMinor` 脚本中修改 `global.enable_pause_in_boss_room = true`
+?> 如果需要在流式播放模式下将某首音乐设置为非流式播放，可以在 `music_init` 的 **最下方** 加上 `BGM_myMusic = music_load('myMusic', false)` （将 myMusic 更换为音乐文件的名称）即可。
+
+?> 另外，在默认设置下，BOSS 房间中不可暂停。如果需要允许暂停，可以到 `setGlobalsMinor` 脚本中修改 `global.enable_pause_in_boss_room = true` 即可。
