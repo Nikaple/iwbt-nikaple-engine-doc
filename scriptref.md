@@ -12,49 +12,49 @@
 
 全局配置详见[全局设定](global.md)。总表如下：
 
-| 配置名                             | 用途                           | 默认值                                | 可选值/类型/说明    |
-| ---------------------------------- | ------------------------------ | ------------------------------------- | ------------------ |
-| global.game_title                  | 设置游戏标题                   | I wanna be the Engine Nikaple Edition | 字符串             |
-| global.game_mode                   | 设置游戏模式                   | MODE_USER<br />_SELECT                | MODE_SINGLE_PLAYER<br />MODE_TOURNAMENT<br />MODE_COOPERATION<br />MODE_USER_SELECT |
-| global.first_stage                 | 设置游戏正式开始时的初始房间   | rHub                                  |房间名|
-| global.enable_production_mode      | 是否开启生产模式               | false                                 |true/false|
-| global.enable_internationalization | 是否启用多语言                 | true                                  |true/false|
-| global.default_language            | 语言设定                       | LANG_CN                               |LANG_CN, LANG_EN, LANG_JP|
-| global.encoding                    | 文字编码                       | gb2312                                |编码名称|
-| global.key | 加密密钥 | "huYJ...GBTS" |长度不小于40的字符串|
-| global.ip_address | 服务器 IP 地址 | 139.\*.\*.59 |ip地址|
-| global.max_sync_cycle | 同步周期 | 3 |正整数|
-| global.enable_lite_mode            | 是否开启轻量化模式             | false                                 |true/false|
-| global.debug_host_name             | 调试主机用户名                 | "username"                            |字符串|
-| global.debug_host_pass             | 调试主机密码                   | "password"                            |字符串|
-| global.debug_guest_name            | 调试非主机用户名               | "test"                                |字符串|
-| global.debug_guest_pass            | 调试非主机密码                 | "test"                                |字符串|
-| global.tcp_port | 服务器 TCP 端口 | 3738 |端口号|
-| global.udp_port | 服务器 UDP 端口 | 3738 |端口号|
-| global.enable_stream_music | 是否使用流式播放音乐 | true |true/false|
-| global.enable_builtin_drawing | 是否使用内置绘图函数 | false |true/false|
-| global.game_room_width             | 窗口宽度                       | 800                                   |正整数|
-| global.game_room_height            | 窗口高度                       | 608                                   |正整数|
-| global.enable_encryption           | 存档文件是否加密               | true                                  |true/false|
-| global.enable_focus                | 是否使用键盘模拟聚焦模式       | true                                  |true/false|
-| global.focus_key_code              | 使用键盘模拟聚焦的键码         | 1                                     |键码|
-| global.frame_rate                | 游戏帧率 | 50                             |正整数|
-| global.enable_pause_in_boss_room   | BOSS 房间内是否允许暂停        | false                                 |true/false|
-| global.enable_jump_cancel          | 是否允许跳跃取消（JC）         | false                                 |true/false|
-| global.enable_fullscreen           | 是否允许按 F4 全屏             | true                                  |true/false|
-| global.enable_keypad               | 是否允许使用小键盘             | true                                  |true/false|
-| global.enable_auto_spike_sprite    | 是否自动更换刺的精灵           | true                                  |true/false|
-| global.enable_auto_tile | 是否自动贴图 | true |true/false|
-| global.boss_number                 | BOSS 数量上限                  | 64                                    |正整数|
-| global.item_number                 | 道具数量上限                   | 64                                    |正整数|
-| global.data_number                 | 自定义数据数量上限             | 64                                    |正整数|
-| global.text_number | 自定义字符串上限 | 64 |正整数|
-| global.saving_directory            | 存档保存路径                   | "Data/Save"                           |字符串|
-| global.music_directory             | 音乐读取路径                   | "Data/Music"                          |字符串|
-| global.sound_directory             | 音效读取路径                   | "Data/Sound"                          |字符串|
-| global.plugin_directory            | 插件读取路径                   | "Data/Plugin"                         |字符串|
-| global.font_directory              | 字体读取路径                   | "Data/Font"                           |字符串|
-| global.option_file_name            | 配置文件名                     | "options.ini"                         |字符串|
+| 配置名                             | 用途                         | 默认值                                | 可选值/类型/说明                                                                    |
+| ---------------------------------- | ---------------------------- | ------------------------------------- | ----------------------------------------------------------------------------------- |
+| global.game_title                  | 设置游戏标题                 | I wanna be the Engine Nikaple Edition | 字符串                                                                              |
+| global.game_mode                   | 设置游戏模式                 | MODE_USER<br />\_SELECT               | MODE_SINGLE_PLAYER<br />MODE_TOURNAMENT<br />MODE_COOPERATION<br />MODE_USER_SELECT |
+| global.first_stage                 | 设置游戏正式开始时的初始房间 | rHub                                  | 房间名                                                                              |
+| global.enable_production_mode      | 是否开启生产模式             | false                                 | true/false                                                                          |
+| global.enable_internationalization | 是否启用多语言               | true                                  | true/false                                                                          |
+| global.default_language            | 语言设定                     | LANG_CN                               | LANG_CN, LANG_EN, LANG_JP                                                           |
+| global.encoding                    | 文字编码                     | gb2312                                | 编码名称                                                                            |
+| global.key                         | 加密密钥                     | "huYJ...GBTS"                         | 长度不小于 40 的字符串                                                              |
+| global.ip_address                  | 服务器 IP 地址               | 139.\*.\*.59                          | ip 地址                                                                             |
+| global.max_sync_cycle              | 同步周期                     | 3                                     | 正整数                                                                              |
+| global.enable_lite_mode            | 是否开启轻量化模式           | false                                 | true/false                                                                          |
+| global.debug_host_name             | 调试主机玩家名               | "username"                            | 字符串                                                                              |
+| global.debug_host_pass             | 调试主机密码                 | "password"                            | 字符串                                                                              |
+| global.debug_guest_name            | 调试非主机玩家名             | "test"                                | 字符串                                                                              |
+| global.debug_guest_pass            | 调试非主机密码               | "test"                                | 字符串                                                                              |
+| global.tcp_port                    | 服务器 TCP 端口              | 3738                                  | 端口号                                                                              |
+| global.udp_port                    | 服务器 UDP 端口              | 3738                                  | 端口号                                                                              |
+| global.enable_stream_music         | 是否使用流式播放音乐         | true                                  | true/false                                                                          |
+| global.enable_builtin_drawing      | 是否使用内置绘图函数         | false                                 | true/false                                                                          |
+| global.game_room_width             | 窗口宽度                     | 800                                   | 正整数                                                                              |
+| global.game_room_height            | 窗口高度                     | 608                                   | 正整数                                                                              |
+| global.enable_encryption           | 存档文件是否加密             | true                                  | true/false                                                                          |
+| global.enable_focus                | 是否使用键盘模拟聚焦模式     | true                                  | true/false                                                                          |
+| global.focus_key_code              | 使用键盘模拟聚焦的键码       | 1                                     | 键码                                                                                |
+| global.frame_rate                  | 游戏帧率                     | 50                                    | 正整数                                                                              |
+| global.enable_pause_in_boss_room   | BOSS 房间内是否允许暂停      | false                                 | true/false                                                                          |
+| global.enable_jump_cancel          | 是否允许跳跃取消（JC）       | false                                 | true/false                                                                          |
+| global.enable_fullscreen           | 是否允许按 F4 全屏           | true                                  | true/false                                                                          |
+| global.enable_keypad               | 是否允许使用小键盘           | true                                  | true/false                                                                          |
+| global.enable_auto_spike_sprite    | 是否自动更换刺的精灵         | true                                  | true/false                                                                          |
+| global.enable_auto_tile            | 是否自动贴图                 | true                                  | true/false                                                                          |
+| global.boss_number                 | BOSS 数量上限                | 64                                    | 正整数                                                                              |
+| global.item_number                 | 道具数量上限                 | 64                                    | 正整数                                                                              |
+| global.data_number                 | 自定义数据数量上限           | 64                                    | 正整数                                                                              |
+| global.text_number                 | 自定义字符串上限             | 64                                    | 正整数                                                                              |
+| global.saving_directory            | 存档保存路径                 | "Data/Save"                           | 字符串                                                                              |
+| global.music_directory             | 音乐读取路径                 | "Data/Music"                          | 字符串                                                                              |
+| global.sound_directory             | 音效读取路径                 | "Data/Sound"                          | 字符串                                                                              |
+| global.plugin_directory            | 插件读取路径                 | "Data/Plugin"                         | 字符串                                                                              |
+| global.font_directory              | 字体读取路径                 | "Data/Font"                           | 字符串                                                                              |
+| global.option_file_name            | 配置文件名                   | "options.ini"                         | 字符串                                                                              |
 
 #### scrSealRoom(noTop, noLeft, noBottom, noRight)
 
@@ -197,7 +197,7 @@ alarm[0] = 2;
 
 | 脚本名                          | 用途                                                      |
 | ------------------------------- | --------------------------------------------------------- |
-| ns_get_player_name()            | 获取当前玩家的名称（用户名）                              |
+| ns_get_player_name()            | 获取当前玩家的名称（玩家名）                              |
 | ns_get_player_index()           | 获取当前玩家在游戏内的编号（1 为房主，大于 1 均为非房主） |
 | ns_get_other_player_name(index) | 根据其他玩家的编号获取名称                                |
 | ns_get_other_player_index(name) | 根据其他玩家的名称获取编号                                |
@@ -219,16 +219,194 @@ alarm[0] = 2;
 
 #### ns_actions
 
-| 脚本名            | 用途         |
-| ----------------- | ------------ |
-| ns_register()     | 注册         |
-| ns_login()        | 登录         |
-| ns_logout()       | 登出         |
-| ns_fetch_lobby()  | 查询房间列表 |
-| ns_create_lobby() | 创建房间     |
-| ns_join_lobby()   | 加入房间     |
-| ns_leave_lobby()  | 离开房间     |
-| ns_start_game()   | 开始游戏     |
+| 脚本名            | 用途                               |
+| ----------------- | ---------------------------------- |
+| ns_register()     | 注册                               |
+| ns_login()        | 登录                               |
+| ns_logout()       | 登出                               |
+| ns_set_data()     | 设置额外的玩家信息（例如分数）     |
+| ns_get_data()     | 获取额外的玩家信息（例如分数）     |
+| ns_get_all_data() | 获取所有玩家的额外信息（例如分数） |
+| ns_fetch_lobby()  | 查询房间列表                       |
+| ns_create_lobby() | 创建房间                           |
+| ns_join_lobby()   | 加入房间                           |
+| ns_leave_lobby()  | 离开房间                           |
+| ns_start_game()   | 开始游戏                           |
+
+##### ns_set_data(dataCount, k1, v1, k2, v2, ..., kn, vn)
+
+设置额外的玩家信息（例如分数）
+
+- 第一个参数为设置信息的数量 n；
+- 紧接着的 2n 个参数为形如 key<sub>1</sub>, value<sub>1</sub>, key<sub>2</sub>, value<sub>2</sub>, ..., key<sub>n</sub>, value<sub>n</sub> 的键值对。
+
+!> 该函数的返回值必须通过调用该脚本的 `obj` 的 `User Defined 11` 事件获取，如果成功，`success` 变量为 `true`，返回的值储存在 `data` 变量中；否则 `success` 变量为 `false`，错误信息保存在 `msg` 变量中。
+
+例如：
+
+Create:
+
+```gml
+// 为当前玩家设置两条信息： `exam` 为 `Math` ，`score` 为 `150`
+ns_set_data(
+  2,
+  'exam', 'Math',
+  'score', 150,
+)
+```
+
+User defined 11:
+
+```gml
+if (success) {
+  // 成功保存
+  _score = string(json_pick(data, 'score'))
+  exam = json_pick(data, 'exam')
+  show_message('You got ' + _score + ' in ' + exam + 'exam!')
+} else {
+  // 保存失败，可以在这里进行重试，或者提醒玩家
+  ns_set_data(2, 'exam', 'Math', 'score', 150)
+  show_message('Set data failed. Msg: ' + msg)
+}
+```
+
+##### ns_get_data(data)
+
+获取额外的玩家信息（例如分数）
+
+- data 参数为获取额外信息的名称，以 "|" 分隔（详见下）
+
+data 参数说明：
+如果需要获取名为 `data1` 、 `data2` 、 `data3` 的数据，则应传入 'data1|data2|data3'
+
+!> 该函数的返回值必须通过调用该脚本的 `obj` 的 `User Defined 12` 事件获取，如果成功，`success` 变量为 `true`，则信息会储存在各变量中（见示例）；否则 `success` 变量为 `false`，错误信息保存在 `msg` 变量中。
+
+例如：
+
+Create:
+
+```gml
+// 获取所有信息
+ns_get_data()
+// 只获取 score 信息
+ns_get_data('score')
+```
+
+User defined 12:
+
+```gml
+if (success) {
+  show_message('Your score is ' + string(score) + '!')
+} else {
+  // 获取失败，可以在这里进行重试，或者提醒玩家
+  ns_get_data()
+}
+```
+
+##### ns_get_all_data(options, data)
+
+获取所有玩家的额外信息（例如分数）
+
+- options 为该脚本的选项 （详见下）
+- data 为获取额外信息的名称，以 "|" 分隔（详见下）
+
+options 参数说明：
+该参数的基本形式为 `k1=v1&k2=v2&k3=v3` 的形式，k 可以是：
+
+- key: 声明排序字段
+- desc: 如果声明了 key，默认升序排序，如果设置 desc=true，则返回的列表为降序
+- from, to: 将返回值从 `from` 截断到 `to`（不包括 `to`，从 0 开始计数），例如 `from=5&to=8` 则会返回列表中第 6-8 项
+
+data 参数说明：
+如果需要获取名为 `data1` 、 `data2` 、 `data3` 的数据，则应传入 'data1|data2|data3'
+
+?> 该函数的返回值必须通过调用该脚本的 `obj` 的 `User Defined 12` 事件获取：如果成功，`success` 变量为 `true`，信息会储存在变量 `data` 中，该变量是一个由 ds_map 构成的 ds_list，data 中元素的个数储存在 size 变量中，具体使用方法见下面的示例；如果失败，`success` 变量为 `false`，错误信息保存在 `msg` 变量中。
+
+!> 注意 obj 自带变量不要使用 data/msg/success，否则会发生覆盖！
+
+假设数据库中当前数据如下：
+
+```json
+[
+  {
+    "name": "Nikaple",
+    "number": 1,
+    "letter": "n",
+    "chinese": "在"
+  },
+  {
+    "name": "Sunlaoqq",
+    "number": 3738,
+    "letter": "a",
+    "chinese": "好"
+  },
+  {
+    "name": "老虎",
+    "number": 999,
+    "letter": "z",
+    "chinese": "啊"
+  }
+]
+```
+
+那么会有以下结果：
+
+```gml
+ns_get_all_data('key=number&desc=true', 'number')
+/*
+获取 number 值，并降序排列
+[
+  {
+    "name": "Sunlaoqq",
+    "number": 3738,
+  }, {
+    "name": "老虎",
+    "number": 999,
+  }, {
+    "name": "Nikaple",
+    "number": 1,
+  }
+]
+*/
+ns_get_all_data('key=letter&to=2', 'number|letter')
+/*
+获取 number 与 letter 的值，按 letter 升序排列，只取前两位
+[
+  {
+    "name": "Sunlaoqq",
+    "number": 3738,
+    "letter": "a",
+  }, {
+    "name": "Nikaple",
+    "number": 1,
+    "letter": "n",
+  }
+]
+*/
+ns_get_all_data('key=chinese&from=2', 'number|letter|chinese')
+/*
+获取 number、letter 与 chinese 的值，按照拼音顺序升序排列，只取第三位
+[
+  {
+    "name": "Sunlaoqq",
+    "number": 3738,
+    "letter": "a",
+    "chinese": "好"
+  }
+]
+*/
+```
+
+使用示例：
+User defined 12:
+
+```gml
+if (success) {
+
+} else {
+  show_message('获取排行榜失败')
+}
+```
 
 #### ns_send
 
@@ -293,7 +471,7 @@ ns_send_event_direct('warp', eventMap)
 
 ```gml
 // 如果需要同步的属性太多，可以首先添加 7 个：
-eventMap = ds_map_init(
+eventMap = cmd_init(
   7,
   'a', 1,
   'b', 2,
@@ -304,7 +482,7 @@ eventMap = ds_map_init(
   'g', 7
 )
 // 接着继续添加
-ds_map_append(
+cmd_add(
   eventMap, 2,
   'h', 8,
   'i', 9
@@ -398,7 +576,7 @@ ns_send_instance_direct(eventMap)
 
 - 第一个参数为 `ds_map` 的 `id`；
 - 第一个参数为键值对的数量 n；
-- 紧接着的 2n 个参数为形如 key<sub>1</sub>, value<sub>1</sub>, key<sub>2</sub>, value<sub>2</sub>, ..., key<sub>n</sub>, value<sub>n</sub> 的键值对。W
+- 紧接着的 2n 个参数为形如 key<sub>1</sub>, value<sub>1</sub>, key<sub>2</sub>, value<sub>2</sub>, ..., key<sub>n</sub>, value<sub>n</sub> 的键值对。
 
 #### ds_map_clone(id)
 
@@ -472,7 +650,7 @@ sprite_index = set_default(spr, sprite_index)
 
 #### ensure_not_empty
 
-验证用户输入不能为空。
+验证玩家输入不能为空。
 
 #### destroy_if_exists(obj)
 
@@ -873,7 +1051,7 @@ cmd_log(cmd)
 
 以阅读友好的方式输出一个 `cmd`。
 
-#### cmd_add(cmd, kvCount, key1, value1, ..., keyn, valuen)
+#### cmd_add(cmd, kvCount, k1, v1, ..., kn, vn)
 
 向 `cmd` 中加入新的键值对，返回 `cmdId` 。例如：
 
@@ -914,7 +1092,7 @@ cmd_log(cmd)
 */
 ```
 
-#### cmd_add_map(cmd, key, kvCount, key1, value1, ..., keyn, valuen)
+#### cmd_add_map(cmd, key, kvCount, k1, v1, k2, v2, ..., kn, vn)
 
 向 `cmd` 中加入一个 `ds_map`，返回 `mapId` 。例如：
 
@@ -979,7 +1157,7 @@ cmd_log(cmd)
 */
 ```
 
-#### cmd_list_add_map(cmd, kvCount, key1, value1, ..., keyn, valuen)
+#### cmd_list_add_map(cmd, kvCount, k1, v1, k2, v2, ..., kn, vn)
 
 向 `cmd` 中的一个 `list` 添加一个 `map`，返回 `mapId` 。例如：
 

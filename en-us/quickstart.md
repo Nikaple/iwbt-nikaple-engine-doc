@@ -70,4 +70,4 @@ Join Q group, verify information: I Wanna
 
 ![QR Code](../_images/group.png)
 
-Feedback to me is also available through [Github Issues](https://github.com/nikaple/iwbt-nikaple-engine-doc/issues).
+Feedback to me is also available through [Github Issues](https://github.com/nikaple/iwbt-nikaple-engine-doc/issues) or e-mail: nikaple_at_qq.com.

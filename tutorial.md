@@ -71,7 +71,9 @@
 
 - `global.save_mode = SAVE_MODE_SHOOT` 射击存档（默认）
 - `global.save_mode = SAVE_MODE_TOUCH` 触碰存档
-- `global.save_mode = SAVE_MODE_PRESS` 按键存档，默认为 'S'。默认按键可到 `controls_init` 脚本中修改 `global.savebutton`。
+- `global.save_mode = SAVE_MODE_PRESS` 按键存档，其值与 `global.savebutton` 挂钩，默认为 'S'。该值可在 `controls_init` 脚本中修改。
+
+?> 想了解更多？请参考 [新存档系统](save.md)
 
 ## 设置刺的精灵
 
@@ -80,37 +82,43 @@
 1.  在 GM 工具栏中选择 **创建精灵**；
 2.  点击 **载入精灵**；
 3.  选择你喜欢的刺的精灵；
-4.  点击 **中心**， 将其中心点设置为 (16, 16)，取名为 **sprMySpikeM**；
+4.  点击 **中心**， 将其中心点设置为 (16, 16)，取名为 `sprMySpikeM`；
 5.  将 `Objects -> rooms -> objSpikeSprite` 放入房间任意位置，并设置其 Creation Code：
     ```gml
     spr = sprMySpikeM
     ```
 
+?> 想了解更多？请参考 [自动更换刺的精灵](autosprite.md)
+
 ## 设置自动贴图
 
 刺的精灵设置好之后，我们也可以自动设置砖块的贴图（前提是格式符合[自动贴图](autotile.md)中的说明）。步骤如下：
 
-1.  将准备好的贴图素材作为背景导入 GameMaker ，取名为 **bgMyTile**；
+1.  将准备好的贴图素材作为背景导入 GameMaker ，取名为 `bgMyTile`；
 2.  将 `Objects -> rooms -> objBlockTile` 放入房间任意位置，并设置其 Creation Code：
     ```gml
     tile = bgMyTile
     ```
 
+?> 想了解更多？请参考 [自动贴图](autotile.md)
+
 ## 播放音乐
 
 接下来，我们为游戏设置 BGM 。步骤如下：
 
-1.  将准备好的 BGM 命名为 myMusic.ogg 放入音乐文件夹（Data/Music）下；
+1.  将准备好的 BGM 命名为 `myMusic.ogg` 放入音乐文件夹（Data/Music）下；
 2.  将 `Objects -> rooms -> objPlayMusic` 放入房间任意位置，并设置其 Creation Code：
     ```gml
     bgm = BGM_myMusic
     ```
 
+?> 想了解更多？请参考 [音乐播放](music.md)
+
 ## 房间传送
 
 ### 使用普通 warp
 
-如果想让 player 从 rMyStage01 传送到 rMyStage02 的 playerStart 位置，你可以在 rMyStage01 中放置传送门（warp），并在 Creation Code 中写入：
+如果想让 `player` 从 `rMyStage01` 传送到 `rMyStage02` 的 `playerStart` 位置，你可以在 `rMyStage01` 中放置传送门（warp），并在 Creation Code 中写入：
 
 ```gml
 r = rMyStage02
@@ -126,6 +134,8 @@ ys = 纵向拉伸倍数
 ```
 
 ?> 如果 borderWarp 被放置于房间边缘，它会自动移动到房间外而不需要在 Creation Code 中改变其坐标。
+
+?> 想了解更多？请参考 [传送点](objectref?id=warps-传送点)
 
 ## 游戏结束
 
@@ -144,7 +154,7 @@ ys = 纵向拉伸倍数
     - 将 `global.key` 更换为长度不小于 40 的随机字符串，以增强存档安全性。
 2.  在游戏全局设置（Global Game Settings）中更换游戏图标（可选）；
 3.  执行文件 → 创建可执行 exe（File -> Create Executable...）将游戏打包为 exe；
-4.  利用防反编译/代码混淆软件保护你的 exe 文件，参考[游戏发布](release.md)
+4.  （可选）利用代码混淆/防反编译软件保护你的 gmk/exe 文件，参考[游戏发布](release.md)
 5.  将得到的 exe 文件与 Data 文件夹打包到同一个压缩文件中，发布即可。
 
 ## 如果你需要...

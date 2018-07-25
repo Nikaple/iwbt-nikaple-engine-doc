@@ -68,4 +68,4 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
 
 ![QR Code](_images/group.png)
 
-也可通过 [Github Issues](https://github.com/nikaple/iwbt-nikaple-engine-doc/issues) 向我反馈。
+也可通过 [Github Issues](https://github.com/nikaple/iwbt-nikaple-engine-doc/issues) 或者邮箱： nikaple_at_qq.com 向我反馈。

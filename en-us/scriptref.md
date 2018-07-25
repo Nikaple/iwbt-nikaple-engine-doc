@@ -872,7 +872,7 @@ Clear a `cmd` to release the memory it occupies.
 
 Output a `cmd` in a read-friendly way.
 
-#### cmd_add(cmd, kvCount, key1, value1, ..., keyn, valuen)
+#### cmd_add(cmd, kvCount, k1, v1, k2, v2, ..., kn, vn)
 
 Add a new key-value pair to `cmd` and return `cmdId`. E.g:
 
@@ -913,7 +913,7 @@ cmd_log(cmd)
 */
 ```
 
-#### cmd_add_map(cmd, key, kvCount, key1, value1, ..., keyn, valuen)
+#### cmd_add_map(cmd, key, kvCount, k1, v1, k2, v2, ..., kn, vn)
 
 Add a `ds_map` to `cmd` and return `mapId`. E.g:
 
@@ -978,7 +978,7 @@ cmd_log(cmd)
 */
 ```
 
-#### cmd_list_add_map(cmd, kvCount, key1, value1, ..., keyn, valuen)
+#### cmd_list_add_map(cmd, kvCount, k1, v1, ..., kn, vn)
 
 Add a `map` to a `list` in `cmd` and return `mapId`. E.g:
 

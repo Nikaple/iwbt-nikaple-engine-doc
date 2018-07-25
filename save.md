@@ -9,6 +9,14 @@
 - `saveDeathTime` 用于只保存时间以及死亡次数
 - `loadIcons` 用于在选择存档页面读取存档信息
 
+## 存档模式
+
+在全局配置 `setGlobals` 中，我们可以通过变量 `global.save_mode` 定义存档的默认工作模式。可选值如下：
+
+- `global.save_mode = SAVE_MODE_SHOOT` 射击存档（默认）
+- `global.save_mode = SAVE_MODE_TOUCH` 触碰存档
+- `global.save_mode = SAVE_MODE_PRESS` 按键存档，其值与 `global.savebutton` 挂钩，默认为 'S'。该值可在 `controls_init` 脚本中修改。
+
 ## 储存自定义变量
 
 在新版引擎中，默认支持 64 个自定义数字以及 64 个字符串的储存，你可以利用它们来保存游戏中的全局状态。
