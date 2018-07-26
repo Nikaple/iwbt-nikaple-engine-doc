@@ -270,14 +270,14 @@ if (success) {
 }
 ```
 
-##### ns_get_data(data)
+##### ns_get_data(keys)
 
 获取额外的玩家信息（例如分数）
 
-- data 参数为获取额外信息的名称，以 "|" 分隔（详见下）
+- keys 参数为获取额外信息的键名，以 "|" 分隔（详见下）
 
-data 参数说明：
-如果需要获取名为 `data1` 、 `data2` 、 `data3` 的数据，则应传入 'data1|data2|data3'
+keys 参数说明：
+如果需要获取键名为 `data1` 、 `data2` 、 `data3` 的数据，则应传入 'data1|data2|data3'
 
 !> 该函数的返回值必须通过调用该脚本的 `obj` 的 `User Defined 12` 事件获取，如果成功，`success` 变量为 `true`，则信息会储存在各变量中（见示例）；否则 `success` 变量为 `false`，错误信息保存在 `msg` 变量中。
 
@@ -303,24 +303,50 @@ if (success) {
 }
 ```
 
-##### ns_get_all_data(options, data)
+##### ns_get_data(keys)
+
+获取服务器的全局配置信息（例如版本）
+
+- keys 参数为获取额外信息的键名，以 "|" 分隔（详见下）
+
+keys 参数说明：
+如果需要获取键名为 `data1` 、 `data2` 、 `data3` 的数据，则应传入 'data1|data2|data3'
+
+!> 该函数的返回值必须通过调用该脚本的 `obj` 的 `User Defined 12` 事件获取，如果成功，`success` 变量为 `true`，则信息会储存在各变量中（见示例）；否则 `success` 变量为 `false`，错误信息保存在 `msg` 变量中。
+
+例如：
+
+Create:
+
+```gml
+// 获取当前版本
+ns_get_data('version')
+```
+
+User defined 12:
+
+```gml
+if (success) {
+  show_message('Current version is: v' + string(score) + '!')
+} else {
+  // 获取失败，可以在这里进行重试，或者提醒玩家
+  show_message('Version get failed. You can only play in single player mode.')
+}
+```
+
+##### ns_get_all_data(keys, sortBy, order, from, to)
 
 获取所有玩家的额外信息（例如分数）
 
-- options 为该脚本的选项 （详见下）
-- data 为获取额外信息的名称，以 "|" 分隔（详见下）
-
-options 参数说明：
-该参数的基本形式为 `k1=v1&k2=v2&k3=v3` 的形式，k 可以是：
-
-- key: 声明排序字段
-- desc: 如果声明了 key，默认升序排序，如果设置 desc=true，则返回的列表为降序
+- keys 为获取额外信息的键名，以 "|" 分隔（详见下）
+- sortBy 为参与排序字段名称
+- order 为顺序，可选值有两个：'asc' 为升序，'desc' 为降序
 - from, to: 将返回值从 `from` 截断到 `to`（不包括 `to`，从 0 开始计数），例如 `from=5&to=8` 则会返回列表中第 6-8 项
 
-data 参数说明：
+keys 参数说明：
 如果需要获取名为 `data1` 、 `data2` 、 `data3` 的数据，则应传入 'data1|data2|data3'
 
-?> 该函数的返回值必须通过调用该脚本的 `obj` 的 `User Defined 12` 事件获取：如果成功，`success` 变量为 `true`，信息会储存在变量 `data` 中，该变量是一个由 ds_map 构成的 ds_list，data 中元素的个数储存在 size 变量中，具体使用方法见下面的示例；如果失败，`success` 变量为 `false`，错误信息保存在 `msg` 变量中。
+?> 该函数的返回值必须通过调用该脚本的 `obj` 的 `User Defined 12` 事件获取：如果成功，`success` 变量为 `true`，信息会储存在变量 `data[i]` 中，data 数组中元素的个数储存在 size 变量中（具体使用方法见下面的示例）；如果失败，`success` 变量为 `false`，错误信息保存在 `msg` 变量中。
 
 !> 注意 obj 自带变量不要使用 data/msg/success，否则会发生覆盖！
 
@@ -352,7 +378,7 @@ data 参数说明：
 那么会有以下结果：
 
 ```gml
-ns_get_all_data('key=number&desc=true', 'number')
+ns_get_all_data('number', 'number', 'desc')
 /*
 获取 number 值，并降序排列
 [
@@ -368,7 +394,7 @@ ns_get_all_data('key=number&desc=true', 'number')
   }
 ]
 */
-ns_get_all_data('key=letter&to=2', 'number|letter')
+ns_get_all_data('number|letter', 'letter', 'asc', 0, 2)
 /*
 获取 number 与 letter 的值，按 letter 升序排列，只取前两位
 [
@@ -383,7 +409,7 @@ ns_get_all_data('key=letter&to=2', 'number|letter')
   }
 ]
 */
-ns_get_all_data('key=chinese&from=2', 'number|letter|chinese')
+ns_get_all_data('number|letter|chinese', 'chinese', 'asc', 2, 3)
 /*
 获取 number、letter 与 chinese 的值，按照拼音顺序升序排列，只取第三位
 [
@@ -398,11 +424,27 @@ ns_get_all_data('key=chinese&from=2', 'number|letter|chinese')
 ```
 
 使用示例：
+Create:
+
+```gml
+// 获取高分榜前十名的信息，以分数降序排列
+ns_get_all_data('name|score|updateAt', 'score', 'desc', 0, 10)
+```
+
 User defined 12:
 
 ```gml
 if (success) {
-
+  // 收到数据后，开始绘制最高分
+  shouldDrawHighscore = true
+  // 遍历数组
+  for (i = 0; i < size; i += 1) {
+    // 提取相应字段的信息
+    name[i] = json_pick(data[i], 'name')
+    _score[i] = json_pick(data[i], 'score')
+    time[i] = json_pick(data[i], 'updateAt')
+    // 在 draw 事件中利用 name[i], _score[i], time[i] 绘制最高分
+  }
 } else {
   show_message('获取排行榜失败')
 }
