@@ -149,7 +149,7 @@ autotile(4, bg, 32)
 ![dir4_16](_images/autotile/tile8_16.png)
 
 - 大小为 48 \* 80 像素（无间距时）；
-- 上面 48 \* 48 部分与四向贴图的一致（周围 8 块为边界贴图，中间为内部贴图。），下面的 32 \* 32 部分为四个内角贴图；
+- 上面 48 \* 48 部分与四向贴图的一致（周围 8 块为边界贴图，中间为内部贴图），下面的 32 \* 32 部分为四个内角贴图；
 - 贴图大小为 16 \* 16 ，贴图之间可以有间距。
 
 调用方法：
@@ -191,4 +191,22 @@ autotile(8, bg, 32)
 x = 0
 y = -32
 xs = room_width / 32
+```
+
+### 自定义不参与自动贴图的 obj
+
+在默认情况下，以 objBlock/objVisibleTile 为父对象的 obj 均会参与到自动贴图中，如果你不希望你的自定义 obj 参与或影响自动贴图，可以前往 autotile_exclude 脚本设置：
+
+```gml
+// ...
+switch (ind) {
+    case blockPush:
+    case blockConveyor:
+    case blockConveyorL:
+    case blockConveyorR:
+    case myObject: // 不参与自动贴图
+        return true
+    default:
+        return false
+}
 ```

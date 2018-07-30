@@ -34,7 +34,7 @@ music_resume(BGM_1)
 
 ### 分房间设置
 
-在房间中放入 `objPlayMusic` （位于 rooms 文件夹下），如果你想将音乐文件夹中的 `Rock.ogg` 设置为当前房间的 BGM，则：
+在房间中放入 `objPlayMusic` （位于 rooms 文件夹下）并设置相关参数即可，如果你想将音乐文件夹中的 `Rock.ogg` 设置为当前房间的 BGM，则：
 
 Creation Code 参数：
 
@@ -58,7 +58,7 @@ bgm = BGM_Rock // <- 在文件名前面加上 BGM_ 即可
   case myRoom:
       music_play(BGM_myMusic);
       break;
-  ...
+  // ...
   ```
 
   注意后面的 `break` 不可省略！

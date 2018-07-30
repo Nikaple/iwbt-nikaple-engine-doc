@@ -2,7 +2,13 @@
 
 ## 如何禁用
 
-在脚本 `setGlobals` 中，将设置 `global.game_mode = MODE_SINGLE_PLAYER` 即可。（默认启用）
+在脚本 `setGlobals` 中，将设置 `global.game_mode = MODE_SINGLE_PLAYER` 即可。（默认不禁用）
+
+## 用户信息
+
+?> 声明：在服务器上只会保存用户名、强加密密码、游戏内自定义信息。
+
+由于注册时密码为明文，为了您的密码安全，请在注册时直接使用随机密码（滚键盘就行，例如"1k2uyc4b89123v51iv1i3n"），该密码会随后保存于 `options.ini` 文件中，并且只要有该文件，游戏就会自动读取并登录，无需再次输入。
 
 ## 服务器
 

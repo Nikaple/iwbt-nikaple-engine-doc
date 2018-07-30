@@ -424,6 +424,7 @@ ns_get_all_data('number|letter|chinese', 'chinese', 'asc', 2, 3)
 ```
 
 使用示例：
+
 Create:
 
 ```gml
@@ -449,6 +450,8 @@ if (success) {
   show_message('获取排行榜失败')
 }
 ```
+
+!> 注意，请不要在 User defined 12 事件之外直接使用 data[i] 变量！为了避免出现内存泄漏，引擎会在网络数据获取完成之后自动释放其中的 ds_map/ds_list，所以在其他事件中使用则会出现 `Data structure with index does not exist.` 错误。
 
 #### ns_send
 
