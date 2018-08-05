@@ -303,7 +303,7 @@ if (success) {
 }
 ```
 
-##### ns_get_data(keys)
+##### ns_get_global_data(keys)
 
 获取服务器的全局配置信息（例如版本）
 
@@ -320,7 +320,7 @@ Create:
 
 ```gml
 // 获取当前版本
-ns_get_data('version')
+ns_get_global_data('version')
 ```
 
 User defined 12:
