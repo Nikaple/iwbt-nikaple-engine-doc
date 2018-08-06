@@ -262,7 +262,7 @@ if (success) {
   // 成功保存
   _score = string(json_pick(data, 'score'))
   exam = json_pick(data, 'exam')
-  show_message('You got ' + _score + ' in ' + exam + 'exam!')
+  show_message('You got ' + string(_score) + ' in ' + exam + ' exam!')
 } else {
   // 保存失败，可以在这里进行重试，或者提醒玩家
   ns_set_data(2, 'exam', 'Math', 'score', 150)
