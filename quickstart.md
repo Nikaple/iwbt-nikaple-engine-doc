@@ -60,7 +60,7 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
 
 # 已知的 BUG
 
-- `blockPush` 在传送带上被玩家推动时会卡住
+- 物理引擎可能有 BUG ，还请大佬指出
 
 # 联系作者 & BUG 反馈
 
