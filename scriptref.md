@@ -235,7 +235,7 @@ alarm[0] = 2;
 
 ##### ns_set_data(dataCount, k1, v1, k2, v2, ..., kn, vn)
 
-设置额外的玩家信息（例如分数）
+设置额外的玩家信息（例如分数），参考引擎中的 `objExampleSubmitScore` 。
 
 - 第一个参数为设置信息的数量 n；
 - 紧接着的 2n 个参数为形如 key<sub>1</sub>, value<sub>1</sub>, key<sub>2</sub>, value<sub>2</sub>, ..., key<sub>n</sub>, value<sub>n</sub> 的键值对。
@@ -336,7 +336,7 @@ if (success) {
 
 ##### ns_get_all_data(keys, sortBy, order, from, to)
 
-获取所有玩家的额外信息（例如分数）
+获取所有玩家的额外信息（例如分数），参考 `objExampleHighscore` 。
 
 - keys 为获取额外信息的键名，以 "|" 分隔（详见下）
 - sortBy 为参与排序字段名称

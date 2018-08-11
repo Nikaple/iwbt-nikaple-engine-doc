@@ -7,7 +7,7 @@ I wanna, the derivative game of I Wanna be the Guy, is a kind of ~~shaking M~~ s
 Before you create your own I Wanna game with I wanna be the Engine Nikaple Edition, you first need to download:
 
 - **GameMaker 8.0 or 8.1** (GameMaker 8.0 Super Chinese Cracking is recommended) (http://p9wc9w6dq.bkt.clouddn.com/Super_Gamemaker8_1.4.2_Install.exe)
-- **Engine body ** ([Download](http://p9wc9w6dq.bkt.clouddn.com/iwbte-nikaple-edition-1.11.4.zip))
+- **Engine body ** ([Download](http://p9wc9w6dq.bkt.clouddn.com/iwbte-nikaple-edition-2.0.0.zip))
 
 Install `GM`, and use `GM` to open the `.gmk` file provided in the tarball to start the creation of the I wanna game!
 
