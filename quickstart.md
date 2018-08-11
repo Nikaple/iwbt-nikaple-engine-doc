@@ -62,13 +62,13 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
 
 setGlobals 中：
 
-```
+```gml
 global.enable_internationalization = false
 ```
 
 setGlobalsMinor 中：
 
-```
+```gml
 global.enable_builtin_drawing = true
 ```
 
