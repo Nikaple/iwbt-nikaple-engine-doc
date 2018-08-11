@@ -40,7 +40,7 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
 
 - [联机功能](network.md)
 
-加入了完整的联机功能，支持注册、登录、创建/加入/离开房间等操作，最高支持 8 人同时游戏。
+加入了完整的联机功能，支持注册、登录、创建/加入/离开房间等操作，最高支持 8 人同时游戏（最大人数可在服务端自行设置）。
 
 - [多语言支持](i18n.md)
 
@@ -48,11 +48,29 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
 
 # 手感
 
-与大部分引擎基本相同。
+与大部分引擎 _基本_ 相同。
+
+# 更新日志
+
+从果引擎 v2.0 版开始，对引擎的任意改动均可在 [此处](https://github.com/Nikaple/iwbt-nikaple-engine/commits/master) 查看。
+
+- [2.0.1](https://github.com/Nikaple/iwbt-nikaple-engine/commit/d3fd736a1222a4212bcf18bc456e8c8ce5cef777): 修正在开启 enable_production_mode 之后还会报错的问题。
 
 # 兼容性
 
-果引擎 目前仅支持 GM 8.0 以及 GM 8.1 （由于 GM 8.1 不能使用 FoxWriting 中文绘制，所以使用之前请把多语言模块关闭！（global.enable_internationalization = false））。
+果引擎 目前仅支持 GM 8.0 以及 GM 8.1 （由于 GM 8.1 不能使用 FoxWriting 中文绘制，所以使用之前请把多语言模块关闭！具体操作方法如下：
+
+setGlobals 中：
+
+```
+global.enable_internationalization = false
+```
+
+setGlobalsMinor 中：
+
+```
+global.enable_builtin_drawing = true
+```
 
 # 致谢
 
