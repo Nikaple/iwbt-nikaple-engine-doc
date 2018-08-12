@@ -78,7 +78,7 @@ global.enable_builtin_drawing = true
 
 # 已知的 BUG
 
-- 物理引擎可能有 BUG ，还请大佬指出
+- 物理引擎可能有 BUG ，还请大佬指出（如果能提出修复方法就更好了:sweat_smile:）
 
 # 联系作者 & BUG 反馈
 
