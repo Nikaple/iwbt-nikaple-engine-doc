@@ -82,7 +82,7 @@ global.enable_builtin_drawing = true
 
 # 联系作者 & BUG 反馈
 
-加入 Q 群即可，验证信息：I Wanna
+加入 Q 群即可，验证信息：nikaple
 
 ![QR Code](_images/group.png)
 
