@@ -74,7 +74,7 @@ global.enable_builtin_drawing = true
 
 # 致谢
 
-感谢 [NIHIL](http://tieba.baidu.com/home/main?un=towanoICIT) 大佬在物理引擎方面的指导，没有他的帮助这个引擎应该就:chicken::chicken::chicken:了
+感谢 [NIHIL](http://tieba.baidu.com/home/main?un=towanoICIT) 大佬在物理引擎方面的指导，没有他的帮助这个引擎应该就 :chicken::chicken::chicken:了
 
 # 已知的 BUG
 
