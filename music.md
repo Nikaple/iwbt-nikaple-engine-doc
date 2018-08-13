@@ -23,14 +23,14 @@ music_play(BGM_BOSS1)
 music_stop(sndDeath)
 music_stop(curMusic)
 // 音乐还能够使用相关脚本循环、暂停、继续播放
-music_loop(BGM_1)
-music_pause(BGM_1)
-music_resume(BGM_1)
+music_loop(BGM_Stage1)
+music_pause(BGM_Stage1)
+music_resume(BGM_Stage1)
 ```
 
 ## 房间音乐的设置方法
 
-以下两种方法任选其一，同时使用时分房间设置（新手推荐）的 BGM 会覆盖集中设置的 BGM。在果引擎中， `/Data/Music` 目录下的所有音乐都会被默认自动加载，并将其 id 以全局变量名 `BGM_文件名` 储存。因此在制作游戏的过程中，最好不要使用 `BGM_` 开头的变量名，否则很可能发生冲突。音乐加载具体说明如下：
+以下两种方法任选其一，同时使用时分房间设置的 BGM 会覆盖集中设置的 BGM。在果引擎中， `/Data/Music` 目录下的所有音乐都会被默认自动加载，并将其 id 以全局变量名 `BGM_文件名` 储存。因此在制作游戏的过程中，最好不要使用 `BGM_` 开头的变量名，否则很可能发生冲突。音乐加载具体说明如下：
 
 - `Death.ogg` 会被自动读取为 `BGM_Death`；
 - `faQ.ogg` 会被自动读取为 `BGM_faQ`；
