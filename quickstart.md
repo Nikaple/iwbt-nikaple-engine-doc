@@ -57,10 +57,10 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
 !> 注：在查看过程中，你可能会发现 `&gt;`/`&lt;` 这样的符号，可以用 [HTML 解码网站](http://www.convertstring.com/EncodeDecode/HtmlDecode) 进行处理。
 
 - [2.0.1](https://github.com/Nikaple/iwbt-nikaple-engine/commit/d3fd736a1222a4212bcf18bc456e8c8ce5cef777):
-  - 修正在开启 enable_production_mode 之后还会报错的问题。
+  - 修复在开启 enable_production_mode 之后还会报错的问题。
 - [2.0.2](https://github.com/Nikaple/iwbt-nikaple-engine/commit/97d0e617771a5a1f5a9a80bb0100b61d33b7f43d):
-  - 修复一次性吃太多+1 跳会报错的 bug；
-  - 修正 objDebug 不能正确显示 objMultiplePath 的 bug
+  - 修复一次性吃太多+1 跳会报错的问题；
+  - 修复 objDebug 不能正确显示 objMultiplePath 的问题。
 
 # 兼容性
 
