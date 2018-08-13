@@ -54,7 +54,7 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
 
 从果引擎 v2.0 版开始，对引擎的任意改动均可在 [此处](https://github.com/Nikaple/iwbt-nikaple-engine/commits/master) 查看。
 
-!> 注：在查看过程中，你可能会发现 `&gt;`/`&lt;` 这样的符号，可以用 [HTML 解码网站](http://www.convertstring.com/EncodeDecode/HtmlDecode)进行处理。
+!> 注：在查看过程中，你可能会发现 `&gt;`/`&lt;` 这样的符号，可以用 [HTML 解码网站](http://www.convertstring.com/EncodeDecode/HtmlDecode) 进行处理。
 
 - [2.0.1](https://github.com/Nikaple/iwbt-nikaple-engine/commit/d3fd736a1222a4212bcf18bc456e8c8ce5cef777):
   - 修正在开启 enable_production_mode 之后还会报错的问题。
