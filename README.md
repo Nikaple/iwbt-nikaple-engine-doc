@@ -18,7 +18,7 @@
 # 下载
 
 - [GameMaker 8 超强中文破解版](http://p9wc9w6dq.bkt.clouddn.com/Super_Gamemaker8_1.4.2_Install.exe)
-- [I Wanna be the Engine Nikaple Edition v2.0.1](http://p9wc9w6dq.bkt.clouddn.com/iwbte-nikaple-edition-2.0.2.zip)
+- [I Wanna be the Engine Nikaple Edition v2.0.2](http://p9wc9w6dq.bkt.clouddn.com/iwbte-nikaple-edition-2.0.2.zip)
 - [GM 代码混淆器](http://p9wc9w6dq.bkt.clouddn.com/GM%20Obfuscator%20030.jar)
 - [GM 防反编译](http://p9wc9w6dq.bkt.clouddn.com/anti-decompiler.zip)
 
