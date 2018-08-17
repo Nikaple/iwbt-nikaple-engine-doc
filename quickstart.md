@@ -5,7 +5,7 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
 使用 I wanna be the Engine Nikaple Edition （以下简称果引擎）创作你自己的 I Wanna 游戏之前，你首先需要下载：
 
 - **GameMaker 8.0 或 8.1**（推荐使用 [GameMaker 8.0 超强中文破解版](http://p9wc9w6dq.bkt.clouddn.com/Super_Gamemaker8_1.4.2_Install.exe)）
-- **引擎本体**（[下载地址](http://p9wc9w6dq.bkt.clouddn.com/iwbte-nikaple-edition-2.0.2.zip)）
+- **引擎本体**（[下载地址](http://p9wc9w6dq.bkt.clouddn.com/iwbte-nikaple-edition-2.0.3.zip)）
 
 安装好 `GM`，并使用 `GM` 打开压缩包中提供的 `.gmk` 文件即可开始 I wanna 游戏的创作！
 
@@ -58,9 +58,11 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
 
 - [2.0.1](https://github.com/Nikaple/iwbt-nikaple-engine/commit/d3fd736a1222a4212bcf18bc456e8c8ce5cef777):
   - 修复在开启 enable_production_mode 之后还会报错的问题。
-- [2.0.1](https://github.com/Nikaple/iwbt-nikaple-engine/commit/97d0e617771a5a1f5a9a80bb0100b61d33b7f43d):
+- [2.0.2](https://github.com/Nikaple/iwbt-nikaple-engine/commit/97d0e617771a5a1f5a9a80bb0100b61d33b7f43d):
   - 修复一次性吃太多+1 跳会报错的问题；
   - 修复 objDebug 不能正确显示 objMultiplePath 的问题。
+- [2.0.3](https://github.com/Nikaple/iwbt-nikaple-engine/commit/113906151ea30a3af402aa4cd17a881a814d9d42):
+  - 在游戏传输的数据中加入时间戳，扔掉无效的数据以增强游戏的连续性。
 
 # 兼容性
 
