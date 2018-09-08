@@ -5,7 +5,7 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
 使用 I wanna be the Engine Nikaple Edition （以下简称果引擎）创作你自己的 I Wanna 游戏之前，你首先需要下载：
 
 - **GameMaker 8.0 或 8.1**（推荐使用 [GameMaker 8.0 超强中文破解版](http://p9wc9w6dq.bkt.clouddn.com/Super_Gamemaker8_1.4.2_Install.exe)）
-- **引擎本体**（[下载地址](http://p9wc9w6dq.bkt.clouddn.com/iwbte-nikaple-edition-2.0.3.zip)）
+- **引擎本体**（[下载地址](http://p9wc9w6dq.bkt.clouddn.com/iwbte-nikaple-edition-2.1.0.zip)）
 
 安装好 `GM`，并使用 `GM` 打开压缩包中提供的 `.gmk` 文件即可开始 I wanna 游戏的创作！
 
@@ -63,6 +63,12 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
   - 修复 objDebug 不能正确显示 objMultiplePath 的问题。
 - [2.0.3](https://github.com/Nikaple/iwbt-nikaple-engine/commit/113906151ea30a3af402aa4cd17a881a814d9d42):
   - 在游戏传输的数据中加入时间戳，扔掉无效的数据以增强游戏的连续性。
+- [2.1.0](https://github.com/Nikaple/iwbt-nikaple-engine/commit/2cfd34e401fc1668f86aa316c47376c4eb429265)
+  - 这是一次跳崖式升级...由于在之前的更新中，由于提交脚本问题一直没有移除引擎中无用的代码，进而没有移除一些物体/事件，导致本次的提交历史完全是一团乱麻。好在修复之后，版本之间的更新历史会更加清晰，方便查阅。
+  - 加入了全新的聊天室功能。由于在打开聊天室时，需要禁用键盘操作（比如移动、按R），本次将引擎中所有用到了 keyboard_check_xxx 以及键盘事件的地方，都改成了 key_check_pressed / key_check_released，以保证在聊天时的正常功能。在需要自定义键盘事件时，请一定注意。
+  - 加入了一些防御性代码，修复在网络不佳时可能产生自己残影的 BUG、聊天信息重复发送的 BUG 等。
+  - 在禁用 JC 时，直接让右 Shift 无法使用。
+  - 默认禁用小键盘。
 
 # 兼容性
 
