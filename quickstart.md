@@ -5,7 +5,7 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
 使用 I wanna be the Engine Nikaple Edition （以下简称果引擎）创作你自己的 I Wanna 游戏之前，你首先需要下载：
 
 - **GameMaker 8.0 或 8.1**（推荐使用 [GameMaker 8.0 超强中文破解版](http://p9wc9w6dq.bkt.clouddn.com/Super_Gamemaker8_1.4.2_Install.exe)）
-- **引擎本体**（[下载地址](http://p9wc9w6dq.bkt.clouddn.com/iwbte-nikaple-edition-2.1.0.zip)）
+- **引擎本体**（[下载地址](http://p9wc9w6dq.bkt.clouddn.com/iwbte-nikaple-edition-2.1.1.zip)）
 
 安装好 `GM`，并使用 `GM` 打开压缩包中提供的 `.gmk` 文件即可开始 I wanna 游戏的创作！
 
@@ -69,6 +69,10 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
   - 加入了一些防御性代码，修复在网络不佳时可能产生自己残影的 BUG、聊天信息重复发送的 BUG 等。
   - 在禁用 JC 时，直接让右 Shift 无法使用。
   - 默认禁用小键盘。
+- [2.1.1](https://github.com/Nikaple/iwbt-nikaple-engine/commit/ff9c28b73944a28ecfa58117de5fe6d276235557)
+  - 增加运行前对 `Data\Plugin` 文件夹的检测，使 dll 加载报错更易懂。
+  - 将微软雅黑更换为 4.78 M 的版本，大幅减小引擎体积。
+  - 修正几个 typo。
 
 # 兼容性
 
