@@ -73,7 +73,7 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
   - 增加运行前对 `Data\Plugin` 文件夹的检测，使 dll 加载报错更易懂。
   - 将微软雅黑更换为 4.78 M 的版本，大幅减小引擎体积。
   - 修正几个 typo。
-- [2.1.2]
+- [2.1.2](https://github.com/Nikaple/iwbt-nikaple-engine/commit/33194c8548ed553c252729258ccb7ce513a097e5)
   - 增加运行前对音乐文件夹中音乐命名规范的检测，并在调试模式下为开发者提供友好的错误信息。[修改日志](https://github.com/Nikaple/iwbt-nikaple-engine/commit/9e9e47cc001cef4a3cbc666a416fe600df34d1d5)
   - 加入对 blockHost/blockGuest 进行自动贴图的支持。[修改日志](https://github.com/Nikaple/iwbt-nikaple-engine/commit/6764ee1ab37ec11bc23895bc912505ebe523a608)
   - 对自动贴图的具体实现机制进行修改，超大房间也可以较完美地进行贴图了（基本秒开，可以参考引擎中的 rHugeRoom）。[修改日志](https://github.com/Nikaple/iwbt-nikaple-engine/commit/6764ee1ab37ec11bc23895bc912505ebe523a608)
