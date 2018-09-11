@@ -75,12 +75,12 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
   - 修正几个 typo。
 - [2.1.2](https://github.com/Nikaple/iwbt-nikaple-engine/commit/33194c8548ed553c252729258ccb7ce513a097e5)
   - 增加运行前对音乐文件夹中音乐命名规范的检测，并在调试模式下为开发者提供友好的错误信息。[修改日志](https://github.com/Nikaple/iwbt-nikaple-engine/commit/9e9e47cc001cef4a3cbc666a416fe600df34d1d5)
+  - 增加运行前对资源名称进行统一检查，避免资源重名、资源名称不合法的问题。[修改日志](https://github.com/Nikaple/iwbt-nikaple-engine/commit/97c0944b7fe6f86023feece17dad225667f61ce1)
   - 加入对 blockHost/blockGuest 进行自动贴图的支持。[修改日志](https://github.com/Nikaple/iwbt-nikaple-engine/commit/6764ee1ab37ec11bc23895bc912505ebe523a608)
   - 对自动贴图的具体实现机制进行修改，超大房间也可以较完美地进行贴图了（基本秒开，可以参考引擎中的 rHugeRoom）。[修改日志](https://github.com/Nikaple/iwbt-nikaple-engine/commit/6764ee1ab37ec11bc23895bc912505ebe523a608)
   - 修复开始游戏后存档不能正确创建的问题。[修改日志](https://github.com/Nikaple/iwbt-nikaple-engine/commit/249eebc63bbb5f5d60258059cd80415f951dee74)
   - 修复 debug 模式下不能开关显示红蓝砖的问题。[修改日志](https://github.com/Nikaple/iwbt-nikaple-engine/commit/24ed370bceac18f800016595c4a6a8ddd29da3b7)
   - 现在不推荐使用脚本进行自动贴图，应该统一使用 objBlockTile 放置在房间中处理。[修改日志](https://github.com/Nikaple/iwbt-nikaple-engine/commit/0e51a5a9bae179c56691f8d25021e9296329dfd4)
-  - debug 模式下，会在游戏运行前对资源名称进行统一检查，避免资源重名、资源名称不合法的问题。[修改日志](https://github.com/Nikaple/iwbt-nikaple-engine/commit/97c0944b7fe6f86023feece17dad225667f61ce1)
   - 将 obj 检查参数的行为从 Create 移入 Alarm 11 事件，以兼容从代码创建 (`instance_create`) 的行为。[修改日志](https://github.com/Nikaple/iwbt-nikaple-engine/commit/9d8387b8469c101a1c368a5493e5ae9008cbd03a)
   - 修复聊天室标题栏错位的问题。[修改日志](https://github.com/Nikaple/iwbt-nikaple-engine/commit/9e0b4d422ae3be03fd09f72ea7b1dc3776d6e1b9)
 
