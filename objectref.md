@@ -647,6 +647,10 @@ Creation Code 参数：
 ```gml
 // 当前房间中砖使用的贴图
 tile = bgLine
+// 当前房间中主机专用砖使用的贴图
+tileH = bgGrass
+// 当前房间中非主机专用砖使用的贴图
+tileG = bgCastle
 ```
 
 #### objCamera

@@ -5,7 +5,7 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
 使用 I wanna be the Engine Nikaple Edition （以下简称果引擎）创作你自己的 I Wanna 游戏之前，你首先需要下载：
 
 - **GameMaker 8.0 或 8.1**（推荐使用 [GameMaker 8.0 超强中文破解版](http://p9wc9w6dq.bkt.clouddn.com/Super_Gamemaker8_1.4.2_Install.exe)）
-- **引擎本体**（[下载地址](http://p9wc9w6dq.bkt.clouddn.com/iwbte-nikaple-edition-2.1.1.zip)）
+- **引擎本体**（[下载地址](http://p9wc9w6dq.bkt.clouddn.com/iwbte-nikaple-edition-2.1.2.zip)）
 
 安装好 `GM`，并使用 `GM` 打开压缩包中提供的 `.gmk` 文件即可开始 I wanna 游戏的创作！
 
@@ -73,6 +73,16 @@ I wanna，即 I Wanna be the Guy 的衍生游戏，是一类 ~~抖 M~~ 超好玩
   - 增加运行前对 `Data\Plugin` 文件夹的检测，使 dll 加载报错更易懂。
   - 将微软雅黑更换为 4.78 M 的版本，大幅减小引擎体积。
   - 修正几个 typo。
+- [2.1.2]
+  - 增加运行前对音乐文件夹中音乐命名规范的检测，并在调试模式下为开发者提供友好的错误信息。[修改日志](https://github.com/Nikaple/iwbt-nikaple-engine/commit/9e9e47cc001cef4a3cbc666a416fe600df34d1d5)
+  - 加入对 blockHost/blockGuest 进行自动贴图的支持。[修改日志](https://github.com/Nikaple/iwbt-nikaple-engine/commit/6764ee1ab37ec11bc23895bc912505ebe523a608)
+  - 对自动贴图的具体实现机制进行修改，超大房间也可以较完美地进行贴图了（基本秒开，可以参考引擎中的 rHugeRoom）。[修改日志](https://github.com/Nikaple/iwbt-nikaple-engine/commit/6764ee1ab37ec11bc23895bc912505ebe523a608)
+  - 修复开始游戏后存档不能正确创建的问题。[修改日志](https://github.com/Nikaple/iwbt-nikaple-engine/commit/249eebc63bbb5f5d60258059cd80415f951dee74)
+  - 修复 debug 模式下不能开关显示红蓝砖的问题。[修改日志](https://github.com/Nikaple/iwbt-nikaple-engine/commit/24ed370bceac18f800016595c4a6a8ddd29da3b7)
+  - 现在不推荐使用脚本进行自动贴图，应该统一使用 objBlockTile 放置在房间中处理。[修改日志](https://github.com/Nikaple/iwbt-nikaple-engine/commit/0e51a5a9bae179c56691f8d25021e9296329dfd4)
+  - debug 模式下，会在游戏运行前对资源名称进行统一检查，避免资源重名、资源名称不合法的问题。[修改日志](https://github.com/Nikaple/iwbt-nikaple-engine/commit/97c0944b7fe6f86023feece17dad225667f61ce1)
+  - 将 obj 检查参数的行为从 Create 移入 Alarm 11 事件，以兼容从代码创建 (`instance_create`) 的行为。[修改日志](https://github.com/Nikaple/iwbt-nikaple-engine/commit/9d8387b8469c101a1c368a5493e5ae9008cbd03a)
+  - 修复聊天室标题栏错位的问题。[修改日志](https://github.com/Nikaple/iwbt-nikaple-engine/commit/9e0b4d422ae3be03fd09f72ea7b1dc3776d6e1b9)
 
 # 兼容性
 

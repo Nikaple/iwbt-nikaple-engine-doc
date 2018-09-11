@@ -36,6 +36,8 @@ music_resume(BGM_Stage1)
 - `faQ.ogg` 会被自动读取为 `BGM_faQ`；
 - `myMusic.ogg` 会被自动读取为 `BGM_myMusic`。
 
+!> 注意，由于 GM 引擎限制，自动加载的音乐名称均只由 0-9, A-Z, a-z, 下划线"_" 构成，如果文件名中含有其他字符，需要手动调用 `music_load` 函数加载。
+
 ### 分房间设置（新手推荐）
 
 在房间中放入 `objPlayMusic` （位于 rooms 文件夹下）并设置相关参数即可，如果你想将音乐文件夹中的 `faQ.ogg` 设置为当前房间的 BGM，则：
@@ -62,6 +64,17 @@ bgm = BGM_faQ // <- 在文件名前面加上 BGM_ 即可
   ```
 
   注意后面的 `break` 不可省略！
+
+## 对音乐进行骚操作
+
+如果你需要暂停、跳转播放、区域循环等高级功能，可以对需要使用高级功能的音乐使用非流模式加载。即：
+
+```gml
+globalvar BGM_myMusic;
+BGM_myMusic = music_load('myMusic', 0)
+```
+
+之后，便可以使用 SS_SetSoundPosition 等函数对 BGM_myMusic 进行处理而不受缓冲区大小限制。
 
 ## BOSS 房间的 BGM 处理
 
