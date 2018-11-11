@@ -15,10 +15,10 @@
 
 # Download
 
-- [GameMaker 8 Super Chinese Crack Version](http://p9wc9w6dq.bkt.clouddn.com/Super_Gamemaker8_1.4.2_Install.exe)
-- [I Wanna be the Engine Nikaple Edition](http://p9wc9w6dq.bkt.clouddn.com/iwbte-nikaple-edition-2.1.2.zip)
-- [GM Code Obfuscator](http://p9wc9w6dq.bkt.clouddn.com/GM%20Obfuscator%20030.jar)
-- [GM anti-decompilation](http://p9wc9w6dq.bkt.clouddn.com/anti-decompiler.zip)
+- [GameMaker 8 Super Chinese Crack Version](https://iwbte-nikaple-edition-1255674901.cos.ap-guangzhou.myqcloud.com/engine/Super_Gamemaker8_1.4.2_Install.exe)
+- [I Wanna be the Engine Nikaple Edition](https://iwbte-nikaple-edition-1255674901.cos.ap-guangzhou.myqcloud.com/engine/iwbte-nikaple-edition-2.1.2.zip)
+- [GM Code Obfuscator](https://iwbte-nikaple-edition-1255674901.cos.ap-guangzhou.myqcloud.com/engine/GM%20Obfuscator%20030.jar)
+- [GM anti-decompilation](https://iwbte-nikaple-edition-1255674901.cos.ap-guangzhou.myqcloud.com/engine/anti-decompiler.zip)
 
 # how to use
 

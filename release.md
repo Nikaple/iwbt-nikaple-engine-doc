@@ -25,7 +25,7 @@ global.enable_production_mode = true
 
 虽然使用了 `variable_get_local` 等代码混淆软件不支持的函数，果引擎仍然支持代码混淆。
 
-GM 代码混淆器下载地址：[GM Obfuscator](http://p9wc9w6dq.bkt.clouddn.com/GM%20Obfuscator%20030.jar)
+GM 代码混淆器下载地址：[GM Obfuscator](https://iwbte-nikaple-edition-1255674901.cos.ap-guangzhou.myqcloud.com/engine/GM%20Obfuscator%20030.jar)
 
 单击 `Select File`，选择你的 `gmk` 工程文件，并如图设置混淆器：
 
@@ -89,6 +89,6 @@ handler_wait_warp
 
 在如今人手一份 **Decompiler.exe** 的情况下，采用适当的措施，例如 **Anti Decompiler**，来防止反编译是十分必要的。
 
-Anti Decompiler 下载地址：[Anti Decompiler](http://p9wc9w6dq.bkt.clouddn.com/anti-decompiler.zip)
+Anti Decompiler 下载地址：[Anti Decompiler](https://iwbte-nikaple-edition-1255674901.cos.ap-guangzhou.myqcloud.com/engine/anti-decompiler.zip)
 
 !> 在使用 `Anti Decompiler` 保护你游戏的时候，请将 `Compress Runner` 选项取消勾选，否则会出现载入 dll 异常。

@@ -27,7 +27,7 @@ After setting up the production mode, compile the `gmk` project file into a game
 
 Although the use of variables such as `variable_get_local` obfuscates functions not supported by the software, the engine still supports code obfuscation.
 
-Downloading address of GM code obfuscator: [GM Obfuscator](http://p9wc9w6dq.bkt.clouddn.com/GM%20Obfuscator%20030.jar)
+Downloading address of GM code obfuscator: [GM Obfuscator](https://iwbte-nikaple-edition-1255674901.cos.ap-guangzhou.myqcloud.com/engine/GM%20Obfuscator%20030.jar)
 
 Click `Select File`, select your `gmk` project file and set the obfuscator as shown:
 
@@ -91,6 +91,6 @@ Obfuscation effect:
 
 In the case of **Decompiler.exe** today, it is necessary to take appropriate measures, such as **Anti Decompiler**, to prevent decompilation.
 
-Anti Decompiler Download: [Anti Decompiler](http://p9wc9w6dq.bkt.clouddn.com/anti-decompiler.zip)
+Anti Decompiler Download: [Anti Decompiler](https://iwbte-nikaple-edition-1255674901.cos.ap-guangzhou.myqcloud.com/engine/anti-decompiler.zip)
 
 !> When using `Anti Decompiler`to protect your game, uncheck the`Compress Runner` option, otherwise a loading dll exception will occur.

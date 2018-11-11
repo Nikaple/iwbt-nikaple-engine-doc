@@ -10,7 +10,7 @@
 
 - [多人联机支持](network.md)
 - [多语言支持](i18n.md)
-- [集中管理的音乐系统](music.md)
+- [集中管理的音乐系统](music.md) 
 - [方便的调试功能](debug.md)
 - 快捷的内置聊天室
 - 更友好的错误信息
@@ -18,10 +18,10 @@
 
 # 下载
 
-- [GameMaker 8 超强中文破解版](http://p9wc9w6dq.bkt.clouddn.com/Super_Gamemaker8_1.4.2_Install.exe)
-- [I Wanna be the Engine Nikaple Edition v2.1.2](http://p9wc9w6dq.bkt.clouddn.com/iwbte-nikaple-edition-2.1.2.zip)
-- [GM 代码混淆器](http://p9wc9w6dq.bkt.clouddn.com/GM%20Obfuscator%20030.jar)
-- [GM 防反编译](http://p9wc9w6dq.bkt.clouddn.com/anti-decompiler.zip)
+- [GameMaker 8 超强中文破解版](https://iwbte-nikaple-edition-1255674901.cos.ap-guangzhou.myqcloud.com/engine/Super_Gamemaker8_1.4.2_Install.exe)
+- [I Wanna be the Engine Nikaple Edition v2.1.2](https://iwbte-nikaple-edition-1255674901.cos.ap-guangzhou.myqcloud.com/engine/iwbte-nikaple-edition-2.1.2.zip)
+- [GM 代码混淆器](https://iwbte-nikaple-edition-1255674901.cos.ap-guangzhou.myqcloud.com/engine/GM%20Obfuscator%20030.jar)
+- [GM 防反编译](https://iwbte-nikaple-edition-1255674901.cos.ap-guangzhou.myqcloud.com/engine/anti-decompiler.zip)
 
 # 如何使用
 
