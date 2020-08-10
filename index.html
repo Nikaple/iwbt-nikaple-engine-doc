@@ -37,7 +37,8 @@
       plugins: [
         function (hook, vm) {
           hook.beforeEach(function (html) {
-            var url = 'https://github.com/Nikaple/iwbt-nikaple-engine-doc/blob/master/' + vm.route.file
+            var basePath = /gitee/.test(location.hostname) ? 'gitee.com' : 'github.com'
+            var url = 'https://' + basePath + '/Nikaple/iwbt-nikaple-engine-doc/blob/master/' + vm.route.file
             var editHtml = '[:memo: Edit Document](' + url + ')\n'
             return editHtml + html
           })
