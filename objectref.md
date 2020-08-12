@@ -395,12 +395,12 @@ time = 50 // 刷新时间
 - 触碰模式：玩家触碰存档
   Creation Code 参数：
   ```gml
-  mode = 'touch'
+  mode = SAVE_MODE_TOUCH
   ```
 - 按键模式：玩家触碰存档时按键存档
   Creation Code 参数：
   ```gml
-  mode = 'press'
+  mode = SAVE_MODE_PRESS
   key = 'S' // 可选，默认为按 S 键存档，该参数可为字母（如 'S'）或虚拟键码（如 vk_up）
   ```
 
